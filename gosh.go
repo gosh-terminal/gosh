@@ -4,6 +4,8 @@ import (
     "os"
     "strings"
     "bufio"
+    "os/exec"
+    "log"
 )
 func main() {
     reader := bufio.NewReader(os.Stdin)
@@ -14,9 +16,16 @@ func main() {
         command,_ := reader.ReadString('\n')
         command = strings.Replace(command, "\n", "", -1)
         if strings.Compare("help",command) == 0 {
-            fmt.Println("Commands:\nhelp: displays this help screen\nexit: exits the terminal")
+            fmt.Println("Commands:\nhelp: displays this help screen\nexit: exits the terminal\nlistall: shows files in current directory")
         } else if strings.Compare("exit",command) == 0 {
-			break;
-		}
+            break;
+		} else if(strings.Compare("listall", command)==0) {
+            cmd := exec.Command("ls")
+            cmd.Stdout = os.Stdout
+            cmd.Stderr = os.Stderr
+            if err := cmd.Run(); err != nil {
+                log.Fatal(err)
+            }
+        }
     }
 }
