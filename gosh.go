@@ -14,7 +14,7 @@ func main() {
         command,_ := reader.ReadString('\n')
         command = strings.Replace(command, "\n", "", -1)
         if strings.Compare("help",command) == 0 {
-            fmt.Println("Commands:\nhelp: displays this help screen\nexit:exits the terminal")
+            fmt.Println("Commands:\nhelp: displays this help screen\nexit: exits the terminal")
         } else if strings.Compare("exit",command) == 0 {
 			break;
 		}
