@@ -8,7 +8,7 @@ import (
 func main() {
     reader := bufio.NewReader(os.Stdin)
     fmt.Println("Welcome to gosh the Go Shell!")
-    fmt.Println("--------------------------")
+    fmt.Println("-----------------------------")
     for {
         fmt.Print(">>> ")
         text,_ := reader.ReadString('\n')
