@@ -31,12 +31,6 @@ func main() {
             if err := cmd.Run(); err != nil {
                 log.Fatal(err)
             }
-	} else if strings.Compare("calc",command) == 0 {
-            cmd := exec.Command("./src/commands/pymath/app/a.out")
-            cmd.Stdout = os.Stdout
-            cmd.Stderr = os.Stderr
-            if err := cmd.Run(); err != nil {
-                log.Fatal(err)
-            }
-    }
+	}
+}
 }
