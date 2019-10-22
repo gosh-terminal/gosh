@@ -1,2 +1,2 @@
 # gosh
-go shell
+shell made with go
