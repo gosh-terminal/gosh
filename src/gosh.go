@@ -31,6 +31,13 @@ func main() {
             if err := cmd.Run(); err != nil {
                 log.Fatal(err)
             }
+	} else {
+			cmd := exec.Command(command)
+			cmd.Stdout = os.Stdout
+			cmd.Stderr = os.Stderr
+			if err := cmd.Run(); err != nil {
+				log.Fatal(err)
+			}
 	}
 }
 }
