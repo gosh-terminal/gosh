@@ -31,12 +31,14 @@ func main() {
             if err := cmd.Run(); err != nil {
                 log.Print(err)
             }
-		} else {
+		} else if(strings.Compare("",command) == 0) {
+			continue;
+		}else {
 			cmd := exec.Command(command)
 			cmd.Stdout = os.Stdout
 			cmd.Stderr = os.Stderr
             if err := cmd.Run(); err != nil {
-                log.Print(err)
+                println("Command not found")
             }
 		}
 	}
