@@ -30,7 +30,7 @@ func main() {
         } else if strings.Compare("exit",command) == 0 {
             break;
 		} else if(strings.Compare("listall", command)==0) {
-			cmd := exec.Command("./src/commands/list")
+			cmd := exec.Command("./src/commands/list.py")
             cmd.Stdout = os.Stdout
             cmd.Stderr = os.Stderr
             if err := cmd.Run(); err != nil {
