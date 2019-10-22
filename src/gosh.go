@@ -38,7 +38,7 @@ func main() {
 			cmd.Stdout = os.Stdout
 			cmd.Stderr = os.Stderr
             if err := cmd.Run(); err != nil {
-                println("Command not found")
+                fmt.Println("gosh: " + command + ": command not found")
             }
 		}
 	}
