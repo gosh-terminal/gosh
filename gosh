@@ -1,5 +1,5 @@
 #!/bin/bash
-nim c src/commands/help.nim && mv src/commands/help src/commands/bin
-nim c src/commands/prompt.nim && mv src/commands/prompt src/commands/bin
+nim c src/commands/help.nim --verbosity:0 && mv src/commands/help src/commands/bin
+nim c src/commands/prompt.nim --verbosity:0 && mv src/commands/prompt src/commands/bin
 clear
 go run src/gosh.go
