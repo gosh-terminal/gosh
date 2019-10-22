@@ -12,7 +12,12 @@ func main() {
     fmt.Println("Welcome to gosh the Go Shell!")
     fmt.Println("-----------------------------")
     for {
-        fmt.Print("gosh> ")
+        cmd := exec.Command("./src/commands/bin/prompt")
+            cmd.Stdout = os.Stdout
+			cmd.Stderr = os.Stderr
+            if err := cmd.Run(); err != nil {
+				log.Print(err)
+            }
         command,_ := reader.ReadString('\n')
         command = strings.Replace(command, "\n", "", -1)
         if strings.Compare("help",command) == 0 {
