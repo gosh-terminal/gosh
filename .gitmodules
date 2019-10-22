@@ -1,0 +1,3 @@
+[submodule "pymath"]
+	path = src/commands/pymath
+	url = https://github.com/JesterOrNot/pymath

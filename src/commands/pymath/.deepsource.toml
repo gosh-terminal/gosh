@@ -1,0 +1,6 @@
+version = 1
+
+[[analyzers]]
+name = "test-coverage"
+enabled = true
+runtime_version = "3.x.x"

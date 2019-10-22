@@ -31,6 +31,6 @@ func main() {
             if err := cmd.Run(); err != nil {
                 log.Fatal(err)
             }
-        }
+        } else if
     }
 }

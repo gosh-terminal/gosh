@@ -1,0 +1,13 @@
+name: Greetings
+
+on: [pull_request, issues]
+
+jobs:
+  greeting:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/first-interaction@v1
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        issue-message: 'Welcome to pymath! Thank-you for taking an intrest in making our project great!'' first issue'
+        pr-message: 'Welcome and thanks for contributing remember to add comments you can open this in gitpod and make edits there! look: https://gitpod.io/#github.com/JesterOrNot/pymath'' first pr'

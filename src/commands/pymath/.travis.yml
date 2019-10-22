@@ -1,0 +1,26 @@
+
+language: python
+services:
+- docker
+os:
+- linux
+- osx
+- windows
+jobs:
+  allow_failures:
+  - os: osx
+  - os: windows
+install:
+- pip3 install codecov pytest
+script:
+- docker build -f docker/Dockerfile .
+- docker build -f .gitpod.dockerfile .
+- python3 setup.py install
+- bash setup/setup.sh
+- javac setup/buttonInstall.java
+- coverage run tests/test.py
+after_success:
+- codecov
+- coverage xml
+- curl https://deepsource.io/cli | sh
+- "./bin/deepsource report --analyzer test-coverage --key python --value-file ./coverage.xml"
