@@ -24,13 +24,19 @@ func main() {
             }
         } else if strings.Compare("exit",command) == 0 {
             break;
-		} else if(strings.Compare("listall", command)==0) {
+	} else if(strings.Compare("listall", command)==0) {
             cmd := exec.Command("ls")
             cmd.Stdout = os.Stdout
             cmd.Stderr = os.Stderr
             if err := cmd.Run(); err != nil {
                 log.Fatal(err)
             }
-        } else if
+	} else if strings.Compare("calc",command) == 0 {
+            cmd := exec.Command("./src/commands/pymath/app/a.out")
+            cmd.Stdout = os.Stdout
+            cmd.Stderr = os.Stderr
+            if err := cmd.Run(); err != nil {
+                log.Fatal(err)
+            }
     }
 }
