@@ -12,11 +12,16 @@ func main() {
     fmt.Println("Welcome to gosh the Go Shell!")
     fmt.Println("-----------------------------")
     for {
-        fmt.Print(">>> ")
+        fmt.Print("gosh> ")
         command,_ := reader.ReadString('\n')
         command = strings.Replace(command, "\n", "", -1)
         if strings.Compare("help",command) == 0 {
-            fmt.Println("Commands:\nhelp: displays this help screen\nexit: exits the terminal\nlistall: shows files in current directory")
+            cmd := exec.Command("nim c -r commands/help.nim")
+            cmd.Stdout = os.Stdout
+            cmd.Stderr = os.Stderr
+            if err := cmd.Run(); err != nil {
+                log.Fatal(err)
+            }
         } else if strings.Compare("exit",command) == 0 {
             break;
 		} else if(strings.Compare("listall", command)==0) {
