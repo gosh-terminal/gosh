@@ -16,11 +16,11 @@ func main() {
         command,_ := reader.ReadString('\n')
         command = strings.Replace(command, "\n", "", -1)
         if strings.Compare("help",command) == 0 {
-            cmd := exec.Command("nim c -r commands/help.nim")
+			cmd := exec.Command("./src/commands/bin/help")
             cmd.Stdout = os.Stdout
-            cmd.Stderr = os.Stderr
+			cmd.Stderr = os.Stderr
             if err := cmd.Run(); err != nil {
-                log.Fatal(err)
+				log.Fatal(err)
             }
         } else if strings.Compare("exit",command) == 0 {
             break;
