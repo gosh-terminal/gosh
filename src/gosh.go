@@ -15,7 +15,7 @@ func executeCommand(theCommand string) {
 		log.Print(err)
 	}
 }
-func getDir(commandString string) string {
+func getArg(commandString string) string {
 	s:=strings.Split(commandString," ")
 	if len(s) > 1 {
 		return s[1]
@@ -39,7 +39,7 @@ func main() {
 		} else if(strings.Compare("",command) == 0) {
 			continue;
 		} else if strings.HasPrefix(command,"cd") {
-			dir := getDir(command)
+			dir := getArg(command)
 			if dir == "error" {
 				println("gosh: cd: file not specified")
 			}
