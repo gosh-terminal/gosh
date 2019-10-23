@@ -44,6 +44,9 @@ func main() {
 				println("gosh: cd: file not specified")
 			}
 			os.Chdir(dir)
+		} else if strings.HasPrefix(command,"history") {
+			executeCommand("/workspace/gosh/src/commands/history.py")
+			continue
 		} else {
 			cmd := exec.Command(command)
 			cmd.Stdout = os.Stdout
@@ -58,7 +61,7 @@ func main() {
 			log.Println(err)
 		}
 		defer f.Close()
-		if _, err := f.WriteString(command+"\n"); err != nil {
+		if _, err := f.WriteString("\n"+command); err != nil {
 			log.Println(err)
 		}
 	}
