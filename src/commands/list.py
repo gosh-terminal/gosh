@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 import os
-files = [f for f in os.listdir('.') if os.path.isfile(f)]
+files = [f for f in os.listdir('.') if os.path.isfile(f) or os.path.isdir]
 print("----------------------------------")
 for i in files:
     char = ' '
