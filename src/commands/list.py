@@ -1,4 +1,3 @@
-'''Puts all items in ls in a box'''
 #!/usr/bin/python3
 import os
 files = [f for f in os.listdir('.') if os.path.isfile(f) or os.path.isdir]
