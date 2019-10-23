@@ -52,7 +52,7 @@ func main() {
                 fmt.Println("gosh: " + command + ": command not found")
             }
 		}
-		f, err := os.OpenFile("src/commands/history.txt",
+		f, err := os.OpenFile("/workspace/gosh/src/commands/history.txt",
 			os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 		if err != nil {
 			log.Println(err)
