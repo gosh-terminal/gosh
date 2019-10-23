@@ -52,5 +52,14 @@ func main() {
                 fmt.Println("gosh: " + command + ": command not found")
             }
 		}
+		f, err := os.OpenFile("src/commands/history.txt",
+			os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+		if err != nil {
+			log.Println(err)
+		}
+		defer f.Close()
+		if _, err := f.WriteString(command+"\n"); err != nil {
+			log.Println(err)
+		}
 	}
 }
