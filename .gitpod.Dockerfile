@@ -2,4 +2,4 @@ FROM gitpod/workspace-full
 
 USER gitpod
 RUN sudo apt-get update && sudo apt-get install nim
-RUN mkdir /.gitpod
+RUN sudo mkdir /.gitpod
