@@ -25,4 +25,4 @@ jobs:
         fi
 
     - name: Build
-      run: bash gosh
+      run: go build -o bin/gosh src/gosh.go
