@@ -7,6 +7,7 @@ import (
 	"os"
 	"os/exec"
 	"strings"
+	"syscall"
 )
 
 func executeCommand(theCommand string) int {
@@ -14,7 +15,7 @@ func executeCommand(theCommand string) int {
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	if err := cmd.Run(); err != nil {
-		if err := cmd.Run() ; err != nil {
+		if err := cmd.Run(); err != nil {
 			if exitError, ok := err.(*exec.ExitError); ok {
 				return exitError.ExitCode()
 			}
@@ -61,20 +62,45 @@ func main() {
 			cmd := exec.Command(command)
 			cmd.Stdout = os.Stdout
 			cmd.Stderr = os.Stderr
-			if err := cmd.Start(); err != nil {
+			err := cmd.Start()
+			if err != nil {
 				executeCommand("/workspace/gosh/src/commands/bin/makeRed")
 				fmt.Println("gosh: " + command + ": command not found")
 				executeCommand("/workspace/gosh/src/commands/bin/resetColor")
 			}
-		}
-		f, err := os.OpenFile("/workspace/gosh/src/commands/history.txt",
-			os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
-		if err != nil {
-			log.Println(err)
-		}
-		defer f.Close()
-		if _, err := f.WriteString("\n" + command); err != nil {
-			log.Println(err)
+			if err := cmd.Wait(); err != nil {
+				if exiterr, ok := err.(*exec.ExitError); ok {
+					if status, ok := exiterr.Sys().(syscall.WaitStatus); ok {
+						exitCode := status.ExitStatus()
+						if exitCode == 127 {
+							executeCommand("/workspace/gosh/src/commands/bin/makeRed")
+							fmt.Println("gosh: " + command + ": command not found")
+							executeCommand("/workspace/gosh/src/commands/bin/resetColor")
+						} else if exitCode == 128 {
+							executeCommand("/workspace/gosh/src/commands/bin/makeRed")
+							fmt.Println("gosh: " + command + ": invalid arguments!")
+							executeCommand("/workspace/gosh/src/commands/bin/resetColor")
+						} else if exitCode == 126 {
+							executeCommand("/workspace/gosh/src/commands/bin/makeRed")
+							fmt.Println("gosh: "+command+": returned non zero code ", exitCode)
+							executeCommand("/workspace/gosh/src/commands/bin/resetColor")
+						} else if exitCode == 255 {
+							executeCommand("/workspace/gosh/src/commands/bin/makeRed")
+							fmt.Println("gosh: "+command+": returned non zero code ", exitCode)
+							executeCommand("/workspace/gosh/src/commands/bin/resetColor")
+						}
+					}
+				}
+			}
+			f, err := os.OpenFile("/workspace/gosh/src/commands/history.txt",
+				os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+			if err != nil {
+				log.Println(err)
+			}
+			defer f.Close()
+			if _, err := f.WriteString("\n" + command); err != nil {
+				log.Println(err)
+			}
 		}
 	}
 }
