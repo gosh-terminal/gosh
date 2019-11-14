@@ -1,0 +1,2 @@
+import terminal
+setForeGroundColor(fgCyan)

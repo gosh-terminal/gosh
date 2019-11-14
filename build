@@ -1,5 +1,7 @@
 #!/bin/bash
 nim c --verbosity:0 --hints:off --opt:speed -d:release src/commands/help.nim && mv src/commands/help src/commands/bin
 nim c --verbosity:0 --hints:off --opt:speed -d:release src/commands/prompt.nim && mv src/commands/prompt src/commands/bin
+nim c --verbosity:0 --hints:off --opt:speed -d:release src/commands/makeCyan.nim && mv src/commands/makeCyan src/commands/bin
+nim c --verbosity:0 --hints:off --opt:speed -d:release src/commands/resetColor.nim && mv src/commands/resetColor src/commands/bin
 clear
-go run src/gosh.go
+go build src/gosh.go

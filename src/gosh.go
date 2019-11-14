@@ -46,7 +46,7 @@ func main() {
 		} else if strings.HasPrefix(command, "cd") {
 			var dir string = getArg(command)
 			if dir == "error" {
-				println("gosh: cd: file not specified")
+				println("gosh: cd: directory not specified")
 			}
 			os.Chdir(dir)
 		} else if strings.HasPrefix(command, "history") {
