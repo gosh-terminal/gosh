@@ -1,6 +1,6 @@
 import terminal
 setForeGroundColor(fgGreen)
 stdout.write("gosh")
-setForeGroundColor(fgCyan)
+setForeGroundColor(fgBlue)
 stdout.write(" λ ")
 setForeGroundColor(fgDefault)
