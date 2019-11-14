@@ -32,7 +32,7 @@ func main() {
 		executeCommand("/workspace/gosh/src/commands/bin/prompt")
 		command, err := reader.ReadString('\n')
 		if err != nil {
-			panic("Could not read command!")
+			log.Println("Could not read command!")
 		}
 		command = strings.Replace(command, "\n", "", -1)
 		if strings.Compare("help", command) == 0 {
