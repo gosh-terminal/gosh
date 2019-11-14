@@ -57,7 +57,9 @@ func main() {
 			cmd.Stdout = os.Stdout
 			cmd.Stderr = os.Stderr
 			if err := cmd.Run(); err != nil {
+				executeCommand("/workspace/gosh/src/commands/bin/makeRed")
 				fmt.Println("gosh: " + command + ": command not found")
+				executeCommand("/workspace/gosh/src/commands/bin/resetColor")
 			}
 		}
 		f, err := os.OpenFile("/workspace/gosh/src/commands/history.txt",
