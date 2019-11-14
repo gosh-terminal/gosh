@@ -5,6 +5,6 @@ contents = f.readlines()
 for line in contents:
     if line == '\n' or line == '\r':
         continue
-    print(str(count) + " " + line,end='')
+    print(str(count) + " " + line, end='')
     count+=1
 print()
