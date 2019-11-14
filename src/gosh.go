@@ -3,8 +3,8 @@ package main
 import (
 	"bufio"
 	"fmt"
-    "log"
-    "os"
+	"log"
+	"os"
 	"os/exec"
 	"strings"
 )
@@ -17,9 +17,9 @@ func executeCommand(theCommand string) error {
 	return cmd.Run()
 }
 func printError(err error) {
-  if err != nil {
-    os.Stderr.WriteString(fmt.Sprintf("%s\n", err.Error()))
-  }
+	if err != nil {
+		os.Stderr.WriteString(fmt.Sprintf("%s\n", err.Error()))
+	}
 }
 func getArg(commandString string) string {
 	var s []string = strings.Split(commandString, " ")
@@ -40,9 +40,9 @@ func main() {
 		}
 		command = strings.Replace(command, "\n", "", -1)
 		if strings.Compare("help", command) == 0 {
-            executeCommand("/workspace/gosh/src/commands/bin/help")
-            f, err := os.OpenFile("/workspace/gosh/src/commands/history.txt",
-            os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+			executeCommand("/workspace/gosh/src/commands/bin/help")
+			f, err := os.OpenFile("/workspace/gosh/src/commands/history.txt",
+				os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 			if err != nil {
 				log.Println(err)
 			}
@@ -61,7 +61,7 @@ func main() {
 			if dir == "error" {
 				println("gosh: cd: directory not specified")
 			}
-            os.Chdir(dir)
+			os.Chdir(dir)
 			f, err := os.OpenFile("/workspace/gosh/src/commands/history.txt",
 				os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 			if err != nil {
@@ -73,14 +73,14 @@ func main() {
 			}
 		} else if strings.HasPrefix(command, "history") {
 			executeCommand("/workspace/gosh/src/commands/history.py")
-            continue
+			continue
 		} else {
 			if err = executeCommand(command); err != nil {
-                if strings.HasSuffix(string(err.Error()),"executable file not found in $PATH")  {
-                    executeCommand("/workspace/gosh/src/commands/bin/makeRed")
-                    fmt.Println("gosh: " + command + ": command not found")
-                    executeCommand("/workspace/gosh/src/commands/bin/resetColor")
-                }
+				if strings.HasSuffix(string(err.Error()), "executable file not found in $PATH") {
+					executeCommand("/workspace/gosh/src/commands/bin/makeRed")
+					fmt.Println("gosh: " + command + ": command not found")
+					executeCommand("/workspace/gosh/src/commands/bin/resetColor")
+				}
 			}
 			f, err := os.OpenFile("/workspace/gosh/src/commands/history.txt",
 				os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
