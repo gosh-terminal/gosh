@@ -74,6 +74,8 @@ func main() {
 		} else if strings.HasPrefix(command, "history") {
 			executeCommand("/workspace/gosh/src/commands/history.py")
 			continue
+		} else if strings.Compare(command, "clearhist") == 0 {
+			executeCommand("/workspace/gosh/src/commands/clearHistory.py")
 		} else {
 			if err = executeCommand(command); err != nil {
 				if strings.HasSuffix(string(err.Error()), "executable file not found in $PATH") {
