@@ -14,7 +14,6 @@ for i in files:
         print(item[:1],end="")
         print(item[1:-2],end="")
     else:
-        # os.system("/workspace/gosh/src/commands/bin/resetColor")
         print(item[:1],end="")
         os.system("/workspace/gosh/src/commands/bin/makeCyan")
         print(item[1:-2],end="")
