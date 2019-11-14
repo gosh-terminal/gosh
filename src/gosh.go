@@ -9,13 +9,18 @@ import (
 	"strings"
 )
 
-func executeCommand(theCommand string) {
+func executeCommand(theCommand string) int {
 	cmd := exec.Command(theCommand)
 	cmd.Stdout = os.Stdout
 	cmd.Stderr = os.Stderr
 	if err := cmd.Run(); err != nil {
-		log.Print(err)
+		if err := cmd.Run() ; err != nil {
+			if exitError, ok := err.(*exec.ExitError); ok {
+				return exitError.ExitCode()
+			}
+		}
 	}
+	return -2
 }
 func getArg(commandString string) string {
 	var s []string = strings.Split(commandString, " ")
@@ -56,7 +61,7 @@ func main() {
 			cmd := exec.Command(command)
 			cmd.Stdout = os.Stdout
 			cmd.Stderr = os.Stderr
-			if err := cmd.Run(); err != nil {
+			if err := cmd.Start(); err != nil {
 				executeCommand("/workspace/gosh/src/commands/bin/makeRed")
 				fmt.Println("gosh: " + command + ": command not found")
 				executeCommand("/workspace/gosh/src/commands/bin/resetColor")
