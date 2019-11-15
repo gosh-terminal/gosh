@@ -54,13 +54,7 @@ func main() {
 		}
 	}
 }
-func executeCommand(theCommand string) error {
-	args := strings.Split(theCommand, " ")
-	cmd := exec.Command(args[0], args[1:]...)
-	cmd.Stdout = os.Stdout
-	cmd.Stderr = os.Stderr
-	return cmd.Run()
-}
+
 func printError(err error) {
 	if err != nil {
 		os.Stderr.WriteString(fmt.Sprintf("%s\n", err.Error()))
@@ -76,11 +70,4 @@ func updateHistory(command string) {
 	if _, err := f.WriteString("\n" + command); err != nil {
 		log.Println(err)
 	}
-}
-func getArg(commandString string) string {
-	var s []string = strings.Split(commandString, " ")
-	if len(s) > 1 {
-		return s[1]
-	}
-	return "error"
 }
