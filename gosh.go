@@ -6,7 +6,6 @@ import (
 	"github.com/gookit/color"
 	"log"
 	"os"
-	"os/exec"
 	"strings"
 )
 
