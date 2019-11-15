@@ -76,18 +76,7 @@ func ls() {
 	}
 	fmt.Println("----------------------------------")
 }
-func history() {
-	file, _ := os.Open("/workspace/gosh/data/history.txt")
-	scanner := bufio.NewScanner(file)
-	var num int = 1
-	for scanner.Scan() {
-		if strings.Compare(string(scanner.Text()), "") == 0 {
-			continue
-		}
-		fmt.Printf("%d %s\n", num, scanner.Text())
-		num++
-	}
-}
+
 func executeCommand(theCommand string) error {
 	args := strings.Split(theCommand, " ")
 	cmd := exec.Command(args[0], args[1:]...)
