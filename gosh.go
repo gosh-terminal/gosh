@@ -92,10 +92,6 @@ func history() {
 		num++
 	}
 }
-func prompt() {
-	blue := color.FgBlue.Render
-	color.FgGreen.Printf("gosh %s ", blue("λ"))
-}
 func executeCommand(theCommand string) error {
 	args := strings.Split(theCommand, " ")
 	cmd := exec.Command(args[0], args[1:]...)
