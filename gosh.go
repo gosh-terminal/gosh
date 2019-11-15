@@ -1,14 +1,13 @@
 package main
 
-
 import (
 	"bufio"
 	"fmt"
+	"github.com/gookit/color"
 	"log"
 	"os"
 	"os/exec"
 	"strings"
-	"github.com/gookit/color"
 )
 
 func help() {
@@ -31,6 +30,17 @@ func printError(err error) {
 		os.Stderr.WriteString(fmt.Sprintf("%s\n", err.Error()))
 	}
 }
+func updateHistory(command string) {
+	f, err := os.OpenFile("/workspace/gosh/src/commands/history.txt",
+		os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	if err != nil {
+		log.Println(err)
+	}
+	defer f.Close()
+	if _, err := f.WriteString("\n" + command); err != nil {
+		log.Println(err)
+	}
+}
 func getArg(commandString string) string {
 	var s []string = strings.Split(commandString, " ")
 	if len(s) > 1 {
@@ -51,15 +61,7 @@ func main() {
 		command = strings.Replace(command, "\n", "", -1)
 		if strings.Compare("help", command) == 0 {
 			help()
-			f, err := os.OpenFile("/workspace/gosh/src/commands/history.txt",
-				os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
-			if err != nil {
-				log.Println(err)
-			}
-			defer f.Close()
-			if _, err := f.WriteString("\n" + command); err != nil {
-				log.Println(err)
-			}
+			updateHistory(command)
 		} else if strings.Compare("exit", command) == 0 {
 			os.Exit(1)
 		} else if strings.Compare("ls", command) == 0 {
@@ -72,15 +74,7 @@ func main() {
 				color.FgRed.Println("gosh: cd: directory not specified")
 			}
 			os.Chdir(dir)
-			f, err := os.OpenFile("/workspace/gosh/src/commands/history.txt",
-				os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
-			if err != nil {
-				log.Println(err)
-			}
-			defer f.Close()
-			if _, err := f.WriteString("\n" + command); err != nil {
-				log.Println(err)
-			}
+			updateHistory(command)
 		} else if strings.HasPrefix(command, "history") {
 			executeCommand("/workspace/gosh/src/commands/history.py")
 			continue
@@ -92,15 +86,7 @@ func main() {
 					color.FgRed.Println("gosh: " + command + ": command not found")
 				}
 			}
-			f, err := os.OpenFile("/workspace/gosh/src/commands/history.txt",
-				os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
-			if err != nil {
-				log.Println(err)
-			}
-			defer f.Close()
-			if _, err := f.WriteString("\n" + command); err != nil {
-				log.Println(err)
-			}
+			updateHistory(command)
 		}
 	}
 }
