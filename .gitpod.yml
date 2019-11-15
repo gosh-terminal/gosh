@@ -7,7 +7,7 @@ ports:
 
 # List the start up tasks. You can start them in parallel in multiple terminals. See https://www.gitpod.io/docs/44_config_start_tasks/
 tasks:
-- init: bash build && ./gosh
+- init: bash build && ./bin/gosh
 vscode:
   extensions:
     - kosz78.nim@0.6.4:J4mmxMK624S+XisrptVQ/Q==
