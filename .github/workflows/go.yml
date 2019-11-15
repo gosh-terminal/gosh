@@ -25,4 +25,4 @@ jobs:
         fi
 
     - name: Build
-      run: go build -o bin/gosh gosh.go
+      run: go build -o bin/gosh gosh.go help.go history.go ls.go prompt.go clearhist.go executeCommand.go
