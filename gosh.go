@@ -30,6 +30,11 @@ func printError(err error) {
 		os.Stderr.WriteString(fmt.Sprintf("%s\n", err.Error()))
 	}
 }
+func clearHistory() {
+	f, _ := os.OpenFile("/workspace/gosh/src/commands/history.txt",
+		os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	f.Truncate(0)
+}
 func updateHistory(command string) {
 	f, err := os.OpenFile("/workspace/gosh/src/commands/history.txt",
 		os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
@@ -79,7 +84,7 @@ func main() {
 			executeCommand("/workspace/gosh/src/commands/history.py")
 			continue
 		} else if strings.Compare(command, "clearhist") == 0 {
-			executeCommand("/workspace/gosh/src/commands/clearHistory.py")
+			clearHistory()
 		} else {
 			if err = executeCommand(command); err != nil {
 				if strings.HasSuffix(string(err.Error()), "executable file not found in $PATH") {
