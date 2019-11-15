@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"strings"
 	"fmt"
+	"log"
 )
 func history() {
 	file, _ := os.Open("/workspace/gosh/data/history.txt")
@@ -15,5 +16,17 @@ func history() {
 		}
 		fmt.Printf("%d %s\n", num, scanner.Text())
 		num++
+	}
+}
+
+func updateHistory(command string) {
+	f, err := os.OpenFile("/workspace/gosh/data/history.txt",
+		os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	if err != nil {
+		log.Println(err)
+	}
+	defer f.Close()
+	if _, err := f.WriteString("\n" + command); err != nil {
+		log.Println(err)
 	}
 }
