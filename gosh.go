@@ -11,6 +11,49 @@ import (
 	"strings"
 )
 
+func main() {
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Println("Welcome to gosh the Go Shell!")
+	fmt.Println("-----------------------------")
+	for {
+		prompt()
+		command, err := reader.ReadString('\n')
+		if err != nil {
+			log.Println("Could not read command!")
+		}
+		command = strings.Replace(command, "\n", "", -1)
+		if strings.Compare("help", command) == 0 {
+			help()
+			updateHistory(command)
+		} else if strings.Compare("exit", command) == 0 {
+			os.Exit(1)
+		} else if strings.Compare("ls", command) == 0 {
+			ls()
+			updateHistory(command)
+		} else if strings.Compare("", command) == 0 {
+			continue
+		} else if strings.HasPrefix(command, "cd") {
+			var dir string = getArg(command)
+			if dir == "error" {
+				color.FgRed.Println("gosh: cd: directory not specified")
+			}
+			os.Chdir(dir)
+			updateHistory(command)
+		} else if strings.HasPrefix(command, "history") {
+			history()
+			continue
+		} else if strings.Compare(command, "clearhist") == 0 {
+			clearHistory()
+		} else {
+			if err = executeCommand(command); err != nil {
+				if strings.HasSuffix(string(err.Error()), "executable file not found in $PATH") {
+					color.FgRed.Println("gosh: " + command + ": command not found")
+				}
+			}
+			updateHistory(command)
+		}
+	}
+}
 func help() {
 	color.FgMagenta.Println("Commands:")
 	color.FgYellow.Println("help: displays this help screen\nexit: exits the terminal\nhistory: displays commands you have previously run\nclearhist: clears your history")
@@ -86,47 +129,4 @@ func getArg(commandString string) string {
 		return s[1]
 	}
 	return "error"
-}
-func main() {
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Println("Welcome to gosh the Go Shell!")
-	fmt.Println("-----------------------------")
-	for {
-		prompt()
-		command, err := reader.ReadString('\n')
-		if err != nil {
-			log.Println("Could not read command!")
-		}
-		command = strings.Replace(command, "\n", "", -1)
-		if strings.Compare("help", command) == 0 {
-			help()
-			updateHistory(command)
-		} else if strings.Compare("exit", command) == 0 {
-			os.Exit(1)
-		} else if strings.Compare("ls", command) == 0 {
-			ls()
-			updateHistory(command)
-		} else if strings.Compare("", command) == 0 {
-			continue
-		} else if strings.HasPrefix(command, "cd") {
-			var dir string = getArg(command)
-			if dir == "error" {
-				color.FgRed.Println("gosh: cd: directory not specified")
-			}
-			os.Chdir(dir)
-			updateHistory(command)
-		} else if strings.HasPrefix(command, "history") {
-			history()
-			continue
-		} else if strings.Compare(command, "clearhist") == 0 {
-			clearHistory()
-		} else {
-			if err = executeCommand(command); err != nil {
-				if strings.HasSuffix(string(err.Error()), "executable file not found in $PATH") {
-					color.FgRed.Println("gosh: " + command + ": command not found")
-				}
-			}
-			updateHistory(command)
-		}
-	}
 }

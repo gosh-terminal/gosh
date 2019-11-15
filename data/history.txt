@@ -1,0 +1,9 @@
+
+s
+sa
+ls
+l
+ls
+d
+git add data/history.txt
+git add -f data/history.txt
