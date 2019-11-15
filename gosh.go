@@ -54,43 +54,6 @@ func main() {
 		}
 	}
 }
-<<<<<<< HEAD
-func history() {
-	file, _ := os.Open("/workspace/gosh/data/history.txt")
-	scanner := bufio.NewScanner(file)
-	var num int = 1
-	for scanner.Scan() {
-		if strings.Compare(string(scanner.Text()), "") == 0 {
-			continue
-		}
-		fmt.Printf("%d %s\n", num, scanner.Text())
-		num++
-	}
-}
-=======
-func ls() {
-	files, err := ioutil.ReadDir(".")
-	if err != nil {
-		log.Fatal(err)
-	}
-	blue := color.FgCyan.Render
-	yellow := color.FgYellow.Render
-	fmt.Println("----------------------------------")
-	for _, file := range files {
-		z := 34 - len(file.Name()) - 3
-		spaces := strings.Repeat(" ", z)
-		if file.IsDir() {
-			fmt.Printf("| %s%s|\n", blue(file.Name()), spaces)
-		} else if file.Mode().String() == "-rwxr-xr-x" {
-			fmt.Printf("| %s%s|\n", yellow(file.Name()), spaces)
-		} else {
-			fmt.Printf("| %s%s|\n", file.Name(), spaces)
-		}
-	}
-	fmt.Println("----------------------------------")
-}
-
->>>>>>> 2a218b1b2438de964403a60e3412fe108668e1bd
 func executeCommand(theCommand string) error {
 	args := strings.Split(theCommand, " ")
 	cmd := exec.Command(args[0], args[1:]...)
