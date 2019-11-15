@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"github.com/gookit/color"
+	"io/ioutil"
 	"log"
 	"os"
 	"os/exec"
@@ -14,8 +15,29 @@ func help() {
 	color.FgMagenta.Println("Commands:")
 	color.FgYellow.Println("help: displays this help screen\nexit: exits the terminal\nhistory: displays commands you have previously run\nclearhist: clears your history")
 }
+func ls() {
+	files, err := ioutil.ReadDir(".")
+	if err != nil {
+		log.Fatal(err)
+	}
+	blue := color.FgCyan.Render
+	yellow := color.FgYellow.Render
+	fmt.Println("----------------------------------")
+	for _, file := range files {
+		z := 34 - len(file.Name()) - 3
+		spaces := strings.Repeat(" ", z)
+		if file.IsDir() {
+			fmt.Printf("| %s%s|\n", blue(file.Name()), spaces)
+		} else if file.Mode().String() == "-rwxr-xr-x" {
+			fmt.Printf("| %s%s|\n", yellow(file.Name()), spaces)
+		} else {
+			fmt.Printf("| %s%s|\n", file.Name(), spaces)
+		}
+	}
+	fmt.Println("----------------------------------")
+}
 func history() {
-	file, _ := os.Open("/workspace/gosh/src/commands/history.txt")
+	file, _ := os.Open("/workspace/gosh/data/history.txt")
 	scanner := bufio.NewScanner(file)
 	var num int = 1
 	for scanner.Scan() {
@@ -43,12 +65,12 @@ func printError(err error) {
 	}
 }
 func clearHistory() {
-	f, _ := os.OpenFile("/workspace/gosh/src/commands/history.txt",
+	f, _ := os.OpenFile("/workspace/gosh/data/history.txt",
 		os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	f.Truncate(0)
 }
 func updateHistory(command string) {
-	f, err := os.OpenFile("/workspace/gosh/src/commands/history.txt",
+	f, err := os.OpenFile("/workspace/gosh/data/history.txt",
 		os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		log.Println(err)
@@ -82,7 +104,7 @@ func main() {
 		} else if strings.Compare("exit", command) == 0 {
 			os.Exit(1)
 		} else if strings.Compare("ls", command) == 0 {
-			executeCommand("/workspace/gosh/src/commands/list.py")
+			ls()
 			updateHistory(command)
 		} else if strings.Compare("", command) == 0 {
 			continue
