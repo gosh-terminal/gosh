@@ -14,6 +14,18 @@ func help() {
 	color.FgMagenta.Println("Commands:")
 	color.FgYellow.Println("help: displays this help screen\nexit: exits the terminal\nhistory: displays commands you have previously run\nclearhist: clears your history")
 }
+func history() {
+	file, _ := os.Open("/workspace/gosh/src/commands/history.txt")
+	scanner := bufio.NewScanner(file)
+	var num int = 1
+	for scanner.Scan() {
+		if strings.Compare(string(scanner.Text()), "") == 0 {
+			continue
+		}
+		fmt.Printf("%d %s\n", num, scanner.Text())
+		num++
+	}
+}
 func prompt() {
 	blue := color.FgBlue.Render
 	color.FgGreen.Printf("gosh %s ", blue("λ"))
@@ -71,6 +83,7 @@ func main() {
 			os.Exit(1)
 		} else if strings.Compare("ls", command) == 0 {
 			executeCommand("/workspace/gosh/src/commands/list.py")
+			updateHistory(command)
 		} else if strings.Compare("", command) == 0 {
 			continue
 		} else if strings.HasPrefix(command, "cd") {
@@ -81,7 +94,7 @@ func main() {
 			os.Chdir(dir)
 			updateHistory(command)
 		} else if strings.HasPrefix(command, "history") {
-			executeCommand("/workspace/gosh/src/commands/history.py")
+			history()
 			continue
 		} else if strings.Compare(command, "clearhist") == 0 {
 			clearHistory()
