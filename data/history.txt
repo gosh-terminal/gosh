@@ -7,3 +7,9 @@ ls
 d
 git add data/history.txt
 git add -f data/history.txt
+ls
+l
+clear
+ls
+k
+ls

@@ -1,7 +1,7 @@
 image:
   file: .gitpod.Dockerfile
 tasks:
-  - init: go install && gosh
+  - init: bash build
 vscode:
   extensions:
     - kosz78.nim@0.6.4:J4mmxMK624S+XisrptVQ/Q==
