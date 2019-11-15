@@ -1,4 +1,5 @@
-package gosh
+package main
+
 
 import (
 	"bufio"
@@ -7,7 +8,6 @@ import (
 	"os"
 	"os/exec"
 	"strings"
-
 	"github.com/gookit/color"
 )
 
