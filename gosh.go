@@ -4,7 +4,6 @@ import (
 	"bufio"
 	"fmt"
 	"github.com/gookit/color"
-	"io/ioutil"
 	"log"
 	"os"
 	"os/exec"
@@ -55,6 +54,20 @@ func main() {
 		}
 	}
 }
+<<<<<<< HEAD
+func history() {
+	file, _ := os.Open("/workspace/gosh/data/history.txt")
+	scanner := bufio.NewScanner(file)
+	var num int = 1
+	for scanner.Scan() {
+		if strings.Compare(string(scanner.Text()), "") == 0 {
+			continue
+		}
+		fmt.Printf("%d %s\n", num, scanner.Text())
+		num++
+	}
+}
+=======
 func ls() {
 	files, err := ioutil.ReadDir(".")
 	if err != nil {
@@ -77,6 +90,7 @@ func ls() {
 	fmt.Println("----------------------------------")
 }
 
+>>>>>>> 2a218b1b2438de964403a60e3412fe108668e1bd
 func executeCommand(theCommand string) error {
 	args := strings.Split(theCommand, " ")
 	cmd := exec.Command(args[0], args[1:]...)

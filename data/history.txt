@@ -2,5 +2,9 @@
 git pull
 git pull
 git pull
+<<<<<<< HEAD
+ls
+=======
 help
 git pull
+>>>>>>> 2a218b1b2438de964403a60e3412fe108668e1bd
