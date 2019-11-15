@@ -7,8 +7,18 @@ import (
 	"os"
 	"os/exec"
 	"strings"
+
+	"github.com/gookit/color"
 )
 
+func help() {
+	color.FgMagenta.Println("Commands:")
+	color.FgYellow.Println("help: displays this help screen\nexit: exits the terminal\nhistory: displays commands you have previously run\nclearhist: clears your history")
+}
+func prompt() {
+	blue := color.FgBlue.Render
+	color.FgGreen.Printf("gosh %s ", blue("λ"))
+}
 func executeCommand(theCommand string) error {
 	args := strings.Split(theCommand, " ")
 	cmd := exec.Command(args[0], args[1:]...)
@@ -33,14 +43,14 @@ func main() {
 	fmt.Println("Welcome to gosh the Go Shell!")
 	fmt.Println("-----------------------------")
 	for {
-		executeCommand("/workspace/gosh/src/commands/bin/prompt")
+		prompt()
 		command, err := reader.ReadString('\n')
 		if err != nil {
 			log.Println("Could not read command!")
 		}
 		command = strings.Replace(command, "\n", "", -1)
 		if strings.Compare("help", command) == 0 {
-			executeCommand("/workspace/gosh/src/commands/bin/help")
+			help()
 			f, err := os.OpenFile("/workspace/gosh/src/commands/history.txt",
 				os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 			if err != nil {
@@ -59,7 +69,7 @@ func main() {
 		} else if strings.HasPrefix(command, "cd") {
 			var dir string = getArg(command)
 			if dir == "error" {
-				println("gosh: cd: directory not specified")
+				color.FgRed.Println("gosh: cd: directory not specified")
 			}
 			os.Chdir(dir)
 			f, err := os.OpenFile("/workspace/gosh/src/commands/history.txt",
@@ -79,9 +89,7 @@ func main() {
 		} else {
 			if err = executeCommand(command); err != nil {
 				if strings.HasSuffix(string(err.Error()), "executable file not found in $PATH") {
-					executeCommand("/workspace/gosh/src/commands/bin/makeRed")
-					fmt.Println("gosh: " + command + ": command not found")
-					executeCommand("/workspace/gosh/src/commands/bin/resetColor")
+					color.FgRed.Println("gosh: " + command + ": command not found")
 				}
 			}
 			f, err := os.OpenFile("/workspace/gosh/src/commands/history.txt",
