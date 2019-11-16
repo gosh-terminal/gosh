@@ -6,6 +6,11 @@ import (
 	"fmt"
 	"log"
 )
+func clearHistory() {
+	f, _ := os.OpenFile("/workspace/gosh/data/history.txt",
+		os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	f.Truncate(0)
+}
 func history() {
 	file, _ := os.Open("/workspace/gosh/data/history.txt")
 	scanner := bufio.NewScanner(file)
