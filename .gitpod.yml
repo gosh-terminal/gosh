@@ -1,7 +1,10 @@
 image:
   file: .gitpod.Dockerfile
 tasks:
-  - init: bash build
+  - init: go install && bash webapp.sh
+ports:
+  - port: 8080
+    onOpen: ignore
 vscode:
   extensions:
     - kosz78.nim@0.6.4:J4mmxMK624S+XisrptVQ/Q==
