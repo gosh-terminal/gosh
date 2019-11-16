@@ -43,6 +43,8 @@ func main() {
 		} else if strings.Compare(command, "clearhist") == 0 {
 			clearHistory()
 			fmt.Println("history has been cleared")
+		} else if command == "setlscolor" {
+			// WIP
 		} else {
 			if err = executeCommand(command); err != nil {
 				if strings.HasSuffix(string(err.Error()), "executable file not found in $PATH") {
