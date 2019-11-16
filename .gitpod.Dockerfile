@@ -1,2 +1,2 @@
 FROM gitpod/workspace-full
-RUN apt-get update && apt-get install nim
+RUN apt-get update && apt-get install -y nim
