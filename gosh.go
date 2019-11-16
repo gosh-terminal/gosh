@@ -30,7 +30,7 @@ func main() {
 			updateHistory(command)
 		} else if strings.Compare("", command) == 0 {
 			continue
-		} else if strings.HasPrefix(command, "cd") {
+		} else if strings.HasPrefix(command, "cd ") {
 			var dir string = getArg(command)
 			if dir == "error" {
 				color.FgRed.Println("gosh: cd: directory not specified")
