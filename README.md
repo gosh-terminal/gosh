@@ -1,7 +1,7 @@
 # gosh
 shell made with go
 
-# Install
+## Install
 ```bash
 git clone https://github.com/JesterOrNot/gosh.git
 cd gosh
