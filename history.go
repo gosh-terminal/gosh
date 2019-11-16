@@ -16,7 +16,7 @@ func history() {
 	var gopath string = os.Getenv("GOPATH")
 	file, _ := os.Open(gopath + "/bin/history.txt")
 	scanner := bufio.NewScanner(file)
-	var num int = 1
+	var num = 1
 	for scanner.Scan() {
 		if strings.Compare(string(scanner.Text()), "") == 0 {
 			continue
