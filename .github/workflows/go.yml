@@ -3,7 +3,7 @@ on: [push]
 jobs:
 
   build:
-    name: Build
+    name: build gosh on ubuntu
     runs-on: ubuntu-latest
     steps:
 
