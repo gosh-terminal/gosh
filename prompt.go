@@ -1,24 +1,26 @@
 package main
+
 import (
-	"github.com/gookit/color"
-	"fmt"
 	"bufio"
+	"fmt"
+	"github.com/gookit/color"
 	"io/ioutil"
-	"strings"
 	"os"
+	"strings"
 )
+
 func prompt() {
 	files, err := ioutil.ReadDir(".")
 	if err != nil {
 		fmt.Println("ERROR")
 	}
 	for _, file := range files {
-		if strings.HasSuffix(file.Name(),".goshc") {
+		if strings.HasSuffix(file.Name(), ".goshc") {
 			file1, _ := os.Open(file.Name())
 			scanner := bufio.NewScanner(file1)
 			for scanner.Scan() {
-				if strings.HasPrefix(scanner.Text(),"prompt ") {
-					testArray := strings.Split(scanner.Text(),"prompt ")
+				if strings.HasPrefix(scanner.Text(), "prompt ") {
+					testArray := strings.Split(scanner.Text(), "prompt ")
 					fmt.Print(testArray[1])
 					return
 				}
