@@ -10,7 +10,7 @@ a shell made with go
 ```bash
 git clone https://github.com/JesterOrNot/gosh.git
 cd gosh
-bash setup.sh
+go install
 ```
 
 ![Example of goshell](https://github.com/JesterOrNot/gosh/blob/master/images/example.png "Example of goshell")
