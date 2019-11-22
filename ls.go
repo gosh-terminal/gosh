@@ -1,11 +1,13 @@
 package main
+
 import (
-	"log"
-	"io/ioutil"
 	"fmt"
 	"github.com/gookit/color"
+	"io/ioutil"
+	"log"
 	"strings"
 )
+
 func ls() {
 	files, err := ioutil.ReadDir(".")
 	if err != nil {
@@ -13,17 +15,17 @@ func ls() {
 	}
 	blue := color.FgCyan.Render
 	yellow := color.FgYellow.Render
-	fmt.Println("----------------------------------")
+	fmt.Println("--------------------------------------------------")
 	for _, file := range files {
-		z := 34 - len(file.Name()) - 3
+		z := 25 - len(file.Name()) - -3
 		spaces := strings.Repeat(" ", z)
 		if file.IsDir() {
-			fmt.Printf("| %s%s|\n", blue(file.Name()), spaces)
+			fmt.Printf("| %s%s|| Directory       |\n", blue(file.Name()), spaces)
 		} else if file.Mode().String() == "-rwxr-xr-x" {
-			fmt.Printf("| %s%s|\n", yellow(file.Name()), spaces)
+			fmt.Printf("| %s%s|| Executable File |\n", yellow(file.Name()), spaces)
 		} else {
-			fmt.Printf("| %s%s|\n", file.Name(), spaces)
+			fmt.Printf("| %s%s|| File            |\n", file.Name(), spaces)
 		}
 	}
-	fmt.Println("----------------------------------")
+	fmt.Println("--------------------------------------------------")
 }
