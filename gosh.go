@@ -1,24 +1,19 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
+	"github.com/c-bata/go-prompt"
 	"github.com/gookit/color"
-	"log"
 	"os"
 	"strings"
 )
 
 func main() {
-	reader := bufio.NewReader(os.Stdin)
 	fmt.Println("Welcome to gosh the Go Shell!")
 	fmt.Println("-----------------------------")
 	for {
-		prompt()
-		command, err := reader.ReadString('\n')
-		if err != nil {
-			log.Println("Could not read command!")
-		}
+		thePrompt()
+		command := prompt.Input("", completer)
 		command = strings.Replace(command, "\n", "", -1)
 		if strings.Compare("help", command) == 0 {
 			help()
@@ -35,8 +30,14 @@ func main() {
 			if dir == "error" {
 				color.FgRed.Println("gosh: cd: directory not specified")
 			}
-			os.Chdir(dir)
+			err := os.Chdir(dir)
+			if err != nil {
+				if strings.HasSuffix(string(err.Error()), "file or directory") {
+					color.FgRed.Println("gosh: " + command + ": directory not found")
+				}
+			}
 			updateHistory(command)
+			continue
 		} else if strings.HasPrefix(command, "history") {
 			history()
 			continue
@@ -46,7 +47,7 @@ func main() {
 		} else if command == "setlscolor" {
 			// WIP
 		} else {
-			if err = executeCommand(command); err != nil {
+			if err := executeCommand(command); err != nil {
 				if strings.HasSuffix(string(err.Error()), "executable file not found in $PATH") {
 					color.FgRed.Println("gosh: " + command + ": command not found")
 				}
