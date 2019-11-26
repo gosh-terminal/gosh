@@ -31,7 +31,11 @@ func main() {
 		} else if strings.Compare("exit", command) == 0 {
 			os.Exit(1)
 		} else if strings.Compare("ls", command) == 0 {
-			ls()
+			ls(".")
+			updateHistory(command)
+		} else if strings.HasPrefix(command, "ls ") {
+			var dir string = getArg(command)
+			ls(dir)
 			updateHistory(command)
 		} else if strings.Compare("", command) == 0 {
 			continue
