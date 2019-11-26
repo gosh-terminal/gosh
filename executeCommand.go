@@ -1,9 +1,11 @@
 package main
-import  (
+
+import (
 	"os"
 	"os/exec"
 	"strings"
 )
+
 func executeCommand(theCommand string) error {
 	args := strings.Split(theCommand, " ")
 	cmd := exec.Command(args[0], args[1:]...)
