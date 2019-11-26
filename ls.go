@@ -8,8 +8,8 @@ import (
 	"strings"
 )
 
-func ls() {
-	files, err := ioutil.ReadDir(".")
+func ls(path string) {
+	files, err := ioutil.ReadDir(path)
 	if err != nil {
 		log.Fatal(err)
 	}
