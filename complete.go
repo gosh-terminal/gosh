@@ -2,10 +2,10 @@ package main
 
 import (
 	"bufio"
+	"github.com/c-bata/go-prompt"
+	"io/ioutil"
 	"os"
 	"strings"
-
-	"github.com/c-bata/go-prompt"
 )
 
 func unique(intSlice []prompt.Suggest) []prompt.Suggest {
@@ -29,6 +29,10 @@ func completer(d prompt.Document) []prompt.Suggest {
 			continue
 		}
 		s = append(s, prompt.Suggest{Text: scanner.Text()})
+	}
+	files, _ := ioutil.ReadDir("/usr/bin")
+	for _, file := range files {
+		s = append(s, prompt.Suggest{Text: file.Name()})
 	}
 	return prompt.FilterHasPrefix(unique(s), d.GetWordBeforeCursor(), true)
 }
