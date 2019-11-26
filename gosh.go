@@ -7,13 +7,22 @@ import (
 	"os"
 	"strings"
 )
-
 func main() {
 	fmt.Println("Welcome to gosh the Go Shell!")
 	fmt.Println("-----------------------------")
 	for {
 		thePrompt()
-		command := prompt.Input("", completer,prompt.OptionHistory(getCommandHist()))
+		command := prompt.Input("", completer, prompt.OptionHistory(getCommandHist()), prompt.OptionSuggestionBGColor(prompt.DefaultColor),
+			prompt.OptionInputTextColor(prompt.Cyan),
+			prompt.OptionMaxSuggestion(4),
+			prompt.OptionTitle("gosh"),
+			prompt.OptionAddKeyBind(prompt.KeyBind{
+			Key: prompt.ControlC,
+			Fn: func(buf *prompt.Buffer) {
+				os.Exit(0)
+			}}),
+			prompt.OptionPreviewSuggestionTextColor(prompt.DefaultColor),
+			prompt.OptionScrollbarBGColor(prompt.DefaultColor))
 		command = strings.Replace(command, "\n", "", -1)
 		if strings.Compare("help", command) == 0 {
 			help()
