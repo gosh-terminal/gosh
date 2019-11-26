@@ -13,7 +13,8 @@ func main() {
 	fmt.Println("-----------------------------")
 	for {
 		thePrompt()
-		command := prompt.Input("", completer,prompt.OptionHistory(getCommandHist()))
+		command := prompt.Input("", completer, prompt.OptionHistory(getCommandHist()), prompt.OptionSuggestionBGColor(prompt.DefaultColor),
+			prompt.OptionInputTextColor(prompt.Cyan))
 		command = strings.Replace(command, "\n", "", -1)
 		if strings.Compare("help", command) == 0 {
 			help()
