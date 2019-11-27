@@ -10,4 +10,6 @@ jobs:
     - uses: actions/checkout@v1
       with:
         version: 12
-    - run: python3 install.py
+    - run: |
+        export PATH=$PATH:$GOPATH/bin
+        python3 install.py
