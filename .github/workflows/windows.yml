@@ -1,0 +1,14 @@
+name: windows
+
+on: [push]
+
+jobs:
+
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: run install.py
+      run: python3.exe install.py
