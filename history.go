@@ -1,14 +1,16 @@
 package main
+
 import (
-	"os"
 	"bufio"
-	"strings"
 	"fmt"
 	"log"
+	"os"
+	"strings"
 )
+
 func clearHistory() {
 	var gopath string = os.Getenv("GOPATH")
-	f, _ := os.OpenFile(gopath + "/bin/history.txt",
+	f, _ := os.OpenFile(gopath+"/bin/history.txt",
 		os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	f.Truncate(0)
 }
@@ -28,7 +30,7 @@ func history() {
 
 func updateHistory(command string) {
 	var gopath string = os.Getenv("GOPATH")
-	f, err := os.OpenFile(gopath + "/bin/history.txt",
+	f, err := os.OpenFile(gopath+"/bin/history.txt",
 		os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		log.Println(err)
