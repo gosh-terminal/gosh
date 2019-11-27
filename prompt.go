@@ -9,7 +9,7 @@ import (
 	"strings"
 )
 
-func prompt() {
+func thePrompt() {
 	files, err := ioutil.ReadDir(".")
 	if err != nil {
 		fmt.Println("ERROR")

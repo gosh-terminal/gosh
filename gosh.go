@@ -1,24 +1,29 @@
 package main
 
 import (
-	"bufio"
 	"fmt"
+	"github.com/c-bata/go-prompt"
 	"github.com/gookit/color"
-	"log"
 	"os"
 	"strings"
 )
 
 func main() {
-	reader := bufio.NewReader(os.Stdin)
 	fmt.Println("Welcome to gosh the Go Shell!")
 	fmt.Println("-----------------------------")
 	for {
-		prompt()
-		command, err := reader.ReadString('\n')
-		if err != nil {
-			log.Println("Could not read command!")
-		}
+		thePrompt()
+		command := prompt.Input("", completer, prompt.OptionHistory(getCommandHist()), prompt.OptionSuggestionBGColor(prompt.DefaultColor),
+			prompt.OptionInputTextColor(prompt.Cyan),
+			prompt.OptionMaxSuggestion(4),
+			prompt.OptionTitle("gosh"),
+			prompt.OptionAddKeyBind(prompt.KeyBind{
+				Key: prompt.ControlC,
+				Fn: func(buf *prompt.Buffer) {
+					os.Exit(0)
+				}}),
+			prompt.OptionPreviewSuggestionTextColor(prompt.DefaultColor),
+			prompt.OptionScrollbarBGColor(prompt.DefaultColor))
 		command = strings.Replace(command, "\n", "", -1)
 		if strings.Compare("help", command) == 0 {
 			help()
@@ -26,7 +31,11 @@ func main() {
 		} else if strings.Compare("exit", command) == 0 {
 			os.Exit(1)
 		} else if strings.Compare("ls", command) == 0 {
-			ls()
+			ls(".")
+			updateHistory(command)
+		} else if strings.HasPrefix(command, "ls ") {
+			var dir string = getArg(command)
+			ls(dir)
 			updateHistory(command)
 		} else if strings.Compare("", command) == 0 {
 			continue
@@ -35,8 +44,14 @@ func main() {
 			if dir == "error" {
 				color.FgRed.Println("gosh: cd: directory not specified")
 			}
-			os.Chdir(dir)
+			err := os.Chdir(dir)
+			if err != nil {
+				if strings.HasSuffix(string(err.Error()), "file or directory") {
+					color.FgRed.Println("gosh: " + command + ": directory not found")
+				}
+			}
 			updateHistory(command)
+			continue
 		} else if strings.HasPrefix(command, "history") {
 			history()
 			continue
@@ -46,7 +61,7 @@ func main() {
 		} else if command == "setlscolor" {
 			// WIP
 		} else {
-			if err = executeCommand(command); err != nil {
+			if err := executeCommand(command); err != nil {
 				if strings.HasSuffix(string(err.Error()), "executable file not found in $PATH") {
 					color.FgRed.Println("gosh: " + command + ": command not found")
 				}
