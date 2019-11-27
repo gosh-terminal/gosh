@@ -13,4 +13,5 @@ jobs:
     - run: |
         export PATH=$PATH:$GOPATH/bin
         python3 install.py
+        go install
         gosh
