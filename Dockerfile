@@ -1,6 +1,6 @@
 FROM ubuntu
 RUN apt-get update \
-    && apt-get install \
+    && apt-get install -y \
     git \
     golang
 RUN git clone https://github.com/JesterOrNot/gosh.git \
