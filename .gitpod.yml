@@ -10,3 +10,6 @@ vscode:
   extensions:
     - kosz78.nim@0.6.4:J4mmxMK624S+XisrptVQ/Q==
     - ms-vscode.cpptools@0.26.2-insiders:ZfaNmwBAkeWyphIu+nLlww==
+    - mervin.markdown-formatter@0.7.6:nngZI/lvD58smdkgw0gWNw==
+    - DavidAnson.vscode-markdownlint@0.32.0:gujQ1foJzJ2yxCOgDqFfXw==
+    - mdickin.markdown-shortcuts@0.12.0:h8L11R6NpkgnCtbr8QLlUw==
