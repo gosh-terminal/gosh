@@ -17,7 +17,7 @@ def install():
         print("Installing for Windows")
         os.system("go.exe install")
         print("Test gosh")
-        os.system("%GOPATH/bin/gosh.exe")
+        os.system("GOPATH/bin/gosh")
     else:
         print("Unknown OS")
 
