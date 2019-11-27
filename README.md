@@ -4,7 +4,7 @@
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/JesterOrNot/gosh)
 
 
-a shell made with go
+The end goal of this project is to allow you to use your terminal for everything! Be able to do things from math, playing music, sending emails to searching the web but have these things be built into your terminal.
 
 ## Install
 ```bash
