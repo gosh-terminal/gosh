@@ -11,7 +11,4 @@ jobs:
       with:
         version: 12
     - run: |
-        export PATH=$PATH:$GOPATH/bin
-        python3 install.py
-        go install
-        gosh
+        go build *.go && ./gosh
