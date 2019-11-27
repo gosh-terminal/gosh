@@ -11,4 +11,4 @@ jobs:
       with:
         version: 12
     - run: |
-        go build *.go && ./gosh
+        go build -o gosh *.go && ./gosh
