@@ -15,7 +15,7 @@ func ls(path string) {
 	}
 	blue := color.FgCyan.Render
 	yellow := color.FgYellow.Render
-	fmt.Println("╭━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━╮")
+	fmt.Println(" ╭━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━╮")
 	for i, file := range files {
 		i++
 		x := 3 - len(string(i))
@@ -24,23 +24,23 @@ func ls(path string) {
 		spaces2 := strings.Repeat(" ", x)
 		if file.IsDir() {
 			if i >= 10 {
-				fmt.Printf("│%d%s│ %s%s│ Directory       │\n", i, spaces2, blue(file.Name()), spaces)
+				fmt.Printf(" │%s%s│ %s%s│ Directory       │\n", color.FgGreen.Render(i), spaces2, blue(file.Name()), spaces)
 			} else {
-				fmt.Printf("│%d%s │ %s%s│ Directory       │\n", i, spaces2, blue(file.Name()), spaces)
+				fmt.Printf(" │%s%s │ %s%s│ Directory       │\n", color.FgGreen.Render(i), spaces2, blue(file.Name()), spaces)
 			}
 		} else if file.Mode().String() == "-rwxr-xr-x" {
 			if i >= 10 {
-				fmt.Printf("│%d%s│ %s%s│ Executable File │\n", i, spaces2, yellow(file.Name()), spaces)
+				fmt.Printf(" │%s%s│ %s%s│ Executable File │\n", color.FgGreen.Render(i), spaces2, yellow(file.Name()), spaces)
 			} else {
-				fmt.Printf("│%d%s │ %s%s│ Executable File │\n", i, spaces2, yellow(file.Name()), spaces)
+				fmt.Printf(" │%s%s │ %s%s│ Executable File │\n", color.FgGreen.Render(i), spaces2, yellow(file.Name()), spaces)
 			}
 		} else {
 			if i >= 10 {
-				fmt.Printf("│%d%s│ %s%s│ File            │\n", i, spaces2, file.Name(), spaces)
+				fmt.Printf(" │%s%s│ %s%s│ File            │\n", color.FgGreen.Render(i), spaces2, file.Name(), spaces)
 			} else {
-				fmt.Printf("│%d%s │ %s%s│ File            │\n", i, spaces2, file.Name(), spaces)
+				fmt.Printf(" │%s%s │ %s%s│ File            │\n", color.FgGreen.Render(i), spaces2, file.Name(), spaces)
 			}
 		}
 	}
-	fmt.Println("╰━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━╯")
+	fmt.Println(" ╰━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━╯")
 }
