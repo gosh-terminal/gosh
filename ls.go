@@ -15,7 +15,7 @@ func ls(path string) {
 	}
 	blue := color.FgCyan.Render
 	yellow := color.FgYellow.Render
-	fmt.Println("┯━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━┯")
+	fmt.Println("╭━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━╮")
 	for i, file := range files {
 		i++
 		x := 3 - len(string(i))
@@ -42,5 +42,5 @@ func ls(path string) {
 			}
 		}
 	}
-	fmt.Println("┷━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━┷")
+	fmt.Println("╰━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━╯")
 }
