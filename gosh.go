@@ -15,7 +15,7 @@ func main() {
 		thePrompt()
 		command := prompt.Input("", completer, prompt.OptionHistory(getCommandHist()), prompt.OptionSuggestionBGColor(prompt.DefaultColor),
 			prompt.OptionInputTextColor(prompt.Cyan),
-			prompt.OptionMaxSuggestion(4),
+			prompt.OptionMaxSuggestion(6),
 			prompt.OptionTitle("gosh"),
 			prompt.OptionAddKeyBind(prompt.KeyBind{
 				Key: prompt.ControlC,
