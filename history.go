@@ -24,7 +24,7 @@ func history() {
 	fmt.Printf("   %s      %s\n", color.FgGreen.Render("#"), color.FgGreen.Render("command"))
 	fmt.Println(" ╭━━━━━━━━━━━━━━━━━━━╮")
 	for scanner.Scan() {
-		z := 13 - len(scanner.Text())
+		z := 14 - len(scanner.Text())
 		spaces := strings.Repeat(" ", z)
 		if strings.Compare(string(scanner.Text()), "") == 0 {
 			continue
