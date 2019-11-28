@@ -17,6 +17,7 @@ func ls(path string) {
 	yellow := color.FgYellow.Render
 	fmt.Println("┯━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━┯")
 	for i, file := range files {
+		i++
 		x := 3 - len(string(i))
 		z := 33 - len(file.Name())
 		spaces := strings.Repeat(" ", z)
