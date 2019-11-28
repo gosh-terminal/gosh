@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"github.com/c-bata/go-prompt"
-	"github.com/gookit/color"
 	"os"
 	"strings"
 )
@@ -42,12 +41,12 @@ func main() {
 		} else if strings.HasPrefix(command, "cd ") {
 			var dir string = getArg(command)
 			if dir == "error" {
-				color.FgRed.Println("gosh: cd: directory not specified")
+				directoryNotFound(dir)
 			}
 			err := os.Chdir(dir)
 			if err != nil {
 				if strings.HasSuffix(string(err.Error()), "file or directory") {
-					color.FgRed.Println("gosh: " + command + ": directory not found")
+					directoryNotFound(dir)
 				}
 			}
 			updateHistory(command)
@@ -63,7 +62,7 @@ func main() {
 		} else {
 			if err := executeCommand(command); err != nil {
 				if strings.HasSuffix(string(err.Error()), "executable file not found in $PATH") {
-					color.FgRed.Println("gosh: " + command + ": command not found")
+					commandNotFound(command)
 				}
 			}
 			updateHistory(command)
