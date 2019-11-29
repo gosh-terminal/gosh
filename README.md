@@ -12,8 +12,8 @@ searching the web but have these things be built into your terminal.
 
 ```bash
 git clone https://github.com/JesterOrNot/gosh.git
-cd gosh/build
-./setup.sh
+cd gosh
+./build/setup.sh
 ```
 
 ![Example of goshell](https://github.com/JesterOrNot/gosh/blob/master/images/example.png "Example of gosh")
