@@ -2,6 +2,7 @@
 cd gosh
 go get -v -t -d ./...
 go build -o gosh *.go
+mkdir $GOPATH/bin
 export GOPATH="$HOME"/go
 export PATH="$PATH:$GOROOT/bin:$GOPATH"/bin
 touch history.txt
