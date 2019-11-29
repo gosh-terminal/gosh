@@ -1,4 +1,6 @@
 #!/bin/bash
+cd ..
+cd gosh
 go get -v -t -d ./...
 go install
 touch history.txt
