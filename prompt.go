@@ -10,6 +10,7 @@ import (
 )
 
 func thePrompt() {
+	isGitRepo := false
 	files, err := ioutil.ReadDir(".")
 	if err != nil {
 		fmt.Println("ERROR")
@@ -26,7 +27,21 @@ func thePrompt() {
 				}
 			}
 		}
+		if file.IsDir() && file.Name() == ".git" {
+			isGitRepo = true
+		}
 	}
 	blue := color.FgBlue.Render
+	if isGitRepo {
+		file1, _ := os.Open(".git/HEAD")
+		scanner := bufio.NewScanner(file1)
+		var gitHeadString string
+		for scanner.Scan() {
+			gitHeadString += scanner.Text()
+		}
+		dataStr := strings.Split(strings.Trim(gitHeadString, "\n"), "/")
+		color.FgGreen.Printf("gosh%s%s %s ",color.FgMagenta.Render("@"), color.FgYellow.Render(dataStr[len(dataStr)-1]), blue("λ"))
+		return
+	}
 	color.FgGreen.Printf("gosh %s ", blue("λ"))
 }
