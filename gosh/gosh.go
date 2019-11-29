@@ -5,6 +5,7 @@ import (
 	"github.com/c-bata/go-prompt"
 	"os"
 	"strings"
+	"github.com/manifoldco/promptui"
 )
 
 func main() {
@@ -28,7 +29,19 @@ func main() {
 			help()
 			updateHistory(command)
 		} else if strings.Compare("exit", command) == 0 {
-			os.Exit(1)
+			prompt := promptui.Select{
+				Label: "Are you sure?",
+				Items: []string{"Yes", "No"},
+			}
+			_, result, err := prompt.Run()
+			if err != nil {
+				println("ERROR")
+			}
+			if result == "Yes" {
+				os.Exit(0)
+			} else {
+				continue
+			}
 		} else if strings.Compare("ls", command) == 0 {
 			ls(".")
 			updateHistory(command)
