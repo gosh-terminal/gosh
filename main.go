@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"github.com/c-bata/go-prompt"
+	"github.com/gookit/color"
 	"os"
 	"github.com/manifoldco/promptui"
 	"strings"
@@ -69,7 +70,7 @@ func main() {
 			continue
 		} else if strings.Compare(command, "clearhist") == 0 {
 			clearHistory()
-			fmt.Println("history has been cleared")
+			fmt.Printf("%s ✅\n", color.FgYellow.Render("History has been cleared"))
 		} else if command == "setlscolor" {
 			// WIP
 		} else {
