@@ -1,7 +1,7 @@
 image:
   file: .gitpod.Dockerfile
 tasks:
-  - command: mkdir ../go mkdir ../go/bin
+  - command: mkdir ../go ../go/bin
 ports:
   - port: 8080
     onOpen: ignore
