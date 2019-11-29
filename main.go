@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"github.com/c-bata/go-prompt"
 	"os"
-	"strings"
 	"github.com/manifoldco/promptui"
+	"strings"
 )
 
 func main() {
@@ -20,7 +20,7 @@ func main() {
 			prompt.OptionAddKeyBind(prompt.KeyBind{
 				Key: prompt.ControlC,
 				Fn: func(buf *prompt.Buffer) {
-					os.Exit(0)
+					return
 				}}),
 			prompt.OptionPreviewSuggestionTextColor(prompt.DefaultColor),
 			prompt.OptionScrollbarBGColor(prompt.DefaultColor))
