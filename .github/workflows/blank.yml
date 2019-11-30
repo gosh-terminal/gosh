@@ -10,4 +10,4 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: test setup script
-      run: sudo ./setup.sh
+      run: sudo ./setup.sh && gosh
