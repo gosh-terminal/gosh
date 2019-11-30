@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 	"github.com/c-bata/go-prompt"
-	"os"
 	"github.com/manifoldco/promptui"
+	"os"
 	"strings"
 )
 
@@ -71,6 +71,20 @@ func main() {
 			clearHistory()
 		} else if command == "setlscolor" {
 			// WIP
+		} else if strings.Contains(command, " > ") {
+			data, err := splitCommandFile(command)
+			if err != nil {
+				pipeError(command)
+				updateHistory(command)
+				continue
+			}
+			captureOutput, err := captureOutput(data[0])
+			if err != nil {
+				commandNotFound(command)
+			}
+			redirectToFile(captureOutput, data[1])
+			updateHistory(command)
+			continue
 		} else {
 			if err := executeCommand(command); err != nil {
 				if strings.HasSuffix(string(err.Error()), "executable file not found in $PATH") {
