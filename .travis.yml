@@ -1,2 +1,2 @@
 language: go
-script: ./setup.sh
+script: ./setup.sh && gosh
