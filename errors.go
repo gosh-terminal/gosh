@@ -2,6 +2,7 @@ package main
 
 import (
 	"strings"
+	"fmt"
 
 	"github.com/gookit/color"
 )
@@ -12,7 +13,9 @@ func commandNotFound(command string) {
 	color.FgBlue.Print("1 | ")
 	color.FgRed.Println("❌  gosh: " + command + "")
 	color.FgBlue.Print("  |   ")
-	color.FgRed.Println("       " + highlightThing + " command not found")
+	color.FgBlue.Print("       " + highlightThing)
+	color.FgRed.Print("      Error: ")
+	fmt.Println("command not found")
 }
 func directoryNotFound(dir string) {
 	stringLen := len(dir)
@@ -20,5 +23,7 @@ func directoryNotFound(dir string) {
 	color.FgBlue.Print("1 | ")
 	color.FgRed.Println("❌  gosh: " + dir + "")
 	color.FgBlue.Print("  |   ")
-	color.FgRed.Println("       " + highlightThing + " directory not found")
+	color.FgBlue.Print("       " + highlightThing)
+	color.FgRed.Print("      Error:")
+	fmt.Println("directory not found")
 }
