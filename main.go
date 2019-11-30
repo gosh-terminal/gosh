@@ -7,9 +7,12 @@ import (
 
 func main() {
 	if len(os.Args) == 1 {
-		shell()
+		she ll()
 	}
-	if os.Args[1] == "-v" {
+	switch os.Args[1] {
+	case "-v":
         fmt.Println("v0.02-alpha")
 	}
+	case "-h":
+		fmt.Println("Welcome to goshell!")
 }
