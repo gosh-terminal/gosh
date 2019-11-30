@@ -1,2 +1,2 @@
 language: go
-script: sudo ./setup.sh
+script: ./setup.sh
