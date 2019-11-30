@@ -13,7 +13,7 @@ func commandNotFound(command string) {
 	color.FgBlue.Print("1 | ")
 	color.FgRed.Println("❌  gosh: " + command + "")
 	color.FgBlue.Print("  |   ")
-	color.FgBlue.Print("       " + highlightThing)
+	color.FgLightBlue.Print("       " + highlightThing)
 	color.FgRed.Print("      Error: ")
 	fmt.Println("command not found")
 }
