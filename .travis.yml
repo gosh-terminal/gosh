@@ -1,2 +1,2 @@
 language: go
-script: ./setup.sh && gosh && exit
+script: ./setup.sh && gosh < "exit\n"
