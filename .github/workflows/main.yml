@@ -1,0 +1,16 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: PR updater
+      uses: maxkomarychev/pr-updater-action@v1.0.0
+      with:
+        # Token to perform api calls
+        token: "${{ secrets.GITHUB_TOKEN }}"
