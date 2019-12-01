@@ -9,7 +9,8 @@ import (
 
 	"github.com/gookit/color"
 )
-
+// Preconditions: GOPATH env variable must be set
+// Postconditions: File must be empty
 func clearHistory() string {
 	var gopath string = os.Getenv("GOPATH")
 	f, _ := os.OpenFile(gopath+"/bin/history.txt",
