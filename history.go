@@ -10,12 +10,13 @@ import (
 	"github.com/gookit/color"
 )
 
-func clearHistory() {
+func clearHistory() string {
 	var gopath string = os.Getenv("GOPATH")
 	f, _ := os.OpenFile(gopath+"/bin/history.txt",
 		os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	f.Truncate(0)
 	fmt.Printf("%s ✔\n", color.FgYellow.Render("History has been cleared"))
+	return "History has been cleared ✔\n"
 }
 func history() {
 	var gopath string = os.Getenv("GOPATH")
