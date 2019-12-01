@@ -1,6 +1,16 @@
 package main
-import "github.com/gookit/color"
+
+import (
+	"fmt"
+	"github.com/gookit/color"
+)
+
 func help() {
-	color.FgMagenta.Println("Commands:")
-	color.FgYellow.Println("help: displays this help screen\nexit: exits the terminal\nhistory: displays commands you have previously run\nclearhist: clears your history")
+	fmt.Printf("   %s   %s        %s\n", color.FgGreen.Render("#"), color.FgGreen.Render("command"), color.FgGreen.Render("description"))
+	fmt.Println(" ╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮")
+	fmt.Printf(" │ %s │ help       │  displays this help msg                       │\n", color.FgGreen.Render("1"))
+	fmt.Printf(" │ %s │ exit       │  exits the terminal                           │\n", color.FgGreen.Render("2"))
+	fmt.Printf(" │ %s │ history    │  displays commands you have previously run    │\n", color.FgGreen.Render("3"))
+	fmt.Printf(" │ %s │ clearhist  │  clears your command history                  │\n", color.FgGreen.Render("4"))
+	fmt.Println(" ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯")
 }

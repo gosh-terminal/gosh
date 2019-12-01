@@ -1,6 +1,0 @@
-
-ls
-git
-git pull
-l
-ld
