@@ -25,3 +25,14 @@ func TestSplitCommand(t *testing.T) {
 	}
 	fmt.Println("Passed")
 }
+func testCaptureOutput(t *testing.T)  {
+	got,err := captureOutput("cat ci/data")
+	want := "test\n"
+	if err != nil {
+		t.Errorf("got %q want %q", got, want)
+	}
+	if string(got) != want {
+        t.Errorf("got %q want %q", got, want)
+	}
+	fmt.Println("Passed")
+}
