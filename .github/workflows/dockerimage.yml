@@ -5,10 +5,12 @@ on: [push]
 jobs:
 
   build:
-
+    name: Build Docker images
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v1
-    - name: Build the Docker image
+    - name: Build the Gitpod image
       run: docker build . --file .gitpod.Dockerfile --tag gitpod-image:$(date +%s)
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag official-image:$(date +%s)
