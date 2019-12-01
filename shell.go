@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-func shell()  {
+func shell() {
 	fmt.Println("Welcome to gosh the Go Shell!")
 	fmt.Println("-----------------------------")
 	for {

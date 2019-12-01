@@ -9,6 +9,7 @@ import (
 
 	"github.com/gookit/color"
 )
+
 // Preconditions: GOPATH env variable must be set
 // Postconditions: File must be empty
 func clearHistory() string {
