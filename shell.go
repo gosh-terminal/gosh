@@ -3,24 +3,24 @@ package main
 import (
 	"fmt"
 	"github.com/c-bata/go-prompt"
-	"github.com/gookit/color"
+	"github.com/manifoldco/promptui"
 	"os"
 	"strings"
 )
 
-func main() {
+func shell()  {
 	fmt.Println("Welcome to gosh the Go Shell!")
 	fmt.Println("-----------------------------")
 	for {
 		thePrompt()
 		command := prompt.Input("", completer, prompt.OptionHistory(getCommandHist()), prompt.OptionSuggestionBGColor(prompt.DefaultColor),
 			prompt.OptionInputTextColor(prompt.Cyan),
-			prompt.OptionMaxSuggestion(4),
+			prompt.OptionMaxSuggestion(6),
 			prompt.OptionTitle("gosh"),
 			prompt.OptionAddKeyBind(prompt.KeyBind{
 				Key: prompt.ControlC,
 				Fn: func(buf *prompt.Buffer) {
-					os.Exit(0)
+					return
 				}}),
 			prompt.OptionPreviewSuggestionTextColor(prompt.DefaultColor),
 			prompt.OptionScrollbarBGColor(prompt.DefaultColor))
@@ -29,7 +29,19 @@ func main() {
 			help()
 			updateHistory(command)
 		} else if strings.Compare("exit", command) == 0 {
-			os.Exit(1)
+			prompt := promptui.Select{
+				Label: "Are you sure?",
+				Items: []string{"Yes", "No"},
+			}
+			_, result, err := prompt.Run()
+			if err != nil {
+				println("ERROR")
+			}
+			if result == "Yes" {
+				os.Exit(0)
+			} else {
+				continue
+			}
 		} else if strings.Compare("ls", command) == 0 {
 			ls(".")
 			updateHistory(command)
@@ -42,12 +54,12 @@ func main() {
 		} else if strings.HasPrefix(command, "cd ") {
 			var dir string = getArg(command)
 			if dir == "error" {
-				color.FgRed.Println("gosh: cd: directory not specified")
+				directoryNotFound(dir)
 			}
 			err := os.Chdir(dir)
 			if err != nil {
 				if strings.HasSuffix(string(err.Error()), "file or directory") {
-					color.FgRed.Println("gosh: " + command + ": directory not found")
+					directoryNotFound(dir)
 				}
 			}
 			updateHistory(command)
@@ -57,22 +69,29 @@ func main() {
 			continue
 		} else if strings.Compare(command, "clearhist") == 0 {
 			clearHistory()
-			fmt.Println("history has been cleared")
 		} else if command == "setlscolor" {
 			// WIP
+		} else if strings.Contains(command, " > ") {
+			data, err := splitCommandFile(command)
+			if err != nil {
+				pipeError(command)
+				updateHistory(command)
+				continue
+			}
+			captureOutput, err := captureOutput(data[0])
+			if err != nil {
+				commandNotFound(command)
+			}
+			redirectToFile(captureOutput, data[1])
+			updateHistory(command)
+			continue
 		} else {
 			if err := executeCommand(command); err != nil {
 				if strings.HasSuffix(string(err.Error()), "executable file not found in $PATH") {
-					color.FgRed.Println("gosh: " + command + ": command not found")
+					commandNotFound(command)
 				}
 			}
 			updateHistory(command)
 		}
-	}
-}
-
-func printError(err error) {
-	if err != nil {
-		os.Stderr.WriteString(fmt.Sprintf("%s\n", err.Error()))
 	}
 }
