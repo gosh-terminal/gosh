@@ -40,7 +40,7 @@ func thePrompt() {
 			gitHeadString += scanner.Text()
 		}
 		dataStr := strings.Split(strings.Trim(gitHeadString, "\n"), "/")
-		color.FgGreen.Printf("gosh%s%s %s ",color.FgMagenta.Render("@"), color.FgYellow.Render(dataStr[len(dataStr)-1]), blue("λ"))
+		color.FgGreen.Printf("gosh%s%s %s ", color.FgMagenta.Render("@"), color.FgYellow.Render(dataStr[len(dataStr)-1]), blue("λ"))
 		return
 	}
 	color.FgGreen.Printf("gosh %s ", blue("λ"))
