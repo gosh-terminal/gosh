@@ -34,7 +34,7 @@ make setup
 ```bash
 curl -s "https://raw.githubusercontent.com/JesterOrNot/gosh/master/build" | sh
 ```
-### Install dependencies
+## Install dependencies
 
 ```bash
 sudo make install_deps
