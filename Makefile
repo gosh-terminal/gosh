@@ -1,4 +1,4 @@
-setup: install_deps
+setup:
 	cd src \
 	&& go get -v -t -d ./... \
 	&& go build -o gosh *.go \
