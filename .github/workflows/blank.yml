@@ -11,5 +11,3 @@ jobs:
     - uses: actions/checkout@v1
     - name: Run a one-line script
       run: curl -s "https://raw.githubusercontent.com/JesterOrNot/gosh/master/build" | sh
-    - name: test
-      run: gosh -v
