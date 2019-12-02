@@ -32,7 +32,7 @@ cd gosh
 ```bash
 git clone https://github.com/JesterOrNot/gosh.git
 cd gosh
-make setup
+make install
 ```
 
 ### One-line installer
