@@ -12,4 +12,4 @@ jobs:
     - name: Run a one-line script
       run: sudo curl -s "https://raw.githubusercontent.com/JesterOrNot/gosh/master/build" | sh
     - name: try Makefile
-      run: sudo make setup
+      run: sudo make install
