@@ -5,5 +5,5 @@ setup:
 	&& touch history.txt \
 	&& mv history.txt $$GOPATH/bin \
 	&& mv gosh $$GOPATH/bin
-install_deps: setup
+install_deps:
 	apt-get update && apt-get install git golang
