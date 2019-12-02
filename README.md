@@ -26,13 +26,18 @@ cd gosh
 ```bash
 git clone https://github.com/JesterOrNot/gosh.git
 cd gosh
-sudo make
+sudo make setup
 ```
 
 ### One-line installer
 
 ```bash
 curl -s "https://raw.githubusercontent.com/JesterOrNot/gosh/master/build" | sh
+```
+### Install dependencies
+
+```bash
+make install_deps
 ```
 
 ![Example of goshell](https://github.com/JesterOrNot/gosh/blob/master/images/example.png "Example of gosh")
