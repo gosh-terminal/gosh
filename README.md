@@ -21,7 +21,7 @@ cd gosh
 
 ### One-line installer
 
-```
+```bash
 curl -s "https://raw.githubusercontent.com/JesterOrNot/gosh/master/build" | sh
 ```
 
