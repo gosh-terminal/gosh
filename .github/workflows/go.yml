@@ -25,4 +25,6 @@ jobs:
         fi
 
     - name: Build
-      run: go build -o bin/gosh *.go
+      run: cd src && go build -o bin/gosh *.go
+    - name: Test
+      run: cd src && go test

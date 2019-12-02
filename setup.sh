@@ -1,6 +1,7 @@
 #!/bin/bash
+cd src
 go get -v -t -d ./...
-go install
+go build -o gosh *.go
 touch history.txt
 mv history.txt "$GOPATH"/bin
-gosh
+mv gosh "$GOPATH"/bin
