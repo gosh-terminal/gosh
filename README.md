@@ -11,10 +11,18 @@ searching the web but have these things be built into your terminal.
 
 ## Install
 
+### Build from source
+
 ```bash
 git clone https://github.com/JesterOrNot/gosh.git
 cd gosh
 ./setup.sh
+```
+
+### One-line installer
+
+```
+curl -s "https://raw.githubusercontent.com/JesterOrNot/gosh/master/build" | sh
 ```
 
 ![Example of goshell](https://github.com/JesterOrNot/gosh/blob/master/images/example.png "Example of gosh")
