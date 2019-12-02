@@ -13,10 +13,20 @@ searching the web but have these things be built into your terminal.
 
 ### Build from source
 
+#### V1
+
 ```bash
 git clone https://github.com/JesterOrNot/gosh.git
 cd gosh
 ./setup.sh
+```
+
+#### V2
+
+```bash
+git clone https://github.com/JesterOrNot/gosh.git
+cd gosh
+sudo make
 ```
 
 ### One-line installer
