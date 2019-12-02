@@ -1,0 +1,11 @@
+#!/bin/bash
+git clone https://github.com/JesterOrNot/gosh.git
+cd gosh/src
+go get -v -t -d ./...
+go build -o gosh *.go
+touch history.txt
+mv history.txt "$GOPATH"/bin
+mv gosh "$GOPATH"/bin
+cd ..
+cd ..
+rm -rf gosh
