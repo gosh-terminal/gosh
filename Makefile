@@ -1,4 +1,4 @@
-setup:
+install:
 	cd src \
 	&& go get -v -t -d ./... \
 	&& go build -o gosh *.go \
