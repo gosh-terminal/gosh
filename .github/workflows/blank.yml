@@ -10,6 +10,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Run a one-line script
-      run: curl -s "https://raw.githubusercontent.com/JesterOrNot/gosh/master/build" | sh
+      run: sudo curl -s "https://raw.githubusercontent.com/JesterOrNot/gosh/master/build" | sh
     - name: try Makefile
       run: sudo make
