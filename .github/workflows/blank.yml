@@ -1,4 +1,4 @@
-name: CI
+name: Test oneline curl script
 
 on: [push]
 
@@ -9,5 +9,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: curl -s "https://raw.githubusercontent.com/JesterOrNot/gosh/master/build" | sh
+    - name: Run a one-line install script
+      run: curl -s "https://raw.githubusercontent.com/JesterOrNot/gosh/master/build" | sh \
+           && gosh
+      
