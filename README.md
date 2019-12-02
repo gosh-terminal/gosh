@@ -41,4 +41,4 @@ make setup
 curl -s "https://raw.githubusercontent.com/JesterOrNot/gosh/master/build" | sh
 ```
 
-![Example of goshell](https://github.com/JesterOrNot/gosh/blob/master/images/example.png "Example of gosh")
+![Example of goshell](https://github.com/JesterOrNot/gosh/blob/master/images/example.png?raw=true "Example of gosh")
