@@ -89,11 +89,11 @@ func shell() {
 			treeView(".", 0)
 			updateHistory(command)
 			continue
-		} else if strings.HasPrefix(command, "touch ") {
+		} else if strings.HasPrefix(command, "touch") {
 			touch(command)
 			updateHistory(command)
 			continue
-		} else if strings.HasPrefix(command, "mkdir ") {
+		} else if strings.HasPrefix(command, "mkdir") {
 			mkdir(command)
 			updateHistory(command)
 			continue
