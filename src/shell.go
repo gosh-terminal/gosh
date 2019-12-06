@@ -87,6 +87,9 @@ func shell()  {
 			continue
 		} else if command == "tree" {
 			treeView(".",0)
+		} else if strings.HasPrefix(command, "touch") {
+			fileName := getArg(command)
+			touch(fileName)
 		} else {
 			if err := executeCommand(command); err != nil {
 				if strings.HasSuffix(string(err.Error()), "executable file not found in $PATH") {
