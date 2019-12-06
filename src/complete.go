@@ -40,6 +40,7 @@ func completer(d prompt.Document) []prompt.Suggest {
 	}
 	return prompt.FilterHasPrefix(unique(s), d.GetWordBeforeCursor(), true)
 }
+
 func getCommandHist() []string {
 	s := []string{}
 	var gopath string = os.Getenv("GOPATH")
