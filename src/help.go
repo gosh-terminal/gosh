@@ -12,5 +12,6 @@ func help() {
 	fmt.Printf(" │ %s │ exit       │  exits the terminal                           │\n", color.FgGreen.Render("2"))
 	fmt.Printf(" │ %s │ history    │  displays commands you have previously run    │\n", color.FgGreen.Render("3"))
 	fmt.Printf(" │ %s │ clearhist  │  clears your command history                  │\n", color.FgGreen.Render("4"))
+	fmt.Printf(" │ %s │ tree       │  shows files as tree view                     │\n", color.FgGreen.Render("5"))
 	fmt.Println(" ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯")
 }
