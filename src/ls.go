@@ -45,3 +45,16 @@ func ls(path string) {
 	}
 	fmt.Println(" ╰━━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━╯")
 }
+func treeView(path string, tabNumbers int) {
+	files, err := ioutil.ReadDir(path)
+	if err != nil {
+		fmt.Println("UNKNOWN ERROR HAS OCCURED!")
+	}
+	for _, file := range files {
+		tabsThing := strings.Repeat("    ", tabNumbers)
+		fmt.Println(tabsThing, file.Name())
+		if file.IsDir() {
+			treeView(path+"/"+file.Name(), tabNumbers+1)
+		}
+	}
+}
