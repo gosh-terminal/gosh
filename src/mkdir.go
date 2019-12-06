@@ -20,4 +20,4 @@ func mkdir(dirnames string) {
 	} else {
 		color.FgYellow.Println("directory", dirname[1], "has been created! ✔")
 	}
-} 
+}

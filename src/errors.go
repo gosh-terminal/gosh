@@ -6,6 +6,7 @@ import (
 
 	"github.com/gookit/color"
 )
+
 func invalidNumberOfArgs(command string) {
 	stringLen := len(command)
 	highlightThing := strings.Repeat("^", stringLen)
