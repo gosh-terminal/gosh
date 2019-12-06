@@ -14,5 +14,6 @@ func help() {
 	fmt.Printf(" │ %s │ clearhist  │  clears your command history                  │\n", color.FgGreen.Render("4"))
 	fmt.Printf(" │ %s │ tree       │  shows files as tree view                     │\n", color.FgGreen.Render("5"))
 	fmt.Printf(" │ %s │ touch      │  creates an new file                          │\n", color.FgGreen.Render("6"))
+	fmt.Printf(" │ %s │ mkdir      │  creates an new directory                     │\n", color.FgGreen.Render("7"))
 	fmt.Println(" ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯")
 }
