@@ -85,6 +85,8 @@ func shell()  {
 			redirectToFile(captureOutput, data[1])
 			updateHistory(command)
 			continue
+		} else if command == "tree" {
+			treeView(".",0)
 		} else {
 			if err := executeCommand(command); err != nil {
 				if strings.HasSuffix(string(err.Error()), "executable file not found in $PATH") {
