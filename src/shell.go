@@ -87,7 +87,7 @@ func shell()  {
 			continue
 		} else if command == "tree" {
 			treeView(".",0)
-		} else if strings.HasPrefix(command, "touch") {
+		} else if strings.HasPrefix(command, "touch ") {
 			fileName := getArg(command)
 			touch(fileName)
 		} else {
