@@ -3,6 +3,8 @@ image:
 tasks:
   - init: gem install bundler jekyll && mkdir ../go ../go/bin && ./setup.sh
     command: gosh
+    command: cd docs && bundle exec jekyll serve
+  - openIn: left
 ports:
   - port: 8080
     onOpen: ignore
