@@ -24,7 +24,7 @@ sudo make install_deps
 #### Install with setup script
 
 ```bash
-git clone https://github.com/JesterOrNot/gosh.git
+git clone https://github.com/gosh-terminal/gosh.git
 cd gosh
 ./setup.sh
 ```
@@ -32,7 +32,7 @@ cd gosh
 #### Install with Make
 
 ```bash
-git clone https://github.com/JesterOrNot/gosh.git
+git clone https://github.com/gosh-terminal/gosh.git
 cd gosh
 make install
 ```
@@ -40,7 +40,7 @@ make install
 ### One-line curl installer
 
 ```bash
-curl -s "https://raw.githubusercontent.com/JesterOrNot/gosh/master/build" | sh
+curl -s "https://raw.githubusercontent.com/JesterOrNot/gosh-terminal/master/build" | sh
 ```
 
-![Example of goshell](https://github.com/JesterOrNot/gosh/blob/master/images/example.png?raw=true)
+![Example of goshell](https://github.com/JesterOrNot/gosh-terminal/blob/master/images/example.png?raw=true)
