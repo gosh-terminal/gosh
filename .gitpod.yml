@@ -6,6 +6,8 @@ tasks:
 ports:
   - port: 8080
     onOpen: ignore
+  - port: 4000
+    onOpen: open-preview
 vscode:
   extensions:
     - kosz78.nim@0.6.4:J4mmxMK624S+XisrptVQ/Q==
