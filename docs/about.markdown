@@ -14,5 +14,4 @@ latest build in a VSCode like editor all from your browser.
 File an issue or request more features here on
 [GitHub](https://github.com/JesterOrNot/gosh/issues/new/choose)!
 
-
 <!--WIP-->
