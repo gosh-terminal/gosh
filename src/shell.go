@@ -8,7 +8,7 @@ import (
 	"strings"
 )
 
-func shell()  {
+func shell() {
 	fmt.Println("Welcome to gosh the Go Shell!")
 	fmt.Println("-----------------------------")
 	for {
@@ -86,7 +86,17 @@ func shell()  {
 			updateHistory(command)
 			continue
 		} else if command == "tree" {
-			treeView(".",0)
+			treeView(".", 0)
+			updateHistory(command)
+			continue
+		} else if strings.HasPrefix(command, "touch") {
+			touch(command)
+			updateHistory(command)
+			continue
+		} else if strings.HasPrefix(command, "mkdir") {
+			mkdir(command)
+			updateHistory(command)
+			continue
 		} else {
 			if err := executeCommand(command); err != nil {
 				if strings.HasSuffix(string(err.Error()), "executable file not found in $PATH") {
