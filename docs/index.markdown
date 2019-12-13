@@ -1,6 +1,7 @@
 ---
 layout: default
 ---
+
 # gosh
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e77cb20b738d47138194279fa764990c)](https://www.codacy.com/manual/seanhellum45/gosh?utm_source=github.com&utm_medium=referral&utm_content=JesterOrNot/gosh&utm_campaign=Badge_Grade)
