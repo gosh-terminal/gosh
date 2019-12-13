@@ -1,11 +1,8 @@
 image:
   file: .gitpod.Dockerfile
 tasks:
-  - init: gem install bundler jekyll && mkdir ../go ../go/bin && ./setup.sh
+  - init: mkdir ../go ../go/bin && ./setup.sh
     command: gosh
-    name: docs
-  - openMode: split-right
-    command: cd docs && bundle install && bundle exec jekyll serve
 ports:
   - port: 8080
     onOpen: ignore
