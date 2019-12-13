@@ -3,6 +3,7 @@ layout: page
 title: Contributing
 permalink: /contributing/
 ---
+
 Welcome to gosh!
 
 For speedy contributions open it in Gitpod, gosh will be pre-installed with the
