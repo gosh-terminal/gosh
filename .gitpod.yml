@@ -1,6 +1,7 @@
 image:
   file: .gitpod.Dockerfile
 tasks:
+  - init: gem install bundler jekyll
   - init: mkdir ../go ../go/bin && ./setup.sh
     command: gosh
 ports:
