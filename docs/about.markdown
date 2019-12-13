@@ -4,7 +4,7 @@ title: Contributing
 permalink: /contributing/
 ---
 
-Welcome to gosh!
+# Welcome to gosh!
 
 For speedy contributions open it in Gitpod, gosh will be pre-installed with the
 latest build in a VSCode like editor all from your browser.
@@ -13,5 +13,6 @@ latest build in a VSCode like editor all from your browser.
 
 File an issue or request more features here on
 [GitHub](https://github.com/JesterOrNot/gosh/issues/new/choose)!
+
 
 <!--WIP-->
