@@ -6,7 +6,7 @@ RUN apt-get update \
 
 ENV GOPATH=$HOME/go
 ENV PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-RUN git clone https://github.com/JesterOrNot/gosh.git \
+RUN git clone https://github.com/gosh-terminal/gosh.git \
     && cd gosh \
     && ./setup.sh
 CMD [ "gosh", "-v" ]
