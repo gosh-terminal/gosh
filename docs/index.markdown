@@ -1,7 +1,6 @@
 ---
 layout: default
 ---
-
 # gosh
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/e77cb20b738d47138194279fa764990c)](https://www.codacy.com/manual/seanhellum45/gosh?utm_source=github.com&utm_medium=referral&utm_content=JesterOrNot/gosh&utm_campaign=Badge_Grade)
@@ -25,7 +24,7 @@ sudo make install_deps
 
 ### Build from source
 
-#### V1
+#### Install with setup script
 
 ```bash
 git clone https://github.com/JesterOrNot/gosh.git
@@ -33,7 +32,7 @@ cd gosh
 ./setup.sh
 ```
 
-#### V2
+#### Install with Make
 
 ```bash
 git clone https://github.com/JesterOrNot/gosh.git
@@ -41,7 +40,7 @@ cd gosh
 make install
 ```
 
-### One-line installer
+### One-line curl installer
 
 ```bash
 curl -s "https://raw.githubusercontent.com/JesterOrNot/gosh/master/build" | sh
