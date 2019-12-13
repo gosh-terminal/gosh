@@ -21,7 +21,7 @@ sudo make install_deps
 
 ### Build from source
 
-#### V1
+#### Install with setup script
 
 ```bash
 git clone https://github.com/JesterOrNot/gosh.git
@@ -29,7 +29,7 @@ cd gosh
 ./setup.sh
 ```
 
-#### V2
+#### Install with Make
 
 ```bash
 git clone https://github.com/JesterOrNot/gosh.git
@@ -37,7 +37,7 @@ cd gosh
 make install
 ```
 
-### One-line installer
+### One-line curl installer
 
 ```bash
 curl -s "https://raw.githubusercontent.com/JesterOrNot/gosh/master/build" | sh
