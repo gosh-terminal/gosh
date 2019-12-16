@@ -1,4 +1,22 @@
 #!/bin/bash
+echo -e "\e[1m\e[92m
+        GGGGGGGGGGGGG                                 hhhhhhh
+     GGG::::::::::::G                                 h:::::h
+   GG:::::::::::::::G                                 h:::::h
+  G:::::GGGGGGGG::::G                                 h:::::h
+ G:::::G       GGGGGG   ooooooooooo       ssssssssss   h::::h hhhhh
+ G:::::G               oo:::::::::::oo   ss::::::::::s  h::::hh:::::hhh
+ G:::::G              o:::::::::::::::oss:::::::::::::s h::::::::::::::hh
+ G:::::G    GGGGGGGGGGo:::::ooooo:::::os::::::ssss:::::sh:::::::hhh::::::h
+ G:::::G    G::::::::Go::::o     o::::o s:::::s  ssssss h::::::h   h::::::h
+ G:::::G    GGGGG::::Go::::o     o::::o   s::::::s      h:::::h     h:::::h
+ G:::::G        G::::Go::::o     o::::o      s::::::s   h:::::h     h:::::h
+ G:::::G       G::::Go::::o     o::::ossssss   s:::::s h:::::h     h:::::h
+  G:::::GGGGGGGG::::Go:::::ooooo:::::os:::::ssss::::::sh:::::h     h:::::h
+   GG:::::::::::::::Go:::::::::::::::os::::::::::::::s h:::::h     h:::::h
+     GGG::::::GGG:::G oo:::::::::::oo  s:::::::::::ss  h:::::h     h:::::h
+        GGGGGG   GGGG   ooooooooooo     sssssssssss    hhhhhhh     hhhhhhh
+\e[21m\e[39m"
 git clone https://github.com/gosh-terminal/gosh.git
 cd gosh/src
 go get -v -t -d ./...
