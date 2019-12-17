@@ -1,8 +1,7 @@
 #!/bin/bash
 randNum=$((1 + RANDOM % 19))
-if [ $randNum -eq 1 ]
-  then
-    echo -e "\e[1m\e[92m
+if [ $randNum -eq 1 ]; then
+	echo -e "\e[1m\e[92m
           GGGGGGGGGGGGG                                 hhhhhhh
       GGG::::::::::::G                                 h:::::h
     GG:::::::::::::::G                                 h:::::h
@@ -20,36 +19,32 @@ if [ $randNum -eq 1 ]
       GGG::::::GGG:::G oo:::::::::::oo  s:::::::::::ss  h:::::h     h:::::h
           GGGGGG   GGGG   ooooooooooo     sssssssssss    hhhhhhh     hhhhhhh
   \e[39m"
-elif [ $randNum -eq 2 ]
-  then
-    echo -e "\e[1m\e[92m
+elif [ $randNum -eq 2 ]; then
+	echo -e "\e[1m\e[92m
   ____           _
  / ___| ___  ___| |__
 | |  _ / _ \/ __| '_ \\
 | |_| | (_) \__ \ | | |
  \____|\___/|___/_| |_|
  \e[39m"
-elif [ $randNum -eq 3 ]
-  then
-    echo -e "\e[1m\e[92m
+elif [ $randNum -eq 3 ]; then
+	echo -e "\e[1m\e[92m
        ______           __
       / ____/___  _____/ /_
      / / __/ __ \\/ ___/ __ \\
     / /_/ / /_/ (__  ) / / /
     \\____/\\____/____/_/ /_/
     \e[39m"
-elif [ $randNum -eq 4 ]
-  then
-    echo -e "\e[1m\e[92m
+elif [ $randNum -eq 4 ]; then
+	echo -e "\e[1m\e[92m
     //   ) )
    //         ___      ___     / __
   //  ____  //   ) ) ((   ) ) //   ) )
  //    / / //   / /   \ \    //   / /
 ((____/ / ((___/ / //   ) ) //   / /
     \e[39m"
-elif [ $randNum -eq 5 ]
-  then
-    echo -e "\e[1m\e[92m
+elif [ $randNum -eq 5 ]; then
+	echo -e "\e[1m\e[92m
        >===>
      >>    >=>                     >=>
     >=>            >=>      >===>  >=>
@@ -59,9 +54,8 @@ elif [ $randNum -eq 5 ]
       >====>       >=>     >=> >=> >=>  >=>
 
     \e[39m"
-elif [ $randNum -eq 6 ]
-  then
-      echo -e '\e[1m\e[92m
+elif [ $randNum -eq 6 ]; then
+	echo -e '\e[1m\e[92m
    /\\\\
  /\    /\\                        /\\
 /\\             /\\       /\\\\   /\\
@@ -70,9 +64,8 @@ elif [ $randNum -eq 6 ]
  /\\    /\    /\\  /\\       /\\  /\   /\\
    /\\\\\        /\\      /\\ /\\  /\\  /\\
 \e[39m'
-elif [ $randNum -eq 7 ]
-  then
-      echo -e '\e[1m\e[92m
+elif [ $randNum -eq 7 ]; then
+	echo -e '\e[1m\e[92m
  _____                 _
 |  __ \               | |
 | |  \/   ___    ___  | |__
@@ -80,9 +73,8 @@ elif [ $randNum -eq 7 ]
 | |_\ \ | (_) | \__ \ | | | |
  \____/  \___/  |___/ |_| |_|
 \e[39m'
-elif [ $randNum -eq 8 ]
-  then
-      echo -e '\e[1m\e[92m
+elif [ $randNum -eq 8 ]; then
+	echo -e '\e[1m\e[92m
  _ (_)(_)(_) _                                (_)
 (_)         (_)    _  _  _       _  _  _  _   (_) _  _  _
 (_)    _  _  _  _ (_)(_)(_) _  _(_)(_)(_)(_)  (_)(_)(_)(_)_
@@ -92,17 +84,15 @@ elif [ $randNum -eq 8 ]
    (_)(_)(_)(_)   (_)(_)(_)     (_)(_)(_)(_)  (_)        (_)
 
 \e[39m'
-elif [ $randNum -eq 9 ]
-  then
-      echo -e '\e[1m\e[92m
+elif [ $randNum -eq 9 ]; then
+	echo -e '\e[1m\e[92m
  ___               _
 /  _>   ___   ___ | |_
 | <_/\ / . \ <_-< | . |
 `____/ \___/ /__/ |_|_|
 \e[39m'
-elif [ $randNum -eq 10 ]
-  then
-      echo -e '\e[1m\e[92m
+elif [ $randNum -eq 10 ]; then
+	echo -e '\e[1m\e[92m
  _______    _______    _______
 (  ____ \  (  ___  )  (  ____ \  |\     /|
 | (    \/  | (   ) |  | (    \/  | )   ( |
@@ -112,27 +102,24 @@ elif [ $randNum -eq 10 ]
 | (___) |  | (___) |  /\____) |  | )   ( |
 (_______)  (_______)  \_______)  |/     \|
 \e[39m'
-elif [ $randNum -eq 11 ]
-  then
-      echo -e '\e[1m\e[92m
+elif [ $randNum -eq 11 ]; then
+	echo -e '\e[1m\e[92m
        dBBBBb  dBBBBP.dBBBBP   dBP dBP
               dBP.BP BP
    d BBBB   dBP.BP  BBBBb  dBBBBBP
    dB  BB  dBP.BP      dBP dBP dBP
   dBBBBBB dBBBBP  dBBBBP dBP dBP
 \e[39m'
-elif [ $randNum -eq 12 ]
-  then
-      echo -e '\e[1m\e[92m
+elif [ $randNum -eq 12 ]; then
+	echo -e '\e[1m\e[92m
 eeeee eeeee eeeee e   e
 8   8 8  88 8   " 8   8
 8e    8   8 8eeee 8eee8
 88 "8 8   8    88 88  8
 88ee8 8eee8 8ee88 88  8
 \e[39m'
-elif [ $randNum -eq 13 ]
-  then
-      echo -e '\e[1m\e[92m
+elif [ $randNum -eq 13 ]; then
+	echo -e '\e[1m\e[92m
               #
               #
  ###  ##  ### ###
@@ -142,9 +129,8 @@ elif [ $randNum -eq 13 ]
    #
 ####
 \e[39m'
-elif [ $randNum -eq 14 ]
-  then
-      echo -e '\e[1m\e[92m
+elif [ $randNum -eq 14 ]; then
+	echo -e '\e[1m\e[92m
                           [..
    [..      [..     [.... [..
  [..  [.. [..  [.. [..    [. [.
@@ -153,16 +139,14 @@ elif [ $randNum -eq 14 ]
      [..    [..    [.. [..[..  [..
   [..
 \e[39m'
-elif [ $randNum -eq 15 ]
-  then
-      echo -e '\e[1m\e[92m
+elif [ $randNum -eq 15 ]; then
+	echo -e '\e[1m\e[92m
   ______  _____  _______ _     _
  |  ____ |     | |______ |_____|
  |_____| |_____| ______| |     |
 \e[39m'
-elif [ $randNum -eq 16 ]
-  then
-      echo -e '\e[1m\e[92m
+elif [ $randNum -eq 16 ]; then
+	echo -e '\e[1m\e[92m
                               oooo        
                               8888        
  .oooooooo  .ooooo.   .oooo.o  888 .oo.   
@@ -173,9 +157,8 @@ elif [ $randNum -eq 16 ]
 d8     YD                                 
 8Y88888P8
 \e[39m'
-elif [ $randNum -eq 17 ]
-  then
-      echo -e '\e[1m\e[92m
+elif [ $randNum -eq 17 ]; then
+	echo -e '\e[1m\e[92m
                                           / 
                                         /   
            ____     ____     ____     / __  
@@ -186,16 +169,15 @@ elif [ $randNum -eq 17 ]
  /     /                                    
 (___,/ 
 \e[39m'
-elif [ $randNum -eq 18 ]
-  then
-      echo -e '\e[1m\e[92m
+elif [ $randNum -eq 18 ]; then
+	echo -e '\e[1m\e[92m
   ___   __   ____  _  _ 
  / __) /  \ / ___)/ )( \
 ( (_ \(  O )\___ \) __ (
  \___/ \__/ (____/\_)(_/
 \e[39m'
 else
-  echo -e "\e[1m\e[92m
+	echo -e "\e[1m\e[92m
       ::::::::        ::::::::        ::::::::        :::    :::
     :+:    :+:      :+:    :+:      :+:    :+:       :+:    :+:
    +:+             +:+    +:+      +:+              +:+    +:+
