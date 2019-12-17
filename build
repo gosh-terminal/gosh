@@ -1,22 +1,108 @@
 #!/bin/bash
-echo -e "\e[1m\e[92m
-        GGGGGGGGGGGGG                                 hhhhhhh
-     GGG::::::::::::G                                 h:::::h
-   GG:::::::::::::::G                                 h:::::h
-  G:::::GGGGGGGG::::G                                 h:::::h
- G:::::G       GGGGGG   ooooooooooo       ssssssssss   h::::h hhhhh
- G:::::G               oo:::::::::::oo   ss::::::::::s  h::::hh:::::hhh
- G:::::G              o:::::::::::::::oss:::::::::::::s h::::::::::::::hh
- G:::::G    GGGGGGGGGGo:::::ooooo:::::os::::::ssss:::::sh:::::::hhh::::::h
- G:::::G    G::::::::Go::::o     o::::o s:::::s  ssssss h::::::h   h::::::h
- G:::::G    GGGGG::::Go::::o     o::::o   s::::::s      h:::::h     h:::::h
- G:::::G        G::::Go::::o     o::::o      s::::::s   h:::::h     h:::::h
- G:::::G       G::::Go::::o     o::::ossssss   s:::::s h:::::h     h:::::h
-  G:::::GGGGGGGG::::Go:::::ooooo:::::os:::::ssss::::::sh:::::h     h:::::h
-   GG:::::::::::::::Go:::::::::::::::os::::::::::::::s h:::::h     h:::::h
-     GGG::::::GGG:::G oo:::::::::::oo  s:::::::::::ss  h:::::h     h:::::h
-        GGGGGG   GGGG   ooooooooooo     sssssssssss    hhhhhhh     hhhhhhh
-\e[21m\e[39m"
+randNum=$((1 + RANDOM % 9))
+if [[ $randNum -eq 1 ]]
+  then
+    echo -e "\e[1m\e[92m
+          GGGGGGGGGGGGG                                 hhhhhhh
+      GGG::::::::::::G                                 h:::::h
+    GG:::::::::::::::G                                 h:::::h
+    G:::::GGGGGGGG::::G                                 h:::::h
+  G:::::G       GGGGGG   ooooooooooo       ssssssssss   h::::h hhhhh
+  G:::::G               oo:::::::::::oo   ss::::::::::s  h::::hh:::::hhh
+  G:::::G              o:::::::::::::::oss:::::::::::::s h::::::::::::::hh
+  G:::::G    GGGGGGGGGGo:::::ooooo:::::os::::::ssss:::::sh:::::::hhh::::::h
+  G:::::G    G::::::::Go::::o     o::::o s:::::s  ssssss h::::::h   h::::::h
+  G:::::G    GGGGG::::Go::::o     o::::o   s::::::s      h:::::h     h:::::h
+  G:::::G        G::::Go::::o     o::::o      s::::::s   h:::::h     h:::::h
+  G:::::G       G::::Go::::o     o::::ossssss   s:::::s h:::::h     h:::::h
+    G:::::GGGGGGGG::::Go:::::ooooo:::::os:::::ssss::::::sh:::::h     h:::::h
+    GG:::::::::::::::Go:::::::::::::::os::::::::::::::s h:::::h     h:::::h
+      GGG::::::GGG:::G oo:::::::::::oo  s:::::::::::ss  h:::::h     h:::::h
+          GGGGGG   GGGG   ooooooooooo     sssssssssss    hhhhhhh     hhhhhhh
+  \e[39m"
+elif [[ $randNum -eq 2 ]]
+  then
+    echo -e "\e[1m\e[92m
+  ____           _
+ / ___| ___  ___| |__
+| |  _ / _ \/ __| '_ \\
+| |_| | (_) \__ \ | | |
+ \____|\___/|___/_| |_|
+ \e[39m"
+elif [[ $randNum -eq 3 ]]
+  then
+    echo -e "\e[1m\e[92m
+       ______           __
+      / ____/___  _____/ /_
+     / / __/ __ \\/ ___/ __ \\
+    / /_/ / /_/ (__  ) / / /
+    \\____/\\____/____/_/ /_/
+    \e[39m"
+elif [[ $randNum -eq 4 ]]
+  then
+    echo -e "\e[1m\e[92m
+    //   ) )
+   //         ___      ___     / __
+  //  ____  //   ) ) ((   ) ) //   ) )
+ //    / / //   / /   \ \    //   / /
+((____/ / ((___/ / //   ) ) //   / /
+    \e[39m"
+elif [[ $randNum -eq 5 ]]
+  then
+    echo -e "\e[1m\e[92m
+       >===>
+     >>    >=>                     >=>
+    >=>            >=>      >===>  >=>
+    >=>          >=>  >=>  >=>     >=>>=>
+    >=>   >===> >=>    >=>   >==>  >=>  >=>
+     >=>    >>   >=>  >=>      >=> >>   >=>
+      >====>       >=>     >=> >=> >=>  >=>
+
+    \e[39m"
+elif [[ $randNum -eq 6 ]]
+  then
+      echo -e '\e[1m\e[92m
+   /\\\\
+ /\    /\\                        /\\
+/\\             /\\       /\\\\   /\\
+/\\           /\\  /\\   /\\      /\ /\
+/\\   /\\\\  /\\    /\\    /\\\   /\\  /\\
+ /\\    /\    /\\  /\\       /\\  /\   /\\
+   /\\\\\        /\\      /\\ /\\  /\\  /\\
+\e[39m'
+elif [[ $randNum -eq 7 ]]
+  then
+      echo -e '\e[1m\e[92m
+ _____                 _
+|  __ \               | |
+| |  \/   ___    ___  | |__
+| | __   / _ \  / __| | _ \\\
+| |_\ \ | (_) | \__ \ | | | |
+ \____/  \___/  |___/ |_| |_|
+\e[39m'
+elif [[ $randNum -eq 8 ]]
+  then
+      echo -e '\e[1m\e[92m
+ _ (_)(_)(_) _                                (_)
+(_)         (_)    _  _  _       _  _  _  _   (_) _  _  _
+(_)    _  _  _  _ (_)(_)(_) _  _(_)(_)(_)(_)  (_)(_)(_)(_)_
+(_)   (_)(_)(_)(_)         (_)(_)_  _  _  _   (_)        (_)
+(_)         (_)(_)         (_)  (_)(_)(_)(_)_ (_)        (_)
+(_) _  _  _ (_)(_) _  _  _ (_)   _  _  _  _(_)(_)        (_)
+   (_)(_)(_)(_)   (_)(_)(_)     (_)(_)(_)(_)  (_)        (_)
+
+\e[39m'
+else
+  echo -e "\e[1m\e[92m
+      ::::::::        ::::::::        ::::::::        :::    :::
+    :+:    :+:      :+:    :+:      :+:    :+:       :+:    :+:
+   +:+             +:+    +:+      +:+              +:+    +:+
+  :#:             +#+    +:+      +#++:++#++       +#++:++#++
+ +#+   +#+#      +#+    +#+             +#+       +#+    +#+
+#+#    #+#      #+#    #+#      #+#    #+#       #+#    #+#
+########        ########        ########        ###    ###
+    \e[39m"
+fi
 git clone https://github.com/gosh-terminal/gosh.git
 cd gosh/src
 go get -v -t -d ./...
