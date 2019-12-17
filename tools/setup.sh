@@ -3,4 +3,4 @@ cd src
 go get -v -t -d ./...
 go build -o gosh *.go
 touch "$GOPATH"/bin/history.txt
-mv gosh "$GOPATH"/bin
+cp gosh "$GOPATH"/bin
