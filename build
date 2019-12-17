@@ -1,5 +1,5 @@
 #!/bin/bash
-randNum=$((1 + RANDOM % 11))
+randNum=$((1 + RANDOM % 16))
 if [ $randNum -eq 1 ]
   then
     echo -e "\e[1m\e[92m
@@ -112,6 +112,54 @@ elif [ $randNum -eq 10 ]
 | (___) |  | (___) |  /\____) |  | )   ( |
 (_______)  (_______)  \_______)  |/     \|
 \e[39m'
+elif [ $randNum -eq 11 ]
+  then
+      echo -e '\e[1m\e[92m
+       dBBBBb  dBBBBP.dBBBBP   dBP dBP
+              dBP.BP BP               
+   d BBBB   dBP.BP  BBBBb  dBBBBBP  
+   dB  BB  dBP.BP      dBP dBP dBP
+  dBBBBBB dBBBBP  dBBBBP dBP dBP 
+\e[39m'
+elif [ $randNum -eq 12 ]
+  then
+      echo -e '\e[1m\e[92m
+eeeee eeeee eeeee e   e 
+8   8 8  88 8   " 8   8 
+8e    8   8 8eeee 8eee8 
+88 "8 8   8    88 88  8 
+88ee8 8eee8 8ee88 88  8                  
+\e[39m'
+elif [ $randNum -eq 13 ]
+  then
+      echo -e '\e[1m\e[92m
+              #   
+              #   
+ ###  ##  ### ### 
+#  # #  # ##  # # 
+#  # #  #   # # # 
+####  ##  ### # # 
+   #              
+####
+\e[39m'
+elif [ $randNum -eq 14 ]
+  then
+      echo -e '\e[1m\e[92m
+                          [..     
+   [..      [..     [.... [..     
+ [..  [.. [..  [.. [..    [. [.   
+[..   [..[..    [..  [... [..  [..
+ [..  [.. [..  [..     [..[.   [..
+     [..    [..    [.. [..[..  [..
+  [..                             
+\e[39m'
+elif [ $randNum -eq 15 ]
+  then
+      echo -e '\e[1m\e[92m
+  ______  _____  _______ _     _
+ |  ____ |     | |______ |_____|
+ |_____| |_____| ______| |     |
+\e[39m'
 else
   echo -e "\e[1m\e[92m
       ::::::::        ::::::::        ::::::::        :::    :::
@@ -124,7 +172,7 @@ else
     \e[39m"
 fi
 git clone https://github.com/gosh-terminal/gosh.git
-cd gosh/src
+cd gosh/src || exit
 go get -v -t -d ./...
 go build -o gosh *.go
 touch history.txt
