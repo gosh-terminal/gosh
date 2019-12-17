@@ -32,7 +32,6 @@ func directoryNotFound(dir string) {
 	color.FgRed.Println("❌  gosh: '" + dir + "' not found!")
 }
 
-/*
 func pipeError(command string) {
 	indexOf := strings.Index(command, " > ")
 	highlightThing := strings.Repeat("^", len(command[indexOf+3:]))
@@ -44,4 +43,3 @@ func pipeError(command string) {
 	color.FgRed.Print("      Error: ")
 	fmt.Println("Pipe error")
 }
-*/
