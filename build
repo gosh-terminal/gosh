@@ -1,6 +1,6 @@
 #!/bin/bash
 randNum=$((1 + RANDOM % 11))
-if [[ $randNum -eq 1 ]]
+if [ $randNum -eq 1 ]
   then
     echo -e "\e[1m\e[92m
           GGGGGGGGGGGGG                                 hhhhhhh
@@ -20,7 +20,7 @@ if [[ $randNum -eq 1 ]]
       GGG::::::GGG:::G oo:::::::::::oo  s:::::::::::ss  h:::::h     h:::::h
           GGGGGG   GGGG   ooooooooooo     sssssssssss    hhhhhhh     hhhhhhh
   \e[39m"
-elif [[ $randNum -eq 2 ]]
+elif [ $randNum -eq 2 ]
   then
     echo -e "\e[1m\e[92m
   ____           _
@@ -29,7 +29,7 @@ elif [[ $randNum -eq 2 ]]
 | |_| | (_) \__ \ | | |
  \____|\___/|___/_| |_|
  \e[39m"
-elif [[ $randNum -eq 3 ]]
+elif [ $randNum -eq 3 ]
   then
     echo -e "\e[1m\e[92m
        ______           __
@@ -38,7 +38,7 @@ elif [[ $randNum -eq 3 ]]
     / /_/ / /_/ (__  ) / / /
     \\____/\\____/____/_/ /_/
     \e[39m"
-elif [[ $randNum -eq 4 ]]
+elif [ $randNum -eq 4 ]
   then
     echo -e "\e[1m\e[92m
     //   ) )
@@ -47,7 +47,7 @@ elif [[ $randNum -eq 4 ]]
  //    / / //   / /   \ \    //   / /
 ((____/ / ((___/ / //   ) ) //   / /
     \e[39m"
-elif [[ $randNum -eq 5 ]]
+elif [ $randNum -eq 5 ]
   then
     echo -e "\e[1m\e[92m
        >===>
@@ -59,7 +59,7 @@ elif [[ $randNum -eq 5 ]]
       >====>       >=>     >=> >=> >=>  >=>
 
     \e[39m"
-elif [[ $randNum -eq 6 ]]
+elif [ $randNum -eq 6 ]
   then
       echo -e '\e[1m\e[92m
    /\\\\
@@ -70,7 +70,7 @@ elif [[ $randNum -eq 6 ]]
  /\\    /\    /\\  /\\       /\\  /\   /\\
    /\\\\\        /\\      /\\ /\\  /\\  /\\
 \e[39m'
-elif [[ $randNum -eq 7 ]]
+elif [ $randNum -eq 7 ]
   then
       echo -e '\e[1m\e[92m
  _____                 _
@@ -80,7 +80,7 @@ elif [[ $randNum -eq 7 ]]
 | |_\ \ | (_) | \__ \ | | | |
  \____/  \___/  |___/ |_| |_|
 \e[39m'
-elif [[ $randNum -eq 8 ]]
+elif [ $randNum -eq 8 ]
   then
       echo -e '\e[1m\e[92m
  _ (_)(_)(_) _                                (_)
@@ -92,7 +92,7 @@ elif [[ $randNum -eq 8 ]]
    (_)(_)(_)(_)   (_)(_)(_)     (_)(_)(_)(_)  (_)        (_)
 
 \e[39m'
-elif [[ $randNum -eq 9 ]]
+elif [ $randNum -eq 9 ]
   then
       echo -e '\e[1m\e[92m
  ___               _
@@ -100,7 +100,7 @@ elif [[ $randNum -eq 9 ]]
 | <_/\ / . \ <_-< | . |
 `____/ \___/ /__/ |_|_|
 \e[39m'
-elif [[ $randNum -eq 10 ]]
+elif [ $randNum -eq 10 ]
   then
       echo -e '\e[1m\e[92m
  _______    _______    _______
