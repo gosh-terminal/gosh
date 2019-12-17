@@ -1,5 +1,5 @@
 #!/bin/bash
-randNum=$((1 + RANDOM % 16))
+randNum=$((1 + RANDOM % 19))
 if [ $randNum -eq 1 ]
   then
     echo -e "\e[1m\e[92m
@@ -116,42 +116,42 @@ elif [ $randNum -eq 11 ]
   then
       echo -e '\e[1m\e[92m
        dBBBBb  dBBBBP.dBBBBP   dBP dBP
-              dBP.BP BP               
-   d BBBB   dBP.BP  BBBBb  dBBBBBP  
+              dBP.BP BP
+   d BBBB   dBP.BP  BBBBb  dBBBBBP
    dB  BB  dBP.BP      dBP dBP dBP
-  dBBBBBB dBBBBP  dBBBBP dBP dBP 
+  dBBBBBB dBBBBP  dBBBBP dBP dBP
 \e[39m'
 elif [ $randNum -eq 12 ]
   then
       echo -e '\e[1m\e[92m
-eeeee eeeee eeeee e   e 
-8   8 8  88 8   " 8   8 
-8e    8   8 8eeee 8eee8 
-88 "8 8   8    88 88  8 
-88ee8 8eee8 8ee88 88  8                  
+eeeee eeeee eeeee e   e
+8   8 8  88 8   " 8   8
+8e    8   8 8eeee 8eee8
+88 "8 8   8    88 88  8
+88ee8 8eee8 8ee88 88  8
 \e[39m'
 elif [ $randNum -eq 13 ]
   then
       echo -e '\e[1m\e[92m
-              #   
-              #   
- ###  ##  ### ### 
-#  # #  # ##  # # 
-#  # #  #   # # # 
-####  ##  ### # # 
-   #              
+              #
+              #
+ ###  ##  ### ###
+#  # #  # ##  # #
+#  # #  #   # # #
+####  ##  ### # #
+   #
 ####
 \e[39m'
 elif [ $randNum -eq 14 ]
   then
       echo -e '\e[1m\e[92m
-                          [..     
-   [..      [..     [.... [..     
- [..  [.. [..  [.. [..    [. [.   
+                          [..
+   [..      [..     [.... [..
+ [..  [.. [..  [.. [..    [. [.
 [..   [..[..    [..  [... [..  [..
  [..  [.. [..  [..     [..[.   [..
      [..    [..    [.. [..[..  [..
-  [..                             
+  [..
 \e[39m'
 elif [ $randNum -eq 15 ]
   then
@@ -159,6 +159,40 @@ elif [ $randNum -eq 15 ]
   ______  _____  _______ _     _
  |  ____ |     | |______ |_____|
  |_____| |_____| ______| |     |
+\e[39m'
+elif [ $randNum -eq 16 ]
+  then
+      echo -e '\e[1m\e[92m
+                              oooo        
+                              8888        
+ .oooooooo  .ooooo.   .oooo.o  888 .oo.   
+8888 888b  d888 888b d88(  88  888P8Y88b  
+888   888  888   888 88Y88b.   888   888  
+888bod8P8  888   888 o.  )88b  888   888  
+88oooooo.  8Y8bod8P8 888888P8 o888o o888o 
+d8     YD                                 
+8Y88888P8
+\e[39m'
+elif [ $randNum -eq 17 ]
+  then
+      echo -e '\e[1m\e[92m
+                                          / 
+                                        /   
+           ____     ____     ____     / __  
+         /     )  /     )--/     )--/     ) 
+       /     /  /     /    ---,   /     /   
+      (___,/(__(___,/   (___,/  /     /(__  
+         /                                  
+ /     /                                    
+(___,/ 
+\e[39m'
+elif [ $randNum -eq 18 ]
+  then
+      echo -e '\e[1m\e[92m
+  ___   __   ____  _  _ 
+ / __) /  \ / ___)/ )( \
+( (_ \(  O )\___ \) __ (
+ \___/ \__/ (____/\_)(_/
 \e[39m'
 else
   echo -e "\e[1m\e[92m
