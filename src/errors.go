@@ -25,7 +25,7 @@ func commandNotFound(command string) {
 	color.FgBlue.Print("  |   ")
 	color.FgLightBlue.Print("       " + highlightThing)
 	color.FgRed.Print("      Error: ")
-	fmt.Println("command not found")
+	fmt.Println("Command not found")
 }
 func directoryNotFound(dir string) {
 	stringLen := len(dir)
@@ -35,7 +35,7 @@ func directoryNotFound(dir string) {
 	color.FgBlue.Print("  |   ")
 	color.FgBlue.Print("          " + highlightThing)
 	color.FgRed.Print("      Error:")
-	fmt.Println("directory not found")
+	fmt.Println("Directory not found")
 }
 func pipeError(command string) {
 	indexOf := strings.Index(command, " > ")

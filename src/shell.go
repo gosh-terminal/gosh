@@ -9,8 +9,8 @@ import (
 )
 
 func shell() {
-	fmt.Println("Welcome to gosh the Go Shell!")
-	fmt.Println("-----------------------------")
+	fmt.Println("Welcome to gosh, the Go Shell!")
+	fmt.Println("------------------------------")
 	for {
 		thePrompt()
 		command := prompt.Input("", completer, prompt.OptionHistory(getCommandHist()), prompt.OptionSuggestionBGColor(prompt.DefaultColor),
