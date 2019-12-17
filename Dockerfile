@@ -1,12 +1,12 @@
-FROM ubuntu
-RUN apt-get update \
-    && apt-get install -y \
-    git \
-    golang
+FROM golang:latest
 
-ENV GOPATH=$HOME/go
-ENV PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-RUN git clone https://github.com/gosh-terminal/gosh.git \
-    && cd gosh \
-    && ./setup.sh
+ENV GOPATH=$HOME/go \
+    PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+
+WORKDIR /tmp/
+
+COPY ./** /tmp/
+
+RUN ./tools/setup.sh
+
 CMD [ "gosh", "-v" ]
