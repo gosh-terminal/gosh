@@ -22,7 +22,7 @@ task:
 task:
   name: Test Docker Image
   container:
-    image: golang
+    image: docker
   env:
     CIRRUS_SHELL: direct
     CIRRUS_WORKING_DIR: /workspace
