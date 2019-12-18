@@ -1,13 +1,19 @@
 #!/bin/bash
 if command -v go >/dev/null 2>&1; then
-    continue
+    echo "Go already installed!"
 else
-    sudo apt-get update && sudo apt-get install -y golang
+    apt-get update && apt-get install -y golang
 fi
 if command -v git >/dev/null 2>&1; then
-    continue
+    echo "Git already installed!"
 else
-    sudo apt-get update && sudo apt-get install -y git
+    apt-get update && apt-get install -y git
+fi
+if [ -z "$GOPATH" ]; then
+    GOPATH=$HOME/go \
+    PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+else
+    echo "\$GOPATH Defined!"
 fi
 randNum=$((1 + RANDOM % 20))
 if [ $randNum -eq 1 ]; then
