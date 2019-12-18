@@ -1,4 +1,9 @@
-FROM golang:latest
+FROM ubuntu
+
+RUN apt-get update \
+    && apt-get -y install \
+        golang \
+        git
 
 ENV HOME=/home \
     GOPATH=$HOME/go \
