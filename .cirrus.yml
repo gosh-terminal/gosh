@@ -14,6 +14,7 @@ task:
       cd src
       go get -v -t -d ./...
   build_script: |
+    cd src
     go build -o gosh *.go
     touch ${GOPATH}/bin/history.txt
     mv gosh ${GOPATH}/bin
