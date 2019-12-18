@@ -7,6 +7,6 @@ FROM ubuntu
 COPY --from=build /go/bin/gosh /home/go/bin/gosh
 COPY --from=build /go/bin/history.txt /home/go/bin/history.txt
 
-    PATH=$PATH:~$GOPATH/bin
+ENV PATH=$HOME:$PATH
 
 CMD [ 'gosh', '-v' ]
