@@ -1,4 +1,14 @@
 #!/bin/bash
+if command -v go >/dev/null 2>&1; then
+    continue
+else
+    sudo apt-get update && sudo apt-get install -y golang
+fi
+if command -v git >/dev/null 2>&1; then
+    continue
+else
+    sudo apt-get update && sudo apt-get install -y git
+fi
 randNum=$((1 + RANDOM % 20))
 if [ $randNum -eq 1 ]; then
 	echo -e "\e[1m\e[92m
