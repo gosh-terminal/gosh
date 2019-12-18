@@ -13,6 +13,7 @@ func executeCommand(theCommand string) error {
 	cmd.Stderr = os.Stderr
 	return cmd.Run()
 }
+
 func getArg(commandString string) string {
 	var s []string = strings.Split(commandString, " ")
 	if len(s) >= 1 {
