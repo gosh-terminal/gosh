@@ -19,11 +19,5 @@ task:
     touch ${GOPATH}/bin/history.txt
     mv gosh ${GOPATH}/bin
 
-task:
-  name: Test Docker Image
-  container:
-    image: docker
-  env:
-    CIRRUS_SHELL: direct
-    CIRRUS_WORKING_DIR: /workspace
-  build_script: docker build -f Dockerfile .
+docker_builder:
+  build_script: docker build --tag myrepo/foo:latest .
