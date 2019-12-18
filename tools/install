@@ -1,20 +1,4 @@
 #!/bin/bash
-if command -v go >/dev/null 2>&1; then
-    echo "Go already installed!"
-else
-    apt-get update && apt-get install -y golang
-fi
-if command -v git >/dev/null 2>&1; then
-    echo "Git already installed!"
-else
-    apt-get update && apt-get install -y git
-fi
-if [ -z "$GOPATH" ]; then
-    GOPATH=$HOME/go \
-    PATH=$PATH:$GOROOT/bin:$GOPATH/bin
-else
-    echo "\$GOPATH Defined!"
-fi
 randNum=$((1 + RANDOM % 20))
 if [ $randNum -eq 1 ]; then
 	echo -e "\e[1m\e[92m
@@ -218,6 +202,26 @@ else
 ########        ########        ########        ###    ###
     \e[39m"
 fi
+if command -v go >/dev/null 2>&1; then
+    echo -e "\e[92mGo already installed!\e[39m"
+else
+    echo -e "\e[93mInstalling Golang\e[39m"
+    apt-get update && apt-get install -y golang
+fi
+if command -v git >/dev/null 2>&1; then
+    echo -e "\e[92mGit already installed!\e[39m"
+else
+    echo -e "\e[93mInstalling Git\e[39m"
+    apt-get update && apt-get install -y git
+fi
+if [ -z "$GOPATH" ]; then
+    echo -e "\e[93mSetting GOPATH ENV variable!\e[39m"
+    GOPATH=$HOME/go \
+    PATH=$PATH:$GOROOT/bin:$GOPATH/bin
+else
+    echo -e "\e[92mGOPATH Defined!\e[39m"
+fi
+echo -ne "\e[36m"
 git clone https://github.com/gosh-terminal/gosh.git
 cd gosh/src || exit
 go get -v -t -d ./...
@@ -227,3 +231,4 @@ mv history.txt "$GOPATH"/bin
 mv gosh "$GOPATH"/bin
 cd ../..
 rm -rf gosh
+echo -en "\e[39m"
