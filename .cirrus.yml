@@ -26,4 +26,4 @@ task:
   env:
     CIRRUS_SHELL: direct
     CIRRUS_WORKING_DIR: /workspace
-  build_script: go build Dockerfile
+  build_script: docker build -f Dockerfile .
