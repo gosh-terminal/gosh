@@ -20,4 +20,4 @@ task:
     mv gosh ${GOPATH}/bin
 
 docker_builder:
-  build_script: docker build --tag myrepo/foo:latest .
+  build_script: docker build --tag gosh:latest .
