@@ -9,4 +9,4 @@ COPY ./** /tmp/
 
 RUN ./tools/install
 
-CMD [ "gosh", "-v" ]
+# CMD [ "gosh", "-v" ]
