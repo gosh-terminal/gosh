@@ -6,6 +6,6 @@ ENV GOPATH=$HOME/go \
 WORKDIR /tmp/
 
 COPY ./** /tmp/
-RUN git clone https://github.com/gosh-terminal/gosh.git && cd gosh && ./tools/setup.sh
+RUN curl -s "https://raw.githubusercontent.com/gosh-terminal/gosh/master/tools/install" | sh
 
 CMD [ "gosh", "-v" ]
