@@ -5,7 +5,7 @@ RUN curl -s "https://raw.githubusercontent.com/gosh-terminal/gosh/master/tools/i
 FROM ubuntu
 
 COPY --from=build /go/bin/gosh /home/go/bin/gosh
-COPY --from=build /go/bin/history.txt /home/go/bin/history.txt
+COPY --from=build /go/bin/history.txt $HOME/history.txt
 
 ENV PATH=$HOME:$PATH
 
