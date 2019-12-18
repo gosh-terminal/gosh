@@ -6,7 +6,6 @@ ENV GOPATH=$HOME/go \
 WORKDIR /tmp/
 
 COPY ./** /tmp/
-
-RUN ./tools/setup.sh
+RUN git clone https://github.com/gosh-terminal/gosh.git && cd gosh && ./tools/setup.sh
 
 CMD [ "gosh", "-v" ]
