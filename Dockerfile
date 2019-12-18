@@ -2,6 +2,7 @@ FROM ubuntu
 
 RUN apt-get update \
     && apt-get -y install \
+        curl \
         golang \
         git
 
