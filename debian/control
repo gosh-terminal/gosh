@@ -2,7 +2,7 @@ Source: gosh
 Section: devel
 Priority: optional
 Maintainer: Debian Go Packaging Team <team+pkg-go@tracker.debian.org>
-Uploaders: TODO <TODO>
+Uploaders: JesterOrNot
 Build-Depends: debhelper (>= 11),
                dh-golang,
                golang-any,

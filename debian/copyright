@@ -6,12 +6,11 @@ Files-Excluded:
 
 Files: *
 Copyright: 2019 gosh
-License: TODO
+License: MIT
 
 Files: debian/*
-Copyright: 2019 TODO <TODO>
-License: TODO
+Copyright: 2019 Wednsday
+License: MIT
 Comment: Debian packaging is licensed under the same terms as upstream
 
-License: TODO
-TODO
+License: MIT
