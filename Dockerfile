@@ -7,6 +7,6 @@ WORKDIR /tmp/
 
 COPY ./** /tmp/
 
-RUN ./tools/setup.sh
+RUN ./tools/install
 
 CMD [ "gosh", "-v" ]
