@@ -1,0 +1,16 @@
+Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: gosh
+Source: https://github.com/gosh-terminal/gosh
+Files-Excluded:
+  Godeps/_workspace
+
+Files: *
+Copyright: 2019 gosh
+License: MIT
+
+Files: debian/*
+Copyright: 2019 Wednsday
+License: MIT
+Comment: Debian packaging is licensed under the same terms as upstream
+
+License: MIT
