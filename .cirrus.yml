@@ -14,15 +14,11 @@ task:
       cd src
       go get -v -t -d ./...
   build_script: |
+    cd src
     go build -o gosh *.go
     touch ${GOPATH}/bin/history.txt
     mv gosh ${GOPATH}/bin
 
-task:
-  name: Test Docker Image
-  container:
-    image: gcr.io/kaniko-project/executor:v0.9.0
-  env:
-    CIRRUS_SHELL: direct
-    CIRRUS_WORKING_DIR: /workspace
-  build_script: executor --destination=build:local
+docker_builder:
+  build_script: docker build --tag gosh:latest .
+  name: Docker Build

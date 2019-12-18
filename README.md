@@ -36,7 +36,7 @@ cd gosh
 make install
 ```
 
-### One-line curl installer
+### One-line curl installer (Recommended)
 
 ```bash
 curl -s "https://raw.githubusercontent.com/gosh-terminal/gosh/master/tools/install" | sh
