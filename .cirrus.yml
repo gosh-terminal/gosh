@@ -22,8 +22,8 @@ task:
 task:
   name: Test Docker Image
   container:
-    image: gcr.io/kaniko-project/executor:v0.9.0
+    image: golang
   env:
     CIRRUS_SHELL: direct
     CIRRUS_WORKING_DIR: /workspace
-  build_script: executor --destination=build:local
+  build_script: go build Dockerfile
