@@ -13,3 +13,4 @@
 *.txt
 bin/*
 #*/src/commands/history.txt
+src/gosh
