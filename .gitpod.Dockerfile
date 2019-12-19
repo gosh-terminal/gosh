@@ -7,6 +7,6 @@ USER gitpod
 ENV DEBIAN_FRONTEND noninteractive
 
 # Install dh-make-golang for debian
-RUN apt-get update \
-    && apt-get install -y \
+RUN sudo apt-get update \
+    && sudo apt-get install -y \
         dh-make-golang
