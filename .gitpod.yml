@@ -1,7 +1,7 @@
 image:
   file: .gitpod.Dockerfile
 tasks:
-  - init: mkdir ../go ../go/bin && dh_auto_install
+  - init: mkdir ../go ../go/bin && go install
     command: gosh
 ports:
   - port: 8080
