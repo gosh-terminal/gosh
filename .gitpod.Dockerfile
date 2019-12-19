@@ -1,4 +1,12 @@
 FROM gitpod/workspace-full@sha256:5404ba92971a07c06855aa697a9cc490d190a110eab94c386c72f7ae20e53603
-USER root
+
+
+USER gitpod
+
+# Because the installer needs to be non-interactive
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update && apt-get install -y dh-make-golang
+
+# Install dh-make-golang for debian
+RUN apt-get update \
+    && apt-get install -y \
+        dh-make-golang
