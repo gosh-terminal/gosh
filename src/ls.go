@@ -45,6 +45,7 @@ func ls(path string) {
 	}
 	fmt.Println(" ╰━━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━╯")
 }
+
 func treeView(path string, tabNumbers int) {
 	files, err := ioutil.ReadDir(path)
 	if err != nil {
@@ -54,7 +55,7 @@ func treeView(path string, tabNumbers int) {
 		tabsThing := strings.Repeat("    ", tabNumbers)
 		fmt.Println(tabsThing, file.Name())
 		if file.IsDir() {
-			treeView(path+"/"+file.Name(), tabNumbers+1)
+			treeView(path + "/" + file.Name(), tabNumbers+1)
 		}
 	}
 }
