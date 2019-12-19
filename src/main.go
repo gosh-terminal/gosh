@@ -11,7 +11,7 @@ func main() {
 	}
 	switch os.Args[1] {
 	case "-v":
-		fmt.Println("v0.02-alpha")
+		fmt.Println("gosh v0.02-alpha")
 	case "-h":
 		fmt.Println("gosh\n-v this will give the version")
 	}

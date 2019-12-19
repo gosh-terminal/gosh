@@ -1,9 +1,10 @@
 # gosh
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e77cb20b738d47138194279fa764990c)](https://www.codacy.com/manual/seanhellum45/gosh?utm_source=github.com&utm_medium=referral&utm_content=JesterOrNot/gosh&utm_campaign=Badge_Grade)
-[![Build Status](https://travis-ci.org/JesterOrNot/gosh.svg?branch=master)](https://travis-ci.org/JesterOrNot/gosh)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e77cb20b738d47138194279fa764990c)](https://www.codacy.com/manual/seanhellum45/gosh?utm_source=github.com&utm_medium=referral&utm_content=gosh-terminal/gosh&utm_campaign=Badge_Grade)
+[![Setup Automated](https://img.shields.io/badge/setup-automated-blue?logo=gitpod)](https://gitpod.io/from-referrer/)
+[![Pull Requests Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/JesterOrNot/gosh)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/gosh-terminal/gosh)
 
 The end goal of this project is to allow you to use your terminal for
 everything! Be able to do things from math, playing music, sending emails to
@@ -19,26 +20,26 @@ sudo make install_deps
 
 ### Build from source
 
-#### V1
+#### Install with setup script
 
 ```bash
-git clone https://github.com/JesterOrNot/gosh.git
+git clone https://github.com/gosh-terminal/gosh.git
 cd gosh
 ./setup.sh
 ```
 
-#### V2
+#### Install with Make
 
 ```bash
-git clone https://github.com/JesterOrNot/gosh.git
+git clone https://github.com/gosh-terminal/gosh.git
 cd gosh
 make install
 ```
 
-### One-line installer
+### One-line curl installer (Recommended)
 
 ```bash
-curl -s "https://raw.githubusercontent.com/JesterOrNot/gosh/master/build" | sh
+curl -s "https://raw.githubusercontent.com/gosh-terminal/gosh/master/tools/install" | sh
 ```
 
-![Example of goshell](https://github.com/JesterOrNot/gosh/blob/master/images/example.png?raw=true)
+![Example of goshell](https://github.com/gosh-terminal/gosh/blob/master/images/example.png?raw=true)

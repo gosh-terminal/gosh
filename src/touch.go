@@ -17,8 +17,8 @@ func touch(filename string) {
 		os.Create(filenames[i])
 	}
 	if len(filenames) >= 3 {
-		fmt.Printf("%s", color.FgYellow.Render("the files have been created! ✔\n"))
+		fmt.Printf("%s", color.FgYellow.Render("The files have been created! ✔\n"))
 	} else {
-		color.FgYellow.Println("file", filenames[1], "has been created! ✔")
+		color.FgYellow.Println(filenames[1], "has been created! ✔")
 	}
 }

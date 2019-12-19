@@ -9,8 +9,8 @@ import (
 )
 
 func shell() {
-	fmt.Println("Welcome to gosh the Go Shell!")
-	fmt.Println("-----------------------------")
+	fmt.Println("Welcome to gosh, the Go Shell!")
+	fmt.Println("------------------------------")
 	for {
 		thePrompt()
 		command := prompt.Input("", completer, prompt.OptionHistory(getCommandHist()), prompt.OptionSuggestionBGColor(prompt.DefaultColor),
@@ -20,7 +20,7 @@ func shell() {
 			prompt.OptionAddKeyBind(prompt.KeyBind{
 				Key: prompt.ControlC,
 				Fn: func(buf *prompt.Buffer) {
-					return
+					thePrompt()
 				}}),
 			prompt.OptionPreviewSuggestionTextColor(prompt.DefaultColor),
 			prompt.OptionScrollbarBGColor(prompt.DefaultColor))

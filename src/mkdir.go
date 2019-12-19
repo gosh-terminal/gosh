@@ -16,8 +16,8 @@ func mkdir(dirnames string) {
 		os.Mkdir(dirname[i], 0655)
 	}
 	if len(dirname) >= 3 {
-		color.FgYellow.Println("the directories have been created! ✔")
+		color.FgYellow.Println("The directories have been created! ✔")
 	} else {
-		color.FgYellow.Println("directory", dirname[1], "has been created! ✔")
+		color.FgYellow.Println("Directory", dirname[1], "has been created! ✔")
 	}
 }
