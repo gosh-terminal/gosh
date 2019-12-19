@@ -8,11 +8,9 @@ task:
         image: golang:1.13
   env:
     GOPROXY: https://proxy.golang.org
-  go_modules_cache:
-    folder: $GOPATH/pkg/mod
-    populate_script: |
-      cd src
-      go get -v -t -d ./...
+  populate_dependencies_script: |
+    cd src
+    go get -v -t -d ./...
   build_script: |
     cd src
     go build -o gosh *.go

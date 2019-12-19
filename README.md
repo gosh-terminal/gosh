@@ -12,23 +12,11 @@ searching the web but have these things be built into your terminal.
 
 ## Install dependencies
 
-```bash
-sudo make install_deps
-```
+Use Gitpod, everything is preinstalled.
 
 ## Install
 
 ### Build from source
-
-#### Install with setup script
-
-```bash
-git clone https://github.com/gosh-terminal/gosh.git
-cd gosh
-./setup.sh
-```
-
-#### Install with Make
 
 ```bash
 git clone https://github.com/gosh-terminal/gosh.git
@@ -41,3 +29,5 @@ make install
 ```bash
 curl -s "https://raw.githubusercontent.com/gosh-terminal/gosh/master/tools/install" | sh
 ```
+
+![Example of gosh](https://github.com/gosh-terminal/gosh/blob/master/.github/images/example.png?raw=true)
