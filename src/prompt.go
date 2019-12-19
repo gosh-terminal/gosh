@@ -3,10 +3,12 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"github.com/gookit/color"
 	"io/ioutil"
 	"os"
 	"strings"
+
+	"github.com/gookit/color"
+	"github.com/manifoldco/promptui"
 )
 
 func thePrompt() {
@@ -44,4 +46,21 @@ func thePrompt() {
 		return
 	}
 	color.FgGreen.Printf("gosh %s ", blue("λ"))
+}
+
+func exit() {
+	prompt := promptui.Select{
+		Label: "Are you sure?",
+		Items: []string{"Yes", "No"},
+	}
+	_, result, err := prompt.Run()
+	if err != nil {
+		println("Error, exiting...")
+		os.Exit(1)
+	}
+	if result == "Yes" {
+		os.Exit(0)
+	} else {
+		return
+	}
 }
