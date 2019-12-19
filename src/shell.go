@@ -35,7 +35,8 @@ func shell() {
 			}
 			_, result, err := prompt.Run()
 			if err != nil {
-				println("ERROR")
+				println("Error, exiting...")
+				os.Exit(1)
 			}
 			if result == "Yes" {
 				os.Exit(0)
@@ -69,8 +70,6 @@ func shell() {
 			continue
 		} else if strings.Compare(command, "clearhist") == 0 {
 			clearHistory()
-		} else if command == "setlscolor" {
-			// WIP
 		} else if strings.Contains(command, " > ") {
 			data, err := splitCommandFile(command)
 			if err != nil {

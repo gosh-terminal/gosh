@@ -6,7 +6,6 @@ import (
 	"log"
 	"os"
 	"strings"
-
 	"github.com/gookit/color"
 )
 
@@ -18,6 +17,7 @@ func clearHistory() string {
 	fmt.Printf("%s ✔\n", color.FgYellow.Render("History has been cleared"))
 	return "History has been cleared ✔\n"
 }
+
 func history() {
 	var gopath string = os.Getenv("GOPATH")
 	file, _ := os.Open(gopath + "/bin/history.txt")
@@ -43,7 +43,7 @@ func history() {
 
 func updateHistory(command string) {
 	var gopath string = os.Getenv("GOPATH")
-	f, err := os.OpenFile(gopath+"/bin/history.txt",
+	f, err := os.OpenFile(gopath + "/bin/history.txt",
 		os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		log.Println(err)
