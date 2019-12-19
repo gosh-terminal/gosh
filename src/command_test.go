@@ -18,6 +18,7 @@ func TestGetArg(t *testing.T) {
 	}
 	fmt.Println("Passed")
 }
+
 func TestSplitCommand(t *testing.T) {
 	got := clearHistory()
 	want := "History has been cleared ✔\n"
@@ -26,6 +27,7 @@ func TestSplitCommand(t *testing.T) {
 	}
 	fmt.Println("Passed")
 }
+
 func testCaptureOutput(t *testing.T) {
 	got, err := captureOutput("cat ci/data")
 	want := "test\n"
