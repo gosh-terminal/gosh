@@ -1,18 +1,18 @@
 image:
   file: .gitpod.Dockerfile
+
 tasks:
-  - init: mkdir ../go ../go/bin && dh_auto_install
-    command: gosh
+  - init:  mkdir ../go ../go/bin && dh_auto_install
+    command: tools/setup.sh && gosh
+
 ports:
   - port: 8080
     onOpen: ignore
   - port: 4000
     onOpen: open-preview
+
 vscode:
   extensions:
-    - kosz78.nim@0.6.4:J4mmxMK624S+XisrptVQ/Q==
-    - ms-vscode.cpptools@0.26.2-insiders:ZfaNmwBAkeWyphIu+nLlww==
-    - mervin.markdown-formatter@0.7.6:nngZI/lvD58smdkgw0gWNw==
     - DavidAnson.vscode-markdownlint@0.32.0:gujQ1foJzJ2yxCOgDqFfXw==
     - mdickin.markdown-shortcuts@0.12.0:h8L11R6NpkgnCtbr8QLlUw==
     - timonwong.shellcheck@0.8.1:16BMw7Jrwd/KkAhJrkHwqQ==
