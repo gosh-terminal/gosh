@@ -41,5 +41,3 @@ make install
 ```bash
 curl -s "https://raw.githubusercontent.com/gosh-terminal/gosh/master/tools/install" | sh
 ```
-
-![Example of goshell](https://github.com/gosh-terminal/gosh/blob/master/images/example.png?raw=true)
