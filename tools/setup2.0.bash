@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function checks() {
+function install() {
     echo -e "\nStarting checks..."
     if [ command -v sudo 2>/dev/null ]; then
         echo "sudo not installed on main system aborting"
@@ -62,5 +62,4 @@ function checks() {
     echo "export PATH=${PATH}:${PWD}" >> ~/.bashrc
     echo "Done!!"
 }
-checks
-bash -c source ~/.bashrc
+install
