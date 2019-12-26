@@ -59,7 +59,11 @@ function install() {
     echo "Removing old stuff"
     rm -rf ../gosh
     cd "${HOME}/.gosh"
+    echo "Setting ENV Vars"
+    echo "Setting \$PATH"
     echo "export PATH=${PATH}:${PWD}" >> ~/.bashrc
-    echo "Done!!"
+    echo "Setting \$GOSH_HOME"
+    echo "export GOSH_HOME=${PWD}" >> ~/.bashrc
+    echo -e "\nDone!!\n\nPlease open a new terminal, or run the following in the existing one:\n    source ~/.bashrc\n\n"
 }
 install
