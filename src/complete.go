@@ -22,8 +22,8 @@ func unique(intSlice []prompt.Suggest) []prompt.Suggest {
 
 func completer(d prompt.Document) []prompt.Suggest {
 	s := []prompt.Suggest{{Text: "help", Description: "gosh"}, {Text: "exit", Description: "gosh"}, {Text: "history", Description: "gosh"}, {Text: "clearhist", Description: "gosh"}, {Text: "tree", Description: "gosh"}, {Text: "touch", Description: "gosh"}, {Text: "mkdir", Description: "gosh"}}
-	var gopath string = os.Getenv("GOPATH")
-	file, _ := os.Open(gopath + "/bin/history.txt")
+	var gopath string = os.Getenv("GOSH_PATH")
+	file, _ := os.Open(gopath + "/history.txt")
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		if strings.Compare(string(scanner.Text()), "") == 0 {
@@ -44,8 +44,8 @@ func completer(d prompt.Document) []prompt.Suggest {
 
 func getCommandHist() []string {
 	s := []string{}
-	var gopath string = os.Getenv("GOPATH")
-	file, _ := os.Open(gopath + "/bin/history.txt")
+	var gopath string = os.Getenv("GOSH_HOME")
+	file, _ := os.Open(gopath + "/history.txt")
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		if strings.Compare(string(scanner.Text()), "") == 0 {
