@@ -61,5 +61,6 @@ function checks() {
     cd "${HOME}/.gosh"
     echo "export PATH=${PATH}:${PWD}" >> ~/.bashrc
     source ~/.bashrc
+    echo "Done!!"
 }
 checks
