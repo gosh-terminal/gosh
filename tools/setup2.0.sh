@@ -33,6 +33,7 @@ function checks() {
         mv history.txt "${HOME}/.gosh"
         cd "${HOME}/.gosh"
         echo "export PATH=${PATH}:${PWD}" >> ~/.bashrc
+        source ~/.bashrc
     else
         echo "Directory: (${HOME}/.gosh) already exists!"
     fi
