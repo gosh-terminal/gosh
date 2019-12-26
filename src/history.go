@@ -11,7 +11,7 @@ import (
 
 func clearHistory() string {
 	var gopath string = os.Getenv("GOSH_HOME")
-	f, _ := os.OpenFile(gopath+"/bin/history.txt",
+	f, _ := os.OpenFile(gopath+"/history.txt",
 		os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	f.Truncate(0)
 	fmt.Printf("%s ✔\n", color.FgYellow.Render("History has been cleared"))
@@ -20,7 +20,7 @@ func clearHistory() string {
 
 func history() {
 	var gopath string = os.Getenv("GOSH_HOME")
-	file, _ := os.Open(gopath + "/bin/history.txt")
+	file, _ := os.Open(gopath + "/history.txt")
 	scanner := bufio.NewScanner(file)
 	var num = 1
 	fmt.Printf("   %s      %s\n", color.FgGreen.Render("#"), color.FgGreen.Render("command"))
@@ -44,7 +44,7 @@ func history() {
 func updateHistory(command string) {
 	var gopath string = os.Getenv("GOSH_HOME")
 	println(gopath)
-	f, err := os.OpenFile(gopath + "/bin/history.txt",
+	f, err := os.OpenFile(gopath + "/history.txt",
 		os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		log.Println(err)
