@@ -6,11 +6,11 @@ function install() {
         echo "sudo not installed on main system aborting"
         exit 1
     fi
-    if [ ! -d ${HOME}/.gosh ]; then
-        echo "Directory: ${HOME}/.gosh does not already exist. Creating..."
-        mkdir ${HOME}/.gosh
+    if [ ! -d "$HOME"/.gosh ]; then
+        echo "Directory: $HOME/.gosh does not already exist. Creating..."
+        mkdir "$HOME"/.gosh
     else
-        echo "Directory: (${HOME}/.gosh) already exists!"
+        echo "Directory: ($HOME/.gosh) already exists!"
     fi
     if [ command -v go 2>/dev/null ]; then
         echo "Go is not yet installed. Installing..."
@@ -53,16 +53,16 @@ function install() {
     echo "building gosh"
     go build -o gosh src/*.go
     echo "Moving files"
-    mv gosh "${HOME}/.gosh"
-    touch history.txt "${HOME}/.gosh"
-    mv history.txt "${HOME}/.gosh"
+    mv gosh "$HOME/.gosh"
+    touch history.txt "$HOME/.gosh"
+    mv history.txt "$HOME/.gosh"
     echo "Removing old stuff"
-    cd "${HOME}/.gosh"
+    cd "$HOME/.gosh"
     echo "Setting ENV Vars"
     echo "Setting \$PATH"
-    echo "export PATH=${PATH}:${PWD}" >> ~/.bashrc
+    echo "export PATH=$PATH:$PWD" >> ~/.bashrc
     echo "Setting \$GOSH_HOME"
-    echo "export GOSH_HOME=${PWD}" >> ~/.bashrc
+    echo "export GOSH_HOME=$PWD" >> ~/.bashrc
     echo -e "\nDone!!\n\nPlease open a new terminal, or run the following in the existing one:\n    source ~/.bashrc\n\n"
 }
 install
