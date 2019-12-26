@@ -46,7 +46,7 @@ function install() {
             brew install git
         fi
     fi
-    git clone https://github.com/gosh-terminal/gosh.git
+    git clone https://github.com/gosh-terminal/gosh/tree/install.git
     cd gosh
     echo "Installing dependencies"
     go get -v -t -d ./...
@@ -57,7 +57,6 @@ function install() {
     touch history.txt "${HOME}/.gosh"
     mv history.txt "${HOME}/.gosh"
     echo "Removing old stuff"
-    rm -rf ../gosh
     cd "${HOME}/.gosh"
     echo "Setting ENV Vars"
     echo "Setting \$PATH"
