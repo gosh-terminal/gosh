@@ -5,6 +5,6 @@ ENV GOPATH=$HOME/go \
 
 WORKDIR /tmp/
 
-RUN curl -s "https://raw.githubusercontent.com/gosh-terminal/gosh/master/tools/setup2.0.bash" | bash
+RUN curl -s "https://raw.githubusercontent.com/gosh-terminal/gosh/master/tools/setup2.0.bash" | bash && source ~/.bashrc
 
 CMD [ "gosh", "-v" ]
