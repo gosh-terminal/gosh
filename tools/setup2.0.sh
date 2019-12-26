@@ -11,19 +11,19 @@ function checks() {
         mkdir ${HOME}/.gosh
         if [ command -v go 2>/dev/null ]; then
             echo "Go is not yet installed. Installing..."
-            if which apt-get >/dev/null 2>&1; then
+            if [ command -v apt-get 2>/dev/null ]; then
                 sudo apt-get && sudo apt-get install -y golang
-            if which apt >/dev/null 2>&1; then
+            elif [ command -v apt 2>/dev/null ]; then
                 sudo apt && sudo apt install -y golang
-            elif which dnf >/dev/null 2>&1; then
+            elif [ command -v dnf 2>/dev/null ]; then
                 sudo dnf install -y golang
-            elif which yum >/dev/null 2>&1; then
+            elif [ command -v rpm 2>/dev/null && command -v yum 2>/dev/null && command -v curl 2>/dev/null ]; then
                 sudo rpm --import https://mirror.go-repo.io/centos/RPM-GPG-KEY-GO-REPO
                 curl -s https://mirror.go-repo.io/centos/go-repo.repo | sudo tee /etc/yum.repos.d/go-repo.repo
                 sudo yum install golang
-            elif which apk >/dev/null 2>&1; then
+            elif [ command -v apk 2>/dev/null ]; then
                 sudo apk add --no-cache --virtual .build-deps bash gcc musl-dev openssl go 
-            elif which brew >/dev/null 2>&1; then
+            elif [ command -v brew 2>/dev/null ]; then
                 brew install golang
             fi
         fi
