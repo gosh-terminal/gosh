@@ -27,6 +27,12 @@ function checks() {
                 brew install golang
             fi
         fi
+        go build -o gosh src/*.go
+        mv gosh "${HOME}/.gosh/gosh"
+        touch history.txt "${HOME}/.gosh"
+        mv history.txt "${HOME}/.gosh"
+        cd "${HOME}/.gosh"
+        echo "export PATH=${PATH}:${PWD}" >> ~/.bashrc
     else
         echo "Directory: (${HOME}/.gosh) already exists!"
     fi
