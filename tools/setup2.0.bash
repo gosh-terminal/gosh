@@ -46,7 +46,7 @@ function install() {
       brew install git
     fi
   fi
-  git clone https://github.com/gosh-terminal/gosh/tree/master.git
+  git clone https://github.com/gosh-terminal/gosh.git
   cd gosh
   echo "Installing dependencies"
   go get -v -t -d ./...
