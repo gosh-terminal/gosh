@@ -3,10 +3,10 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"github.com/gookit/color"
 	"log"
 	"os"
 	"strings"
-	"github.com/gookit/color"
 )
 
 func clearHistory() string {
