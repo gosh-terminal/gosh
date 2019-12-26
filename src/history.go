@@ -43,6 +43,7 @@ func history() {
 
 func updateHistory(command string) {
 	var gopath string = os.Getenv("GOSH_HOME")
+	println(gopath)
 	f, err := os.OpenFile(gopath + "/bin/history.txt",
 		os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
