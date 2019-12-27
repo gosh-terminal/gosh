@@ -1,10 +1,8 @@
 image:
-  file: .gitpod.Dockerfile
+  file: Dockerfile
 
 tasks:
-  - init:  mkdir ../go ../go/bin && dh_auto_install
-    command: tools/setup.sh && gosh
-
+   - init: ./tools/setup2.0.bash && source ~/.bashrc && gosh
 ports:
   - port: 8080
     onOpen: ignore

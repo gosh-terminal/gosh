@@ -55,7 +55,7 @@ func treeView(path string, tabNumbers int) {
 		tabsThing := strings.Repeat("    ", tabNumbers)
 		fmt.Println(tabsThing, file.Name())
 		if file.IsDir() {
-			treeView(path + "/" + file.Name(), tabNumbers+1)
+			treeView(path+"/"+file.Name(), tabNumbers+1)
 		}
 	}
 }
