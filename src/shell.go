@@ -111,6 +111,10 @@ func shell() {
 	}
 }
 func evaluate(command string) {
+	if len(strings.Trim(command, " ")) == 0 {
+		fmt.Println("Error input empty")
+		return
+	}
 	if strings.Compare("help", command) == 0 {
 		help()
 		updateHistory(command)
