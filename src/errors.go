@@ -2,8 +2,8 @@ package main
 
 import (
 	"fmt"
-	"strings"
 	"github.com/gookit/color"
+	"strings"
 )
 
 func invalidNumberOfArgs(command string) {

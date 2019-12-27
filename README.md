@@ -4,30 +4,23 @@
 [![Setup Automated](https://img.shields.io/badge/setup-automated-blue?logo=gitpod)](https://gitpod.io/from-referrer/)
 [![Pull Requests Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/gosh-terminal/gosh)
-
 The end goal of this project is to allow you to use your terminal for
 everything! Be able to do things from math, playing music, sending emails to
 searching the web but have these things be built into your terminal.
 
-## Install dependencies
+# Install
+
+### Install dependencies
 
 Use Gitpod, everything is preinstalled.
 
-## Install
-
-### Build from source
-
-```bash
-git clone https://github.com/gosh-terminal/gosh.git
-cd gosh
-make install
-```
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/gosh-terminal/gosh)
 
 ### One-line curl installer (Recommended)
 
 ```bash
-curl -s "https://raw.githubusercontent.com/gosh-terminal/gosh/master/tools/install" | sh
+curl -s "https://raw.githubusercontent.com/gosh-terminal/gosh/master/tools/setup2.0.bash" | bash
+source ~/.bashrc
 ```
 
 ![Example of gosh](https://github.com/gosh-terminal/gosh/blob/master/.github/images/example.png?raw=true)
