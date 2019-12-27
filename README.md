@@ -23,5 +23,6 @@ Use Gitpod, everything is preinstalled.
 ```bash
 curl -s "https://raw.githubusercontent.com/gosh-terminal/gosh/master/tools/setup2.0.bash" | bash
 source ~/.bashrc
+```
 
 ![Example of gosh](https://github.com/gosh-terminal/gosh/blob/master/.github/images/example.png?raw=true)
