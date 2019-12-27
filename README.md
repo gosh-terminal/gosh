@@ -1,6 +1,6 @@
 # gosh
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/e77cb20b738d47138194279fa764990c)](https://www.codacy.com/manual/seanhellum45/gosh?utm_source=github.com&utm_medium=referral&utm_content=gosh-terminal/gosh&utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/51f0c37b6e3c4e559389f2e6fec985f2)](https://www.codacy.com/manual/gosh-terminal/gosh_2?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=gosh-terminal/gosh&amp;utm_campaign=Badge_Grade)
 [![Setup Automated](https://img.shields.io/badge/setup-automated-blue?logo=gitpod)](https://gitpod.io/from-referrer/)
 [![Pull Requests Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
