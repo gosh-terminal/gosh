@@ -4,6 +4,7 @@
 [![Setup Automated](https://img.shields.io/badge/setup-automated-blue?logo=gitpod)](https://gitpod.io/from-referrer/)
 [![Pull Requests Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 [![CodeFactor](https://www.codefactor.io/repository/github/gosh-terminal/gosh/badge)](https://www.codefactor.io/repository/github/gosh-terminal/gosh)
+[![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
 Welcome to gosh! The end goal of this project is to allow you to use your
 terminal for everything! Be able to do things from math, playing music, sending
@@ -23,5 +24,10 @@ Use Gitpod, everything is preinstalled.
 curl -s "https://raw.githubusercontent.com/gosh-terminal/gosh/master/tools/setup2.0.bash" | bash
 source ~/.bashrc
 ```
+
+## Docker
+
+### Use gosh as your base image
+FROM https://github.com/gosh-terminal/gosh/packages/93876
 
 ![Example of gosh](https://github.com/gosh-terminal/gosh/blob/master/.github/images/example.png?raw=true)
