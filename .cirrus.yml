@@ -18,5 +18,8 @@ task:
     mv gosh ${GOPATH}/bin
 
 docker_builder:
-  build_script: docker build --tag gosh:latest .
   name: Docker Build
+  build_script: |
+    docker build --tag gosh:latest .
+    docker pull docker.pkg.github.com/gosh-terminal/gosh/gosh
+    docker run -it gosh
