@@ -64,7 +64,7 @@ function install() {
   echo "export PATH=$PATH:$PWD" >>~/.bashrc
   echo "Setting \$GOSH_HOME"
   echo "export GOSH_HOME=$PWD" >>~/.bashrc
-  echo -e "\nDone!!\n\nPlease open a new terminal, or run the following in the existing one:\n    source ~/.bashrc\n\n"
+  echo -e "\nDone!!\n\nPlease open a new terminal, or run the following in the existing one:\n    . ~/.bashrc\n\n"
   echo "Remove old stuff"
   cd $oldwd
   rm -rf gosh
