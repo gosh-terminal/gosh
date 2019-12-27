@@ -12,6 +12,10 @@ func main() {
 	if os.Args[1] == "-v" {
 		fmt.Println("gosh v0.02-alpha")
 	} else if os.Args[1] == "-c" {
-		evaluate(os.Args[2])
+		if len(os.Args) >= 3 {
+			evaluate(os.Args[2])
+		} else {
+			invalidNumberOfArgs(os.Args[1])
+		}
 	}
 }
