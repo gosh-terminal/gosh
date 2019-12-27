@@ -24,7 +24,35 @@ func shell() {
 			prompt.OptionPreviewSuggestionTextColor(prompt.DefaultColor),
 			prompt.OptionScrollbarBGColor(prompt.DefaultColor))
 		command = strings.Replace(command, "\n", "", -1)
-		if strings.Compare("help", command) == 0 {
+		if strings.Contains(command, " > ") {
+			data, err := splitCommandFile(command)
+			if err != nil {
+				pipeError(command)
+				updateHistory(command)
+				continue
+			}
+			captureOutput, err := captureOutput(data[0])
+			if err != nil {
+				commandNotFound(command)
+			}
+			redirectToFile(captureOutput, data[1])
+			updateHistory(command)
+			continue
+		} else if strings.Contains(command, " | ") {
+			data, err := splitCommands(command)
+			if err != nil {
+				pipeError(command)
+				updateHistory(command)
+				continue
+			}
+			captureOutput, err := captureOutput(data[0])
+			if err != nil {
+				commandNotFound(command)
+			}
+			pipe(captureOutput, data[1])
+			updateHistory(command)
+			continue
+		} else if strings.Compare("help", command) == 0 {
 			help()
 			updateHistory(command)
 		} else if strings.Compare("exit", command) == 0 {
@@ -34,6 +62,10 @@ func shell() {
 			updateHistory(command)
 		} else if strings.HasPrefix(command, "ls ") {
 			var dir string = getArg(command)
+			if len(dir) == 0 {
+				invalidNumberOfArgs(command)
+				continue
+			}
 			ls(dir)
 			updateHistory(command)
 		} else if strings.Compare("", command) == 0 {
@@ -56,20 +88,6 @@ func shell() {
 			continue
 		} else if strings.Compare(command, "clearhist") == 0 {
 			clearHistory()
-		} else if strings.Contains(command, " > ") {
-			data, err := splitCommandFile(command)
-			if err != nil {
-				pipeError(command)
-				updateHistory(command)
-				continue
-			}
-			captureOutput, err := captureOutput(data[0])
-			if err != nil {
-				commandNotFound(command)
-			}
-			redirectToFile(captureOutput, data[1])
-			updateHistory(command)
-			continue
 		} else if command == "tree" {
 			treeView(".", 0)
 			updateHistory(command)
