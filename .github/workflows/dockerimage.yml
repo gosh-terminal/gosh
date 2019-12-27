@@ -21,3 +21,5 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         registry: docker.pkg.github.com
+        dockerfile: Dockerfile
+        tag_names: true
