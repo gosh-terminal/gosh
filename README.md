@@ -4,6 +4,7 @@
 [![Setup Automated](https://img.shields.io/badge/setup-automated-blue?logo=gitpod)](https://gitpod.io/from-referrer/)
 [![Pull Requests Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 
+Welcome to gosh!
 The end goal of this project is to allow you to use your terminal for
 everything! Be able to do things from math, playing music, sending emails to
 searching the web but have these things be built into your terminal.
