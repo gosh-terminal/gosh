@@ -1,5 +1,5 @@
 image:
-  file: .gitpod.Dockerfile
+  file: Dockerfile
 
 tasks:
    - init: ./tools/setup2.0.bash && source ~/.bashrc && gosh
