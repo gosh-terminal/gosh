@@ -11,6 +11,7 @@
 # Output of the go coverage tool, specifically when used with LiteIDE
 *.out
 *.txt
+!tools/stats.txt
 bin/*
 #*/src/commands/history.txt
 src/gosh

@@ -1,0 +1,6 @@
+Go based dependencies --:
+    github.com/c-bata/go-prompt --:
+        shell.go
+        complete.go
+    github.com/manifoldco/promptui --:
+        prompt.go
