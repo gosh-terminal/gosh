@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
-	"github.com/gookit/color"
 	"io/ioutil"
 	"log"
+	"strconv"
 	"strings"
 )
 
@@ -13,9 +13,7 @@ func ls(path string) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	blue := color.FgCyan.Render
-	yellow := color.FgYellow.Render
-	fmt.Printf("    %s     %s                             %s \n", color.FgGreen.Render("#"), color.FgGreen.Render("name"), color.FgGreen.Render("type"))
+	fmt.Println("    \033[0;32m#     name                             type \033[0m")
 	fmt.Println(" ╭━━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━╮")
 	for i, file := range files {
 		i++
@@ -25,21 +23,27 @@ func ls(path string) {
 		spaces2 := strings.Repeat(" ", x)
 		if file.IsDir() {
 			if i >= 10 {
-				fmt.Printf(" │ %s%s│ %s%s│ Directory       │\n", color.FgGreen.Render(i), spaces2, blue(file.Name()), spaces)
+				fmt.Println(" │ \033[0;32m" + strconv.Itoa(i) + spaces2 + "\033[0m│ \033[0;36m" +
+					file.Name() + spaces + "\033[0m│ Directory       \033[0m│")
 			} else {
-				fmt.Printf(" │ %s%s │ %s%s│ Directory       │\n", color.FgGreen.Render(i), spaces2, blue(file.Name()), spaces)
+				fmt.Println(" │ \033[0;32m" + strconv.Itoa(i) + spaces2 + "\033[0m │ \033[0;36m" +
+					file.Name() + spaces + "\033[0m│ Directory       \033[0m│")
 			}
 		} else if file.Mode().String() == "-rwxr-xr-x" {
 			if i >= 10 {
-				fmt.Printf(" │ %s%s│ %s%s│ Executable File │\n", color.FgGreen.Render(i), spaces2, yellow(file.Name()), spaces)
+				fmt.Println(" │ \033[0;32m" + strconv.Itoa(i) + spaces2 + "\033[0m│ \033[0;33m" +
+					file.Name() + spaces + "\033[0m│ File            \033[0m│")
 			} else {
-				fmt.Printf(" │ %s%s │ %s%s│ Executable File │\n", color.FgGreen.Render(i), spaces2, yellow(file.Name()), spaces)
+				fmt.Println(" │ \033[0;32m" + strconv.Itoa(i) + spaces2 + "\033[0m │ \033[0;33m" +
+					file.Name() + spaces + "\033[0m│ File            \033[0m│")
 			}
 		} else {
 			if i >= 10 {
-				fmt.Printf(" │ %s%s│ %s%s│ File            │\n", color.FgGreen.Render(i), spaces2, file.Name(), spaces)
+				fmt.Println(" │ \033[0;32m" + strconv.Itoa(i) + spaces2 + "\033[0m│ " + file.Name() + spaces +
+					"\033[0m│ File            \033[0m│")
 			} else {
-				fmt.Printf(" │ %s%s │ %s%s│ File            │\n", color.FgGreen.Render(i), spaces2, file.Name(), spaces)
+				fmt.Println(" │ \033[0;32m" + strconv.Itoa(i) + spaces2 + "\033[0m │ " + file.Name() + spaces +
+					"\033[0m│ File            \033[0m│")
 			}
 		}
 	}
