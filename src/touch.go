@@ -18,6 +18,6 @@ func touch(filename string) {
 	if len(filenames) >= 3 {
 		fmt.Println("\033[0;33mThe files have been created! ✔\033[0m")
 	} else {
-		fmt.Println("\033[0;33m" + filenames[1], "has been created! ✔\033[0m")
+		fmt.Println("\033[0;33m"+filenames[1], "has been created! ✔\033[0m")
 	}
 }

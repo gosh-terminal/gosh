@@ -3,10 +3,12 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"github.com/gookit/color"
 	"log"
 	"os"
+	"strconv"
 	"strings"
+
+	"github.com/gookit/color"
 )
 
 func clearHistory() string {
@@ -34,7 +36,7 @@ func history() {
 		if num < 10 {
 			fmt.Printf(" │ %s  │ %s%s│\n", color.FgGreen.Render(num), scanner.Text(), spaces)
 		} else {
-			fmt.Printf(" │ %s │ %s%s│\n", color.FgGreen.Render(num), scanner.Text(), spaces)
+			fmt.Printf(" │ \033[0;32m"+strconv.Itoa(num)+" │ %s%s│\n", color.FgGreen.Render(num), scanner.Text(), spaces)
 		}
 		num++
 	}
@@ -43,7 +45,7 @@ func history() {
 
 func updateHistory(command string) {
 	var gopath string = os.Getenv("GOSH_HOME")
-	f, err := os.OpenFile(gopath + "/history.txt",
+	f, err := os.OpenFile(gopath+"/history.txt",
 		os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		log.Println(err)
