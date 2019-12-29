@@ -32,9 +32,9 @@ func history() {
 			continue
 		}
 		if num < 10 {
-			fmt.Println(" │ \033[0;32m"+strconv.Itoa(num)+" \033[0m │ " + scanner.Text() + spaces + "│")
+			fmt.Println(" │ \033[0;32m" + strconv.Itoa(num) + " \033[0m │ " + scanner.Text() + spaces + "│")
 		} else {
-			fmt.Println(" │ \033[0;32m"+strconv.Itoa(num)+" \033[0m│ " + scanner.Text() + spaces + "│")
+			fmt.Println(" │ \033[0;32m" + strconv.Itoa(num) + " \033[0m│ " + scanner.Text() + spaces + "│")
 		}
 		num++
 	}
