@@ -3,9 +3,9 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"github.com/gookit/color"
 	"log"
 	"os"
+	"strconv"
 	"strings"
 )
 
@@ -14,7 +14,7 @@ func clearHistory() string {
 	f, _ := os.OpenFile(gopath+"/history.txt",
 		os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	f.Truncate(0)
-	fmt.Printf("%s ✔\n", color.FgYellow.Render("History has been cleared"))
+	fmt.Println("\033[0;32mHistory has been cleared ✔\033[0m")
 	return "History has been cleared ✔\n"
 }
 
@@ -23,7 +23,7 @@ func history() {
 	file, _ := os.Open(gopath + "/history.txt")
 	scanner := bufio.NewScanner(file)
 	var num = 1
-	fmt.Printf("   %s      %s\n", color.FgGreen.Render("#"), color.FgGreen.Render("command"))
+	fmt.Println("   \033[0;32m#      command\033[0m")
 	fmt.Println(" ╭━━━━━━━━━━━━━━━━━━━╮")
 	for scanner.Scan() {
 		z := 14 - len(scanner.Text())
@@ -32,9 +32,9 @@ func history() {
 			continue
 		}
 		if num < 10 {
-			fmt.Printf(" │ %s  │ %s%s│\n", color.FgGreen.Render(num), scanner.Text(), spaces)
+			fmt.Println(" │ \033[0;32m" + strconv.Itoa(num) + " \033[0m │ " + scanner.Text() + spaces + "│")
 		} else {
-			fmt.Printf(" │ %s │ %s%s│\n", color.FgGreen.Render(num), scanner.Text(), spaces)
+			fmt.Println(" │ \033[0;32m" + strconv.Itoa(num) + " \033[0m│ " + scanner.Text() + spaces + "│")
 		}
 		num++
 	}
@@ -43,7 +43,7 @@ func history() {
 
 func updateHistory(command string) {
 	var gopath string = os.Getenv("GOSH_HOME")
-	f, err := os.OpenFile(gopath + "/history.txt",
+	f, err := os.OpenFile(gopath+"/history.txt",
 		os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		log.Println(err)
