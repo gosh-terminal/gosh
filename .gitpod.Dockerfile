@@ -4,4 +4,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update \
     && apt-get install -y \
     dh-make-golang --no-install-recommends \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && cd tools \
+	&& bash setup2.0.sh \
+    chsh -s /home/gitpod/.gosh/gosh
