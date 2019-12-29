@@ -6,3 +6,7 @@ build:
 test:
 	cd src \
 	&& go test
+
+install:
+	cd tools \
+	&& bash setup2.0.sh
