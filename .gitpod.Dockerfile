@@ -5,5 +5,6 @@ RUN apt-get update \
     && apt-get install -y \
     dh-make-golang --no-install-recommends \
     && rm -rf /var/lib/apt/lists/* \
-    && curl -s "https://raw.githubusercontent.com/gosh-terminal/gosh/master/tools/setup2.0.bash" | bash \
+USER gitpod
+RUN curl -s "https://raw.githubusercontent.com/gosh-terminal/gosh/master/tools/setup2.0.bash" | bash \
     && chsh -s /home/gitpod/.gosh/gosh
