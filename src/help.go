@@ -2,17 +2,16 @@ package main
 
 import (
 	"fmt"
-	"github.com/gookit/color"
 )
 
 func help() {
-	fmt.Printf("   %s   %s        %s\n", color.FgGreen.Render("#"), color.FgGreen.Render("command"), color.FgGreen.Render("description"))
+	fmt.Println("   \033[0;32m#   command        description\033[0m")
 	fmt.Println(" ╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮")
-	fmt.Printf(" │ %s │ exit       │  exits gosh                                  │\n", color.FgGreen.Render("1"))
-	fmt.Printf(" │ %s │ history    │  displays commands you have previously run   │\n", color.FgGreen.Render("2"))
-	fmt.Printf(" │ %s │ clearhist  │  clears your command history                 │\n", color.FgGreen.Render("3"))
-	fmt.Printf(" │ %s │ tree       │  shows files as tree view                    │\n", color.FgGreen.Render("4"))
-	fmt.Printf(" │ %s │ touch      │  creates an new file                         │\n", color.FgGreen.Render("5"))
-	fmt.Printf(" │ %s │ mkdir      │  creates an new directory                    │\n", color.FgGreen.Render("6"))
+	fmt.Println(" │ \033[0;32m1\033[0m │ exit       │  exits gosh                                  │")
+	fmt.Println(" │ \033[0;32m2\033[0m │ history    │  displays commands you have previously run   │")
+	fmt.Println(" │ \033[0;32m3\033[0m │ clearhist  │  clears your command history                 │")
+	fmt.Println(" │ \033[0;32m4\033[0m │ tree       │  shows files as tree view                    │")
+	fmt.Println(" │ \033[0;32m5\033[0m │ touch      │  creates an new file                         │")
+	fmt.Println(" │ \033[0;32m6\033[0m │ mkdir      │  creates an new directory                    │")
 	fmt.Println(" ╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯")
 }
