@@ -1,0 +1,13 @@
+Go based dependencies --:
+    github.com/c-bata/go-prompt --:
+        files that depend on it --:
+            * src/shell.go
+            * src/complete.go
+        why we use it --:
+            * Auto-Completion
+            * Key Listeners
+    github.com/manifoldco/promptui --:
+        files that depend on it --:
+            * src/prompt.go
+        why we use it --:
+            * The one confirmation thing

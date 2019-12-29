@@ -2,7 +2,6 @@ package main
 
 import (
 	"fmt"
-	"github.com/gookit/color"
 	"os"
 	"strings"
 )
@@ -17,8 +16,8 @@ func touch(filename string) {
 		os.Create(filenames[i])
 	}
 	if len(filenames) >= 3 {
-		fmt.Printf("%s", color.FgYellow.Render("The files have been created! ✔\n"))
+		fmt.Println("\033[0;33mThe files have been created! ✔\033[0m")
 	} else {
-		color.FgYellow.Println(filenames[1], "has been created! ✔")
+		fmt.Println("\033[0;33m"+filenames[1], "has been created! ✔\033[0m")
 	}
 }

@@ -1,12 +1,21 @@
-install:
-	go get -v -t -d ./...
-	go build -o gosh src/*.go
-	touch history.txt
-	mv history.txt $$GOPATH/bin
-	mv gosh $$GOPATH/bin
-.PHONY: install
+.PHONY: build
+build:
+	go get -v -t -d ./... \
+	&& go build -o gosh src/*.go \
+	&& ./gosh
 
-test:
-	cd src
-	go test
 .PHONY: test
+test:
+	cd src \
+	&& go test
+
+.PHONY: install
+install:
+	cd tools \
+	&& bash setup2.0.sh \
+	&& source ~/.bashrc \
+	&& gosh
+
+.PHONY: clean
+clean:
+	rm gosh

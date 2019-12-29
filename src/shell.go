@@ -83,6 +83,9 @@ func shell() {
 			}
 			updateHistory(command)
 			continue
+		} else if strings.HasPrefix("cd", command) {
+			invalidNumberOfArgs(command)
+			continue
 		} else if strings.HasPrefix(command, "history") {
 			history()
 			continue
