@@ -7,6 +7,6 @@ install:
 .PHONY: install
 
 test:
-	cd src
-	go test
+	cd src \
+	&& go test
 .PHONY: test
