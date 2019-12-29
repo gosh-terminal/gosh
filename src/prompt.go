@@ -3,12 +3,10 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"github.com/manifoldco/promptui"
 	"io/ioutil"
 	"os"
 	"strings"
-
-	"github.com/gookit/color"
-	"github.com/manifoldco/promptui"
 )
 
 func thePrompt() {
@@ -33,7 +31,6 @@ func thePrompt() {
 			isGitRepo = true
 		}
 	}
-	blue := color.FgBlue.Render
 	if isGitRepo {
 		file1, _ := os.Open(".git/HEAD")
 		scanner := bufio.NewScanner(file1)
@@ -42,10 +39,10 @@ func thePrompt() {
 			gitHeadString += scanner.Text()
 		}
 		dataStr := strings.Split(strings.Trim(gitHeadString, "\n"), "/")
-		color.FgGreen.Printf("gosh%s%s %s ", color.FgMagenta.Render("@"), color.FgYellow.Render(dataStr[len(dataStr)-1]), blue("λ"))
+		fmt.Print("\033[0;32mgosh\033[0;35m@\033[0;33m" + dataStr[len(dataStr)-1] + "\033[0;34m λ \033[0m")
 		return
 	}
-	color.FgGreen.Printf("gosh %s ", blue("λ"))
+	fmt.Printf("\033[0;32mgosh \033[0;34mλ \033[0m")
 }
 
 func exit() {

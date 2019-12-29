@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/gookit/color"
+	"fmt"
 	"os"
 	"strings"
 )
@@ -16,8 +16,8 @@ func mkdir(dirnames string) {
 		os.Mkdir(dirname[i], 0655)
 	}
 	if len(dirname) >= 3 {
-		color.FgYellow.Println("The directories have been created! ✔")
+		fmt.Println("\033[0;33mThe directories have been created! ✔\033[0m")
 	} else {
-		color.FgYellow.Println("Directory", dirname[1], "has been created! ✔")
+		fmt.Println("\033[0;33mDirectory", dirname[1], "has been created! ✔\033[0m")
 	}
 }
