@@ -9,4 +9,6 @@ test:
 
 install:
 	cd tools \
-	&& bash setup2.0.sh
+	&& bash setup2.0.sh \
+	&& source ~/.bashrc \
+	&& gosh
