@@ -10,7 +10,7 @@ func main() {
     shell()
   }
   if os.Args[1] == "-v" {
-    fmt.Println("gosh v0.02-alpha")
+    fmt.Println("gosh v0.03-alpha")
   } else if os.Args[1] == "-c" {
     if len(os.Args) >= 3 {
       evaluate(os.Args[2])
