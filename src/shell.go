@@ -12,7 +12,7 @@ func shell() {
   fmt.Println("------------------------------")
   for {
     thePrompt()
-    command := prompt.Input("", completer, prompt.OptionHistory(getCommandHist()), prompt.OptionSuggestionBGColor(prompt.DefaultColor),
+    command := prompt.Input("", completer, prompt.OptionHistory(getCommandHist()), prompt.OptionSuggestionBGColor(prompt.Black),
       prompt.OptionInputTextColor(prompt.Cyan),
       prompt.OptionMaxSuggestion(6),
       prompt.OptionTitle("gosh"),
@@ -21,7 +21,7 @@ func shell() {
         Fn: func(buf *prompt.Buffer) {
           thePrompt()
         }}),
-      prompt.OptionPreviewSuggestionTextColor(prompt.DefaultColor),
+      prompt.OptionPreviewSuggestionTextColor(prompt.Green),
       prompt.OptionScrollbarBGColor(prompt.DefaultColor))
     command = strings.Replace(command, "\n", "", -1)
     if strings.Contains(command, " > ") {
