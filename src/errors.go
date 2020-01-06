@@ -24,7 +24,7 @@ func commandNotFound(command string) {
   fmt.Print("\033[0;34m  |   ")
   fmt.Print("\033[1;34m       " + highlightThing + "\033[0m")
   fmt.Print("\033[0;31m      Error: \033[0m")
-  fmt.Println("Command not found")
+  fmt.Println("Command not found!")
 }
 
 func directoryNotFound(dir string) {
@@ -40,5 +40,5 @@ func pipeError(command string) {
   fmt.Print("\033[0;34m  |   ")
   fmt.Print(spaces + " \033[1;34m          " + highlightThing + "\033[0m")
   fmt.Print("\033[0;31m      Error: \033[0m")
-  fmt.Println("Pipe error")
+  fmt.Println("Pipe error!")
 }
