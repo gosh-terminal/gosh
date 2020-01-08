@@ -1,55 +1,55 @@
 package main
 
 import (
-  "bufio"
-  "fmt"
-  "log"
-  "os"
-  "strconv"
-  "strings"
+	"bufio"
+	"fmt"
+	"log"
+	"os"
+	"strconv"
+	"strings"
 )
 
 func clearHistory() string {
-  var gopath string = os.Getenv("GOSH_HOME")
-  f, _ := os.OpenFile(gopath+"/history.txt",
-    os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
-  f.Truncate(0)
-  fmt.Println("\033[0;32mHistory has been cleared ✔\033[0m")
-  return "History has been cleared ✔\n"
+	var gopath string = os.Getenv("GOSH_HOME")
+	f, _ := os.OpenFile(gopath+"/history.txt",
+		os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	f.Truncate(0)
+	fmt.Println("\033[0;32mHistory has been cleared ✔\033[0m")
+	return "History has been cleared ✔\n"
 }
 
 func history() {
-  var gopath string = os.Getenv("GOSH_HOME")
-  file, _ := os.Open(gopath + "/history.txt")
-  scanner := bufio.NewScanner(file)
-  var num = 1
-  fmt.Println("   \033[0;32m#      command\033[0m")
-  fmt.Println(" ╭━━━━━━━━━━━━━━━━━━━╮")
-  for scanner.Scan() {
-    z := 14 - len(scanner.Text())
-    spaces := strings.Repeat(" ", z)
-    if strings.Compare(string(scanner.Text()), "") == 0 {
-      continue
-    }
-    if num < 10 {
-      fmt.Println(" │ \033[0;32m" + strconv.Itoa(num) + " \033[0m │ " + scanner.Text() + spaces + "│")
-    } else {
-      fmt.Println(" │ \033[0;32m" + strconv.Itoa(num) + " \033[0m│ " + scanner.Text() + spaces + "│")
-    }
-    num++
-  }
-  fmt.Println(" ╰━━━━━━━━━━━━━━━━━━━╯")
+	var gopath string = os.Getenv("GOSH_HOME")
+	file, _ := os.Open(gopath + "/history.txt")
+	scanner := bufio.NewScanner(file)
+	var num = 1
+	fmt.Println("   \033[0;32m#      command\033[0m")
+	fmt.Println(" ╭━━━━━━━━━━━━━━━━━━━╮")
+	for scanner.Scan() {
+		z := 14 - len(scanner.Text())
+		spaces := strings.Repeat(" ", z)
+		if strings.Compare(string(scanner.Text()), "") == 0 {
+			continue
+		}
+		if num < 10 {
+			fmt.Println(" │ \033[0;32m" + strconv.Itoa(num) + " \033[0m │ " + scanner.Text() + spaces + "│")
+		} else {
+			fmt.Println(" │ \033[0;32m" + strconv.Itoa(num) + " \033[0m│ " + scanner.Text() + spaces + "│")
+		}
+		num++
+	}
+	fmt.Println(" ╰━━━━━━━━━━━━━━━━━━━╯")
 }
 
 func updateHistory(command string) {
-  var gopath string = os.Getenv("GOSH_HOME")
-  f, err := os.OpenFile(gopath+"/history.txt",
-    os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
-  if err != nil {
-    log.Println(err)
-  }
-  defer f.Close()
-  if _, err := f.WriteString("\n" + command); err != nil {
-    log.Println(err)
-  }
+	var gopath string = os.Getenv("GOSH_HOME")
+	f, err := os.OpenFile(gopath+"/history.txt",
+		os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+	if err != nil {
+		log.Println(err)
+	}
+	defer f.Close()
+	if _, err := f.WriteString("\n" + command); err != nil {
+		log.Println(err)
+	}
 }
