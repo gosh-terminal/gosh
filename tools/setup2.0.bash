@@ -49,10 +49,8 @@ function install() {
   git clone https://github.com/gosh-terminal/gosh.git
   oldwd=${PWD}
   cd gosh
-  echo "Installing dependencies"
-  go get -v -t -d ./...
   echo "building gosh"
-  go build -o gosh src/*.go
+  go build -o gosh main.go
   echo "Moving files"
   mv gosh "$HOME/.gosh"
   touch history.txt "$HOME/.gosh"
