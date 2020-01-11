@@ -114,6 +114,7 @@ func Shell() {
 		}
 	}
 }
+
 // Evaluate evaluate function
 func Evaluate(command string) {
 	if len(strings.Trim(command, " ")) == 0 {
