@@ -1,8 +1,8 @@
 image:
   file: .gitpod.Dockerfile
-# tasks:
-#   - init: go install
-#     command: gosh
+tasks:
+  - init: go install
+    command: gosh
 vscode:
   extensions:
     - DavidAnson.vscode-markdownlint@0.32.0:gujQ1foJzJ2yxCOgDqFfXw==
