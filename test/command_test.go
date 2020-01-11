@@ -1,8 +1,8 @@
-package tests
+package test
 
 import (
 	"fmt"
-	"gosh/shell"
+	shell "gosh/pkg"
 	"testing"
 )
 

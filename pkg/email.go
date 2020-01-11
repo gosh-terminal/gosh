@@ -1,4 +1,4 @@
-package shell
+package pkg
 
 // SignIn sign in to your email
 func SignIn() {

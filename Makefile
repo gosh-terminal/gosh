@@ -4,7 +4,7 @@ build:
 .PHONY: build
 
 test:
-	go test gosh/tests
+	go test gosh/test
 .PHONY: test
 
 install:
