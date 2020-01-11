@@ -9,7 +9,6 @@ task:
   env:
     GOPROXY: https://proxy.golang.org
   populate_dependencies_script: |
-    cd src
     go get -v -t -d ./...
   build_script: |
     go build -o gosh *.go
