@@ -28,7 +28,7 @@ source ~/.bashrc
 ### Go Module
 
 ```bash
-git clone https://github.com/gosh-terminal/gosh.git
+git clone "https://github.com/gosh-terminal/gosh.git"
 cd gosh
 go install
 ```
