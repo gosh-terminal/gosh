@@ -1,4 +1,4 @@
-package main
+package shell
 
 import (
 	"bufio"
@@ -9,7 +9,8 @@ import (
 	"strings"
 )
 
-func thePrompt() {
+// ThePrompt This function is for the main prompt of the shell
+func ThePrompt() {
 	isGitRepo := false
 	files, err := ioutil.ReadDir(".")
 	if err != nil {
@@ -45,7 +46,8 @@ func thePrompt() {
 	fmt.Printf("\033[0;32mgosh \033[0;34mλ \033[0m")
 }
 
-func exit() {
+// Exit This function exits the program
+func Exit() {
 	prompt := promptui.Select{
 		Label: "Are you sure?",
 		Items: []string{"Yes", "No"},

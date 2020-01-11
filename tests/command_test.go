@@ -1,12 +1,13 @@
-package main
+package tests
 
 import (
 	"fmt"
+	"gosh/shell"
 	"testing"
 )
 
 func TestGetArg(t *testing.T) {
-	gotArray := []string{getArg("ls data"), getArg("cd ")}
+	gotArray := []string{shell.GetArg("ls data"), shell.GetArg("cd ")}
 	wantArray := []string{"data", ""}
 	if gotArray[0] != wantArray[0] {
 		t.Errorf("got %q want %q", gotArray[0], wantArray[0])
@@ -18,7 +19,7 @@ func TestGetArg(t *testing.T) {
 }
 
 func TestSplitCommand(t *testing.T) {
-	got := clearHistory()
+	got := shell.ClearHistory()
 	want := "History has been cleared ✔\n"
 	if got != want {
 		t.Errorf("got %q want %q", got, want)
@@ -27,7 +28,7 @@ func TestSplitCommand(t *testing.T) {
 }
 
 func testCaptureOutput(t *testing.T) {
-	got, err := captureOutput("cat ci/data")
+	got, err := shell.CaptureOutput("cat ci/data")
 	want := "test\n"
 	if err != nil {
 		t.Errorf("got %q want %q", got, want)

@@ -1,4 +1,4 @@
-package main
+package shell
 
 import (
 	"fmt"
@@ -8,7 +8,8 @@ import (
 	"strings"
 )
 
-func ls(path string) {
+// Ls this is the ls command for gosh
+func Ls(path string) {
 	files, err := ioutil.ReadDir(path)
 	if err != nil {
 		log.Fatal(err)
@@ -50,7 +51,8 @@ func ls(path string) {
 	fmt.Println(" ╰━━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━╯")
 }
 
-func treeView(path string, tabNumbers int) {
+// TreeView tree view command
+func TreeView(path string, tabNumbers int) {
 	files, err := ioutil.ReadDir(path)
 	if err != nil {
 		fmt.Println("UNKNOWN ERROR HAS OCCURED!")
@@ -59,7 +61,7 @@ func treeView(path string, tabNumbers int) {
 		tabsThing := strings.Repeat("    ", tabNumbers)
 		fmt.Println(tabsThing, file.Name())
 		if file.IsDir() {
-			treeView(path+"/"+file.Name(), tabNumbers+1)
+			TreeView(path+"/"+file.Name(), tabNumbers+1)
 		}
 	}
 }

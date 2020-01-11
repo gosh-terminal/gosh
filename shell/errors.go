@@ -1,11 +1,12 @@
-package main
+package shell
 
 import (
 	"fmt"
 	"strings"
 )
 
-func invalidNumberOfArgs(command string) {
+// InvalidNumberOfArgs Invalid args error
+func InvalidNumberOfArgs(command string) {
 	stringLen := len(command)
 	highlightThing := strings.Repeat("^", stringLen)
 	fmt.Print("\033[0;34m1 | ")

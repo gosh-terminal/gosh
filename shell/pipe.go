@@ -1,4 +1,4 @@
-package main
+package shell
 
 import (
 	"bytes"
@@ -9,19 +9,22 @@ import (
 	"strings"
 )
 
-func redirectToFile(commandOneOut []byte, fileName string) {
+// RedirectToFile redorect the output of command to file
+func RedirectToFile(commandOneOut []byte, fileName string) {
 	err := ioutil.WriteFile(fileName, commandOneOut, 0655)
 	if err != nil {
 		os.Create(fileName)
-		redirectToFile(commandOneOut, fileName)
+		RedirectToFile(commandOneOut, fileName)
 	}
 }
 
-func captureOutput(command string) ([]byte, error) {
+// CaptureOutput capture the output of one command
+func CaptureOutput(command string) ([]byte, error) {
 	return exec.Command(command).Output()
 }
 
-func pipe(from []byte, to string) error {
+// Pipe pipes output of one command to another
+func Pipe(from []byte, to string) error {
 	cmd := exec.Command(to)
 
 	buffer := bytes.Buffer{}
