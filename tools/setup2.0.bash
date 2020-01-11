@@ -47,7 +47,7 @@ function install() {
     fi
   fi
   git clone https://github.com/gosh-terminal/gosh.git
-  oldwd=${PWD}
+  oldwd=$PWD
   cd gosh
   echo "building gosh"
   go build -o gosh main.go
@@ -64,7 +64,7 @@ function install() {
   echo "export GOSH_HOME=$PWD" >>~/.bashrc
   echo -e "\nDone!!\n\nPlease open a new terminal, or run the following in the existing one:\n    . ~/.bashrc\n\n"
   echo "Remove old stuff"
-  cd $oldwd
+  cd "$oldwd"
   rm -rf gosh
 }
 install
