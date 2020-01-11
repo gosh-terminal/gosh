@@ -4,8 +4,7 @@ build:
 .PHONY: build
 
 test:
-	cd src \
-	&& go gosh/tests
+	go test gosh/tests
 .PHONY: test
 
 install:

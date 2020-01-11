@@ -13,7 +13,7 @@ func Shell() {
 	fmt.Println("------------------------------")
 	for {
 		ThePrompt()
-		command := prompt.Input("", completer, prompt.OptionHistory(getCommandHist()), prompt.OptionSuggestionBGColor(prompt.DefaultColor),
+		command := prompt.Input("", Completer, prompt.OptionHistory(GetCommandHist()), prompt.OptionSuggestionBGColor(prompt.DefaultColor),
 			prompt.OptionInputTextColor(prompt.Cyan),
 			prompt.OptionMaxSuggestion(6),
 			prompt.OptionTitle("gosh"),
@@ -26,29 +26,29 @@ func Shell() {
 			prompt.OptionScrollbarBGColor(prompt.DefaultColor))
 		command = strings.Replace(command, "\n", "", -1)
 		if strings.Contains(command, " > ") {
-			data, err := splitCommandFile(command)
+			data, err := SplitCommandFile(command)
 			if err != nil {
-				pipeError(command)
+				PipeError(command)
 				UpdateHistory(command)
 				continue
 			}
 			CaptureOutput, err := CaptureOutput(data[0])
 			if err != nil {
-				commandNotFound(command)
+				CommandNotFound(command)
 			}
 			RedirectToFile(CaptureOutput, data[1])
 			UpdateHistory(command)
 			continue
 		} else if strings.Contains(command, " | ") {
-			data, err := splitCommands(command)
+			data, err := SplitCommands(command)
 			if err != nil {
-				pipeError(command)
+				PipeError(command)
 				UpdateHistory(command)
 				continue
 			}
 			CaptureOutput, err := CaptureOutput(data[0])
 			if err != nil {
-				commandNotFound(command)
+				CommandNotFound(command)
 			}
 			Pipe(CaptureOutput, data[1])
 			UpdateHistory(command)
@@ -74,12 +74,12 @@ func Shell() {
 		} else if strings.HasPrefix(command, "cd ") {
 			var dir string = GetArg(command)
 			if dir == "error" {
-				directoryNotFound(dir)
+				DirectoryNotFound(dir)
 			}
 			err := os.Chdir(dir)
 			if err != nil {
 				if strings.HasSuffix(string(err.Error()), "file or directory") {
-					directoryNotFound(dir)
+					DirectoryNotFound(dir)
 				}
 			}
 			UpdateHistory(command)
@@ -107,7 +107,7 @@ func Shell() {
 		} else {
 			if err := ExecuteCommand(command); err != nil {
 				if strings.HasSuffix(string(err.Error()), "executable file not found in $PATH") {
-					commandNotFound(command)
+					CommandNotFound(command)
 				}
 			}
 			UpdateHistory(command)
@@ -137,12 +137,12 @@ func Evaluate(command string) {
 	} else if strings.HasPrefix(command, "cd ") {
 		var dir string = GetArg(command)
 		if dir == "error" {
-			directoryNotFound(dir)
+			DirectoryNotFound(dir)
 		}
 		err := os.Chdir(dir)
 		if err != nil {
 			if strings.HasSuffix(string(err.Error()), "file or directory") {
-				directoryNotFound(dir)
+				DirectoryNotFound(dir)
 			}
 		}
 		UpdateHistory(command)
@@ -153,15 +153,15 @@ func Evaluate(command string) {
 	} else if strings.Compare(command, "clearhist") == 0 {
 		ClearHistory()
 	} else if strings.Contains(command, " > ") {
-		data, err := splitCommandFile(command)
+		data, err := SplitCommandFile(command)
 		if err != nil {
-			pipeError(command)
+			PipeError(command)
 			UpdateHistory(command)
 			return
 		}
 		CaptureOutput, err := CaptureOutput(data[0])
 		if err != nil {
-			commandNotFound(command)
+			CommandNotFound(command)
 		}
 		RedirectToFile(CaptureOutput, data[1])
 		UpdateHistory(command)
@@ -181,7 +181,7 @@ func Evaluate(command string) {
 	} else {
 		if err := ExecuteCommand(command); err != nil {
 			if strings.HasSuffix(string(err.Error()), "executable file not found in $PATH") {
-				commandNotFound(command)
+				CommandNotFound(command)
 			}
 		}
 		UpdateHistory(command)
