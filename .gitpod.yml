@@ -1,8 +1,8 @@
 image:
   file: .gitpod.Dockerfile
 tasks:
-  - init: ./tools/setup2.0.bash
-    command: source ~/.bashrc && gosh
+  - init: go install
+    command: gosh
 ports:
   - port: 8080
     onOpen: ignore
