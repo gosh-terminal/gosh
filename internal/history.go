@@ -30,7 +30,7 @@ func History() {
 	for scanner.Scan() {
 		z := 14 - len(scanner.Text())
 		spaces := strings.Repeat(" ", z)
-		if strings.Compare(string(scanner.Text()), "") == 0 {
+		if string(scanner.Text()) == "" {
 			continue
 		}
 		if num < 10 {
