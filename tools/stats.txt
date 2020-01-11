@@ -11,3 +11,5 @@ Go based dependencies --:
             * src/prompt.go
         why we use it --:
             * The one confirmation thing
+
+As of Friday January 10th 2020 there are 685 lines of code
