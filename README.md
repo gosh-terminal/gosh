@@ -31,6 +31,7 @@ source ~/.bashrc
 git clone "https://github.com/gosh-terminal/gosh.git"
 cd gosh
 go install
+export GOSH_HOME=/workspace/go/bin
 ```
 
 ![Example of gosh](https://github.com/gosh-terminal/gosh/blob/master/.github/images/example.png?raw=true)
