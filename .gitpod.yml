@@ -3,11 +3,6 @@ image:
 tasks:
   - init: go install
     command: gosh
-ports:
-  - port: 8080
-    onOpen: ignore
-  - port: 4000
-    onOpen: open-preview
 vscode:
   extensions:
     - DavidAnson.vscode-markdownlint@0.32.0:gujQ1foJzJ2yxCOgDqFfXw==
