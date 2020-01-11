@@ -41,6 +41,7 @@ func Pipe(from []byte, to string) error {
 	return nil
 }
 
+// SplitCommands split pipes by ` | `
 func SplitCommands(command string) ([]string, error) {
 	splitStr := strings.Split(command, " | ")
 	if len(splitStr) == 2 && splitStr[1] != "" && len(strings.TrimSpace(splitStr[1])) != 0 {
@@ -49,6 +50,7 @@ func SplitCommands(command string) ([]string, error) {
 	return splitStr, errors.New("Must specify a file")
 }
 
+// SplitCommandFile split the command and file by ` > `
 func SplitCommandFile(command string) ([]string, error) {
 	splitStr := strings.Split(command, " > ")
 	if len(splitStr) == 2 && splitStr[1] != "" && len(strings.TrimSpace(splitStr[1])) != 0 {

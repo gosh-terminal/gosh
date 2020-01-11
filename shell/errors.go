@@ -17,6 +17,7 @@ func InvalidNumberOfArgs(command string) {
 	fmt.Println("Invalid number of arguments!")
 }
 
+// CommandNotFound command not found error
 func CommandNotFound(command string) {
 	stringLen := len(command)
 	highlightThing := strings.Repeat("^", stringLen)
@@ -28,10 +29,12 @@ func CommandNotFound(command string) {
 	fmt.Println("Command not found!")
 }
 
+// DirectoryNotFound directory not found error
 func DirectoryNotFound(dir string) {
 	fmt.Println("\033[0;31m❌  gosh: '" + dir + "' not found!\033[0m")
 }
 
+// PipeError pipe error
 func PipeError(command string) {
 	indexOf := strings.Index(command, " > ")
 	highlightThing := strings.Repeat("^", len(command[indexOf+3:])+1)
