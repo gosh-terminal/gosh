@@ -7,6 +7,7 @@ import (
 	"strings"
 )
 
+// Shell gosh shell
 func Shell() {
 	fmt.Println("Welcome to gosh, the Go Shell!")
 	fmt.Println("------------------------------")
