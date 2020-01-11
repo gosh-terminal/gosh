@@ -1,17 +1,19 @@
-.PHONY: build; build:
-	go get -v -t -d ./... \
-	&& go build -o gosh src/*.go \
+build:
+	go build -o gosh main.go \
 	&& ./gosh
+.PHONY: build
 
-.PHONY: test; test:
-	cd src \
-	&& go test
+test:
+	go test gosh/test
+.PHONY: test
 
-.PHONY: install; install:
+install:
 	cd tools \
 	&& bash setup2.0.bash \
 	&& source ~/.bashrc \
 	&& gosh
+.PHONY: install
 
-.PHONY: clean; clean:
+clean:
 	rm gosh
+.PHONY: clean

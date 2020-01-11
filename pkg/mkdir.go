@@ -1,4 +1,4 @@
-package main
+package pkg
 
 import (
 	"fmt"
@@ -6,10 +6,11 @@ import (
 	"strings"
 )
 
-func mkdir(dirnames string) {
+// Mkdir create directory
+func Mkdir(dirnames string) {
 	dirname := strings.Split(dirnames, " ")
 	if len(dirname) <= 1 {
-		invalidNumberOfArgs(dirnames)
+		InvalidNumberOfArgs(dirnames)
 		return
 	}
 	for i := 1; i < len(dirname); i++ {

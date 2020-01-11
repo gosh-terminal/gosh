@@ -1,10 +1,11 @@
-package main
+package pkg
 
 import (
 	"fmt"
 )
 
-func help() {
+// Help the help function
+func Help() {
 	fmt.Println("   \033[0;32m#   command        description\033[0m")
 	fmt.Println(" ╭━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╮")
 	fmt.Println(" │ \033[0;32m1\033[0m │ exit       │  exits gosh                                  │")

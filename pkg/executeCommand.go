@@ -1,4 +1,4 @@
-package main
+package pkg
 
 import (
 	"os"
@@ -6,7 +6,8 @@ import (
 	"strings"
 )
 
-func executeCommand(theCommand string) error {
+// ExecuteCommand executes a command string
+func ExecuteCommand(theCommand string) error {
 	args := strings.Split(theCommand, " ")
 	cmd := exec.Command(args[0], args[1:]...)
 	cmd.Stdout = os.Stdout
@@ -15,7 +16,8 @@ func executeCommand(theCommand string) error {
 	return cmd.Run()
 }
 
-func getArg(commandString string) string {
+// GetArg Get argument from commandString
+func GetArg(commandString string) string {
 	var s []string = strings.Split(commandString, " ")
 	if len(s) >= 1 {
 		return s[1]

@@ -1,4 +1,4 @@
-package main
+package pkg
 
 import (
 	"fmt"
@@ -6,10 +6,11 @@ import (
 	"strings"
 )
 
-func touch(filename string) {
+// Touch Create File
+func Touch(filename string) {
 	filenames := strings.Split(filename, " ")
 	if len(filenames) <= 1 {
-		invalidNumberOfArgs(filename)
+		InvalidNumberOfArgs(filename)
 		return
 	}
 	for i := 1; i < len(filenames); i++ {

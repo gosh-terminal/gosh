@@ -1,11 +1,12 @@
-package main
+package pkg
 
 import (
 	"fmt"
 	"strings"
 )
 
-func invalidNumberOfArgs(command string) {
+// InvalidNumberOfArgs Invalid args error
+func InvalidNumberOfArgs(command string) {
 	stringLen := len(command)
 	highlightThing := strings.Repeat("^", stringLen)
 	fmt.Print("\033[0;34m1 | ")
@@ -16,7 +17,8 @@ func invalidNumberOfArgs(command string) {
 	fmt.Println("Invalid number of arguments!")
 }
 
-func commandNotFound(command string) {
+// CommandNotFound command not found error
+func CommandNotFound(command string) {
 	stringLen := len(command)
 	highlightThing := strings.Repeat("^", stringLen)
 	fmt.Print("\033[0;34m1 | ")
@@ -27,11 +29,13 @@ func commandNotFound(command string) {
 	fmt.Println("Command not found!")
 }
 
-func directoryNotFound(dir string) {
+// DirectoryNotFound directory not found error
+func DirectoryNotFound(dir string) {
 	fmt.Println("\033[0;31m❌  gosh: '" + dir + "' not found!\033[0m")
 }
 
-func pipeError(command string) {
+// PipeError pipe error
+func PipeError(command string) {
 	indexOf := strings.Index(command, " > ")
 	highlightThing := strings.Repeat("^", len(command[indexOf+3:])+1)
 	spaces := strings.Repeat(" ", len(command[:indexOf])+1)

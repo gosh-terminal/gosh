@@ -25,4 +25,12 @@ curl -s "https://raw.githubusercontent.com/gosh-terminal/gosh/master/tools/setup
 source ~/.bashrc
 ```
 
+### Go Module
+
+```bash
+git clone "https://github.com/gosh-terminal/gosh.git"
+cd gosh
+go install
+```
+
 ![Example of gosh](https://github.com/gosh-terminal/gosh/blob/master/.github/images/example.png?raw=true)

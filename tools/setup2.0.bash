@@ -47,12 +47,10 @@ function install() {
     fi
   fi
   git clone https://github.com/gosh-terminal/gosh.git
-  oldwd=${PWD}
+  oldwd=$PWD
   cd gosh
-  echo "Installing dependencies"
-  go get -v -t -d ./...
   echo "building gosh"
-  go build -o gosh src/*.go
+  go build -o gosh main.go
   echo "Moving files"
   mv gosh "$HOME/.gosh"
   touch history.txt "$HOME/.gosh"
@@ -66,7 +64,7 @@ function install() {
   echo "export GOSH_HOME=$PWD" >>~/.bashrc
   echo -e "\nDone!!\n\nPlease open a new terminal, or run the following in the existing one:\n    . ~/.bashrc\n\n"
   echo "Remove old stuff"
-  cd $oldwd
+  cd "$oldwd"
   rm -rf gosh
 }
 install

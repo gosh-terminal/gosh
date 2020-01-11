@@ -1,4 +1,4 @@
-package main
+package pkg
 
 import (
 	"bytes"
@@ -9,19 +9,22 @@ import (
 	"strings"
 )
 
-func redirectToFile(commandOneOut []byte, fileName string) {
+// RedirectToFile redorect the output of command to file
+func RedirectToFile(commandOneOut []byte, fileName string) {
 	err := ioutil.WriteFile(fileName, commandOneOut, 0655)
 	if err != nil {
 		os.Create(fileName)
-		redirectToFile(commandOneOut, fileName)
+		RedirectToFile(commandOneOut, fileName)
 	}
 }
 
-func captureOutput(command string) ([]byte, error) {
+// CaptureOutput capture the output of one command
+func CaptureOutput(command string) ([]byte, error) {
 	return exec.Command(command).Output()
 }
 
-func pipe(from []byte, to string) error {
+// Pipe pipes output of one command to another
+func Pipe(from []byte, to string) error {
 	cmd := exec.Command(to)
 
 	buffer := bytes.Buffer{}
@@ -38,7 +41,8 @@ func pipe(from []byte, to string) error {
 	return nil
 }
 
-func splitCommands(command string) ([]string, error) {
+// SplitCommands split pipes by ` | `
+func SplitCommands(command string) ([]string, error) {
 	splitStr := strings.Split(command, " | ")
 	if len(splitStr) == 2 && splitStr[1] != "" && len(strings.TrimSpace(splitStr[1])) != 0 {
 		return splitStr, nil
@@ -46,7 +50,8 @@ func splitCommands(command string) ([]string, error) {
 	return splitStr, errors.New("Must specify a file")
 }
 
-func splitCommandFile(command string) ([]string, error) {
+// SplitCommandFile split the command and file by ` > `
+func SplitCommandFile(command string) ([]string, error) {
 	splitStr := strings.Split(command, " > ")
 	if len(splitStr) == 2 && splitStr[1] != "" && len(strings.TrimSpace(splitStr[1])) != 0 {
 		return splitStr, nil

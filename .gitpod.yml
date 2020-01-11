@@ -1,13 +1,8 @@
 image:
   file: .gitpod.Dockerfile
 tasks:
-  - init: ./tools/setup2.0.bash
-    command: source ~/.bashrc && gosh
-ports:
-  - port: 8080
-    onOpen: ignore
-  - port: 4000
-    onOpen: open-preview
+  - init: go install
+    command: gosh
 vscode:
   extensions:
     - DavidAnson.vscode-markdownlint@0.32.0:gujQ1foJzJ2yxCOgDqFfXw==

@@ -2,20 +2,21 @@ package main
 
 import (
 	"fmt"
+	shell "gosh/pkg"
 	"os"
 )
 
 func main() {
 	if len(os.Args) == 1 {
-		shell()
+		shell.Shell()
 	}
 	if os.Args[1] == "-v" {
 		fmt.Println("gosh v0.04-alpha")
 	} else if os.Args[1] == "-c" {
 		if len(os.Args) >= 3 {
-			evaluate(os.Args[2])
+			shell.Evaluate(os.Args[2])
 		} else {
-			invalidNumberOfArgs(os.Args[1])
+			shell.InvalidNumberOfArgs(os.Args[1])
 		}
 	}
 }

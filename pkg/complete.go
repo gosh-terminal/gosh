@@ -1,4 +1,4 @@
-package main
+package pkg
 
 import (
 	"bufio"
@@ -8,7 +8,8 @@ import (
 	"strings"
 )
 
-func unique(intSlice []prompt.Suggest) []prompt.Suggest {
+// Unique remove prompt suggestion duplicates
+func Unique(intSlice []prompt.Suggest) []prompt.Suggest {
 	keys := make(map[prompt.Suggest]bool)
 	list := []prompt.Suggest{}
 	for _, entry := range intSlice {
@@ -20,7 +21,8 @@ func unique(intSlice []prompt.Suggest) []prompt.Suggest {
 	return list
 }
 
-func completer(d prompt.Document) []prompt.Suggest {
+// Completer complete commands
+func Completer(d prompt.Document) []prompt.Suggest {
 	s := []prompt.Suggest{{Text: "help", Description: "gosh"}, {Text: "exit", Description: "gosh"}, {Text: "history", Description: "gosh"}, {Text: "clearhist", Description: "gosh"}, {Text: "tree", Description: "gosh"}, {Text: "touch", Description: "gosh"}, {Text: "mkdir", Description: "gosh"}}
 	var gopath string = os.Getenv("GOSH_HOME")
 	file, _ := os.Open(gopath + "/history.txt")
@@ -39,10 +41,11 @@ func completer(d prompt.Document) []prompt.Suggest {
 	for _, file := range currentDir {
 		s = append(s, prompt.Suggest{Text: file.Name(), Description: "File"})
 	}
-	return prompt.FilterHasPrefix(unique(s), d.GetWordBeforeCursor(), true)
+	return prompt.FilterHasPrefix(Unique(s), d.GetWordBeforeCursor(), true)
 }
 
-func getCommandHist() []string {
+// GetCommandHist Get command History
+func GetCommandHist() []string {
 	s := []string{}
 	var gopath string = os.Getenv("GOSH_HOME")
 	file, _ := os.Open(gopath + "/history.txt")

@@ -1,4 +1,4 @@
-package main
+package pkg
 
 import (
 	"fmt"
@@ -7,181 +7,184 @@ import (
 	"strings"
 )
 
-func shell() {
+// Shell gosh shell
+func Shell() {
 	fmt.Println("Welcome to gosh, the Go Shell!")
 	fmt.Println("------------------------------")
 	for {
-		thePrompt()
-		command := prompt.Input("", completer, prompt.OptionHistory(getCommandHist()), prompt.OptionSuggestionBGColor(prompt.DefaultColor),
+		ThePrompt()
+		command := prompt.Input("", Completer, prompt.OptionHistory(GetCommandHist()), prompt.OptionSuggestionBGColor(prompt.DefaultColor),
 			prompt.OptionInputTextColor(prompt.Cyan),
 			prompt.OptionMaxSuggestion(6),
 			prompt.OptionTitle("gosh"),
 			prompt.OptionAddKeyBind(prompt.KeyBind{
 				Key: prompt.ControlC,
 				Fn: func(buf *prompt.Buffer) {
-					thePrompt()
+					ThePrompt()
 				}}),
 			prompt.OptionPreviewSuggestionTextColor(prompt.DefaultColor),
 			prompt.OptionScrollbarBGColor(prompt.DefaultColor))
 		command = strings.Replace(command, "\n", "", -1)
 		if strings.Contains(command, " > ") {
-			data, err := splitCommandFile(command)
+			data, err := SplitCommandFile(command)
 			if err != nil {
-				pipeError(command)
-				updateHistory(command)
+				PipeError(command)
+				UpdateHistory(command)
 				continue
 			}
-			captureOutput, err := captureOutput(data[0])
+			CaptureOutput, err := CaptureOutput(data[0])
 			if err != nil {
-				commandNotFound(command)
+				CommandNotFound(command)
 			}
-			redirectToFile(captureOutput, data[1])
-			updateHistory(command)
+			RedirectToFile(CaptureOutput, data[1])
+			UpdateHistory(command)
 			continue
 		} else if strings.Contains(command, " | ") {
-			data, err := splitCommands(command)
+			data, err := SplitCommands(command)
 			if err != nil {
-				pipeError(command)
-				updateHistory(command)
+				PipeError(command)
+				UpdateHistory(command)
 				continue
 			}
-			captureOutput, err := captureOutput(data[0])
+			CaptureOutput, err := CaptureOutput(data[0])
 			if err != nil {
-				commandNotFound(command)
+				CommandNotFound(command)
 			}
-			pipe(captureOutput, data[1])
-			updateHistory(command)
+			Pipe(CaptureOutput, data[1])
+			UpdateHistory(command)
 			continue
 		} else if strings.Compare("help", command) == 0 {
-			help()
-			updateHistory(command)
+			Help()
+			UpdateHistory(command)
 		} else if strings.Compare("exit", command) == 0 {
-			exit()
+			Exit()
 		} else if strings.Compare("ls", command) == 0 {
-			ls(".")
-			updateHistory(command)
+			Ls(".")
+			UpdateHistory(command)
 		} else if strings.HasPrefix(command, "ls ") {
-			var dir string = getArg(command)
+			var dir string = GetArg(command)
 			if len(dir) == 0 {
-				invalidNumberOfArgs(command)
+				InvalidNumberOfArgs(command)
 				continue
 			}
-			ls(dir)
-			updateHistory(command)
+			Ls(dir)
+			UpdateHistory(command)
 		} else if strings.Compare("", command) == 0 {
 			continue
 		} else if strings.HasPrefix(command, "cd ") {
-			var dir string = getArg(command)
+			var dir string = GetArg(command)
 			if dir == "error" {
-				directoryNotFound(dir)
+				DirectoryNotFound(dir)
 			}
 			err := os.Chdir(dir)
 			if err != nil {
 				if strings.HasSuffix(string(err.Error()), "file or directory") {
-					directoryNotFound(dir)
+					DirectoryNotFound(dir)
 				}
 			}
-			updateHistory(command)
+			UpdateHistory(command)
 			continue
 		} else if strings.HasPrefix("cd", command) {
-			invalidNumberOfArgs(command)
+			InvalidNumberOfArgs(command)
 			continue
 		} else if strings.HasPrefix(command, "history") {
-			history()
+			History()
 			continue
 		} else if strings.Compare(command, "clearhist") == 0 {
-			clearHistory()
+			ClearHistory()
 		} else if command == "tree" {
-			treeView(".", 0)
-			updateHistory(command)
+			TreeView(".", 0)
+			UpdateHistory(command)
 			continue
 		} else if strings.HasPrefix(command, "touch") {
-			touch(command)
-			updateHistory(command)
+			Touch(command)
+			UpdateHistory(command)
 			continue
 		} else if strings.HasPrefix(command, "mkdir") {
-			mkdir(command)
-			updateHistory(command)
+			Mkdir(command)
+			UpdateHistory(command)
 			continue
 		} else {
-			if err := executeCommand(command); err != nil {
+			if err := ExecuteCommand(command); err != nil {
 				if strings.HasSuffix(string(err.Error()), "executable file not found in $PATH") {
-					commandNotFound(command)
+					CommandNotFound(command)
 				}
 			}
-			updateHistory(command)
+			UpdateHistory(command)
 		}
 	}
 }
-func evaluate(command string) {
+
+// Evaluate evaluate function
+func Evaluate(command string) {
 	if len(strings.Trim(command, " ")) == 0 {
 		fmt.Println("Error input empty")
 		return
 	}
 	if strings.Compare("help", command) == 0 {
-		help()
-		updateHistory(command)
+		Help()
+		UpdateHistory(command)
 	} else if strings.Compare("exit", command) == 0 {
-		exit()
+		Exit()
 	} else if strings.Compare("ls", command) == 0 {
-		ls(".")
-		updateHistory(command)
+		Ls(".")
+		UpdateHistory(command)
 	} else if strings.HasPrefix(command, "ls ") {
-		var dir string = getArg(command)
-		ls(dir)
-		updateHistory(command)
+		var dir string = GetArg(command)
+		Ls(dir)
+		UpdateHistory(command)
 	} else if strings.Compare("", command) == 0 {
 		return
 	} else if strings.HasPrefix(command, "cd ") {
-		var dir string = getArg(command)
+		var dir string = GetArg(command)
 		if dir == "error" {
-			directoryNotFound(dir)
+			DirectoryNotFound(dir)
 		}
 		err := os.Chdir(dir)
 		if err != nil {
 			if strings.HasSuffix(string(err.Error()), "file or directory") {
-				directoryNotFound(dir)
+				DirectoryNotFound(dir)
 			}
 		}
-		updateHistory(command)
+		UpdateHistory(command)
 		return
 	} else if strings.HasPrefix(command, "history") {
-		history()
+		History()
 		return
 	} else if strings.Compare(command, "clearhist") == 0 {
-		clearHistory()
+		ClearHistory()
 	} else if strings.Contains(command, " > ") {
-		data, err := splitCommandFile(command)
+		data, err := SplitCommandFile(command)
 		if err != nil {
-			pipeError(command)
-			updateHistory(command)
+			PipeError(command)
+			UpdateHistory(command)
 			return
 		}
-		captureOutput, err := captureOutput(data[0])
+		CaptureOutput, err := CaptureOutput(data[0])
 		if err != nil {
-			commandNotFound(command)
+			CommandNotFound(command)
 		}
-		redirectToFile(captureOutput, data[1])
-		updateHistory(command)
+		RedirectToFile(CaptureOutput, data[1])
+		UpdateHistory(command)
 		return
 	} else if command == "tree" {
-		treeView(".", 0)
-		updateHistory(command)
+		TreeView(".", 0)
+		UpdateHistory(command)
 		return
 	} else if strings.HasPrefix(command, "touch") {
-		touch(command)
-		updateHistory(command)
+		Touch(command)
+		UpdateHistory(command)
 		return
 	} else if strings.HasPrefix(command, "mkdir") {
-		mkdir(command)
-		updateHistory(command)
+		Mkdir(command)
+		UpdateHistory(command)
 		return
 	} else {
-		if err := executeCommand(command); err != nil {
+		if err := ExecuteCommand(command); err != nil {
 			if strings.HasSuffix(string(err.Error()), "executable file not found in $PATH") {
-				commandNotFound(command)
+				CommandNotFound(command)
 			}
 		}
-		updateHistory(command)
+		UpdateHistory(command)
 	}
 }

@@ -1,4 +1,4 @@
-package main
+package pkg
 
 import (
 	"bufio"
@@ -9,7 +9,8 @@ import (
 	"strings"
 )
 
-func clearHistory() string {
+// ClearHistory clears the command history
+func ClearHistory() string {
 	var gopath string = os.Getenv("GOSH_HOME")
 	f, _ := os.OpenFile(gopath+"/history.txt",
 		os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
@@ -18,7 +19,8 @@ func clearHistory() string {
 	return "History has been cleared ✔\n"
 }
 
-func history() {
+// History the history command
+func History() {
 	var gopath string = os.Getenv("GOSH_HOME")
 	file, _ := os.Open(gopath + "/history.txt")
 	scanner := bufio.NewScanner(file)
@@ -41,7 +43,8 @@ func history() {
 	fmt.Println(" ╰━━━━━━━━━━━━━━━━━━━╯")
 }
 
-func updateHistory(command string) {
+// UpdateHistory update the command history
+func UpdateHistory(command string) {
 	var gopath string = os.Getenv("GOSH_HOME")
 	f, err := os.OpenFile(gopath+"/history.txt",
 		os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
