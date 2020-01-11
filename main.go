@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	shell "gosh/pkg"
+	shell "gosh/internal"
 	"os"
 )
 

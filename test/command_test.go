@@ -2,7 +2,7 @@ package test
 
 import (
 	"fmt"
-	shell "gosh/pkg"
+	shell "gosh/internal"
 	"testing"
 )
 
