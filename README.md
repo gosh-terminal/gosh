@@ -12,13 +12,21 @@ to searching the web but have these things be built into your terminal.
 
 ## Install
 
-### Install dependencies
+### Homebrew (Recommend)
+
+```bash
+brew tap gosh-terminal/homebrew-gosh
+brew install gosh-terminal/homebrew-gosh/gosh
+
+```
+
+### Gitpod
 
 Use Gitpod, everything is preinstalled.
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/gosh-terminal/gosh)
 
-### One-line curl installer (Recommended)
+### One-line curl installer
 
 ```bash
 curl -s "https://raw.githubusercontent.com/gosh-terminal/gosh/master/tools/setup2.0.bash" | bash
