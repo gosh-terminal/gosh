@@ -3,6 +3,10 @@ build:
 	&& ./gosh
 .PHONY: build
 
+env:
+	bash -c "echo GOSH_HOME=$$PWD >>~/.bashrc"
+.PHONY: env
+
 test:
 	go test gosh/test
 .PHONY: test
