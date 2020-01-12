@@ -14,7 +14,7 @@ test:
 install:
 	cd tools \
 	&& bash setup2.0.bash \
-	&& source ~/.bashrc \
+	&& bash -c "source ~/.bashrc" \
 	&& gosh
 .PHONY: install
 
