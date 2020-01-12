@@ -6,7 +6,7 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/gosh-terminal/gosh/badge)](https://www.codefactor.io/repository/github/gosh-terminal/gosh)
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badges/)
 
-Welcome to gosh! The end goal of this project is to allow you to use your
+Welcome to gosh! The end goal of this project is to allow you to use the
 terminal for everything! Do anything from math, playing music, sending emails,
 to searching the web but have these things be built into your terminal.
 
