@@ -15,9 +15,7 @@ to searching the web but have these things be built into your terminal.
 ### Homebrew (Recommend)
 
 ```bash
-brew tap gosh-terminal/homebrew-gosh
 brew install gosh-terminal/homebrew-gosh/gosh
-
 ```
 
 ### Gitpod
