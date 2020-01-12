@@ -11,5 +11,6 @@ jobs:
     - uses: actions/checkout@v1
     - name: Install Homebrew
       run: |
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
         brew tap gosh-terminal/homebrew-gosh
         brew install gosh-terminal/homebrew-gosh/gosh
