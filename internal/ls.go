@@ -3,7 +3,6 @@ package internal
 import (
 	"fmt"
 	"io/ioutil"
-	"log"
 	"strconv"
 	"strings"
 )
@@ -12,7 +11,8 @@ import (
 func Ls(path string) {
 	files, err := ioutil.ReadDir(path)
 	if err != nil {
-		log.Fatal(err)
+		DirectoryNotFound(path)
+		return
 	}
 	fmt.Println("    \033[0;32m#     name                             type \033[0m")
 	fmt.Println(" ╭━━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━╮")
