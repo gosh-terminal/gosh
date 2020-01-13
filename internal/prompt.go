@@ -46,7 +46,7 @@ func ThePrompt() {
 		Rawhead, _ := r.Head()
 		head1 := strings.Split(Rawhead.String(), "/")
 		head := head1[len(head1)-1]
-		fmt.Print("\033[0;36m(" + dir + ")\033[0;35m" + repoName + "@\033[0;33m" + head + "\033[0;34 \033[032m gosh \033[0;34mλ \033[0m")
+		fmt.Print("\033[0;36m(" + dir + ") \033[0;35m" + repoName + "@\033[0;33m" + head + "\033[0;34 \033[032m gosh \033[0;34mλ \033[0m")
 		return
 	}
 	fmt.Printf("\033[0;36m(" + dir + ")\033[0;32mgosh \033[0;34mλ \033[0m")
