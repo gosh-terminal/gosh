@@ -2,13 +2,12 @@ package internal
 
 import (
 	"bufio"
-	// "os/exec"
 	"fmt"
-	git "gopkg.in/src-d/go-git.v4"
-	// . "gopkg.in/src-d/go-git.v4/_examples"
 	"github.com/manifoldco/promptui"
+	git "gopkg.in/src-d/go-git.v4"
 	"io/ioutil"
 	"os"
+	"regexp"
 	"strings"
 )
 
@@ -19,6 +18,10 @@ func ThePrompt() {
 	if err == nil {
 		isGitRepo = true
 	}
+	regex, _ := regexp.Compile("https://.*/.*/(.*)\\.git")
+	list, err := r.Remotes()
+	repoName := regex.FindStringSubmatch(list[0].String())
+	dir, _ := os.Getwd()
 	files, err := ioutil.ReadDir(".")
 	if err != nil {
 		fmt.Println("ERROR")
@@ -40,7 +43,7 @@ func ThePrompt() {
 		Rawhead, _ := r.Head()
 		head1 := strings.Split(Rawhead.String(), "/")
 		head := head1[len(head1)-1]
-		fmt.Print("\033[0;32mgosh\033[0;35m@\033[0;33m" + head + "\033[0;34m λ \033[0m")
+		fmt.Print("\033[0;36m(" + dir + ")\033[0;35m" + repoName[1] + "@\033[0;33m" + head + "\033[0;34 \033[032m gosh \033[0;34mλ \033[0m")
 		return
 	}
 	fmt.Printf("\033[0;32mgosh \033[0;34mλ \033[0m")
