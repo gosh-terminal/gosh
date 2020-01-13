@@ -5,6 +5,7 @@ import (
 	"os"
 	"regexp"
 	"strings"
+
 	"github.com/c-bata/go-prompt"
 )
 
@@ -33,7 +34,7 @@ func Shell() {
 			matches := regex.FindAllStringSubmatch(command, -1)
 			for i, j := range matches {
 				command1 := strings.Replace(command, j[i+1][0:], os.Getenv(j[i+1]), -1)
-				command = strings.Replace(command1, "$", "", -1) 
+				command = strings.Replace(command1, "$", "", -1)
 				Evaluate(command)
 			}
 		} else if strings.Contains(command, " > ") {
