@@ -3,7 +3,7 @@ package internal
 import (
 	"bufio"
 	"fmt"
-	"github.com/manifoldco/promptui"
+	ui "github.com/manifoldco/promptui"
 	git "gopkg.in/src-d/go-git.v4"
 	"io/ioutil"
 	"os"
@@ -54,7 +54,7 @@ func ThePrompt() {
 
 // Exit This function exits the program
 func Exit() {
-	prompt := promptui.Select{
+	prompt := ui.Select{
 		Label: "Are you sure?",
 		Items: []string{"Yes", "No"},
 	}
