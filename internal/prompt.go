@@ -14,14 +14,17 @@ import (
 // ThePrompt This function is for the main prompt of the shell
 func ThePrompt() {
 	isGitRepo := false
+	dir, _ := os.Getwd()
 	r, err := git.PlainOpenWithOptions(".git", &git.PlainOpenOptions{DetectDotGit: true})
 	if err == nil {
 		isGitRepo = true
+	} else {
+		fmt.Printf("\033[0;36m(" + dir + ") \033[0;32mgosh \033[0;34mλ \033[0m")
+		return
 	}
 	regex, _ := regexp.Compile("https://.*/.*/(.*)\\.git")
-	list, err := r.Remotes()
-	repoName := regex.FindStringSubmatch(list[0].String())
-	dir, _ := os.Getwd()
+	list, _ := r.Remotes()
+	repoName := regex.FindStringSubmatch(list[0].String())[1]
 	files, err := ioutil.ReadDir(".")
 	if err != nil {
 		fmt.Println("ERROR")
@@ -43,10 +46,10 @@ func ThePrompt() {
 		Rawhead, _ := r.Head()
 		head1 := strings.Split(Rawhead.String(), "/")
 		head := head1[len(head1)-1]
-		fmt.Print("\033[0;36m(" + dir + ")\033[0;35m" + repoName[1] + "@\033[0;33m" + head + "\033[0;34 \033[032m gosh \033[0;34mλ \033[0m")
+		fmt.Print("\033[0;36m(" + dir + ")\033[0;35m" + repoName + "@\033[0;33m" + head + "\033[0;34 \033[032m gosh \033[0;34mλ \033[0m")
 		return
 	}
-	fmt.Printf("\033[0;32mgosh \033[0;34mλ \033[0m")
+	fmt.Printf("\033[0;36m(" + dir + ")\033[0;32mgosh \033[0;34mλ \033[0m")
 }
 
 // Exit This function exits the program
