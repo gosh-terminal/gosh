@@ -25,6 +25,9 @@ func Shell() {
 			prompt.OptionPreviewSuggestionTextColor(prompt.DefaultColor),
 			prompt.OptionScrollbarBGColor(prompt.DefaultColor))
 		command = strings.Replace(command, "\n", "", -1)
+		if strings.Contains(command, "~") {
+			command = strings.ReplaceAll(command, "~", os.Getenv("HOME"))
+		}
 		if strings.Contains(command, " > ") {
 			data, err := SplitCommandFile(command)
 			if err != nil {
