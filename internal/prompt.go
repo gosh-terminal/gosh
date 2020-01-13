@@ -2,7 +2,10 @@ package internal
 
 import (
 	"bufio"
+	// "os/exec"
 	"fmt"
+	git "gopkg.in/src-d/go-git.v4"
+	// . "gopkg.in/src-d/go-git.v4/_examples"
 	"github.com/manifoldco/promptui"
 	"io/ioutil"
 	"os"
@@ -12,6 +15,10 @@ import (
 // ThePrompt This function is for the main prompt of the shell
 func ThePrompt() {
 	isGitRepo := false
+	r, err := git.PlainOpenWithOptions(".git", &git.PlainOpenOptions{DetectDotGit: true})
+	if err == nil {
+		isGitRepo = true
+	}
 	files, err := ioutil.ReadDir(".")
 	if err != nil {
 		fmt.Println("ERROR")
@@ -28,19 +35,12 @@ func ThePrompt() {
 				}
 			}
 		}
-		if file.IsDir() && file.Name() == ".git" {
-			isGitRepo = true
-		}
 	}
 	if isGitRepo {
-		file1, _ := os.Open(".git/HEAD")
-		scanner := bufio.NewScanner(file1)
-		var gitHeadString string
-		for scanner.Scan() {
-			gitHeadString += scanner.Text()
-		}
-		dataStr := strings.Split(strings.Trim(gitHeadString, "\n"), "/")
-		fmt.Print("\033[0;32mgosh\033[0;35m@\033[0;33m" + dataStr[len(dataStr)-1] + "\033[0;34m λ \033[0m")
+		Rawhead, _ := r.Head()
+		head1 := strings.Split(Rawhead.String(), "/")
+		head := head1[len(head1)-1]
+		fmt.Print("\033[0;32mgosh\033[0;35m@\033[0;33m" + head + "\033[0;34m λ \033[0m")
 		return
 	}
 	fmt.Printf("\033[0;32mgosh \033[0;34mλ \033[0m")
