@@ -47,4 +47,5 @@ git clone "https://github.com/gosh-terminal/gosh.git"
 cd gosh
 dh_auto_install
 ```
+
 ![Example of gosh](https://github.com/gosh-terminal/gosh/blob/master/.github/images/example.png?raw=true)
