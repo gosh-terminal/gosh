@@ -39,7 +39,11 @@ func Completer(d prompt.Document) []prompt.Suggest {
 		s = append(s, prompt.Suggest{Text: file.Name(), Description: "Command"})
 	}
 	for _, file := range currentDir {
-		s = append(s, prompt.Suggest{Text: file.Name(), Description: "File"})
+		if file.IsDir() {
+			s = append(s, prompt.Suggest{Text: file.Name(), Description: "Directory"})
+		} else {
+			s = append(s, prompt.Suggest{Text: file.Name(), Description: "File"})
+		}
 	}
 	return prompt.FilterHasPrefix(Unique(s), d.GetWordBeforeCursor(), true)
 }
