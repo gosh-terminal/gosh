@@ -1,15 +1,20 @@
 Go based dependencies --:
     github.com/c-bata/go-prompt --:
         files that depend on it --:
-            * src/shell.go
-            * src/complete.go
+            * internal/shell.go
+            * internal/complete.go
         why we use it --:
             * Auto-Completion
             * Key Listeners
     github.com/manifoldco/promptui --:
         files that depend on it --:
-            * src/prompt.go
+            * internal/prompt.go
         why we use it --:
             * The one confirmation thing
+    github.com/internal-d/go-git --:
+        files that depend on it --:
+            * internal/prompt.go
+        why we use it --:
+            * git operations
 
 As of Friday January 10th 2020 there are 685 lines of code
