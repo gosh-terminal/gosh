@@ -29,7 +29,10 @@ func History() {
 	fmt.Println(" ╭━━━━━━━━━━━━━━━━━━━╮")
 	for scanner.Scan() {
 		z := 14 - len(scanner.Text())
-		spaces := strings.Repeat(" ", z)
+		spaces := ""
+		if z >= 0 {
+		  spaces = strings.Repeat(" ", z)
+		}
 		if strings.Compare(string(scanner.Text()), "") == 0 {
 			continue
 		}
