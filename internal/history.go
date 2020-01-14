@@ -54,8 +54,8 @@ func UpdateHistory(command string) {
 	if err != nil {
 		log.Println(err)
 	}
-	defer f.Close()
 	if _, err := f.WriteString("\n" + command); err != nil {
 		log.Println(err)
 	}
+	f.Close()
 }
