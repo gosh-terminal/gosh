@@ -3,6 +3,7 @@ gosh: main.go internal/*
 
 run: gosh
 	./gosh
+.PHONY: run
 
 test:
 	go test gosh/test
