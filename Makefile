@@ -12,3 +12,8 @@ test:
 clean:
 	rm gosh
 .PHONY: clean
+
+deb: gosh
+	cd ..
+	dpkg-deb --build gosh
+	cd gosh
