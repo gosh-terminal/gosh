@@ -1,22 +1,12 @@
-build:
-	go build -o gosh main.go \
-	&& ./gosh
-.PHONY: build
+gosh: main.go internal/*
+	go build -o gosh main.go
 
-env:
-	bash -c "echo GOSH_HOME=$$PWD >>~/.bashrc"
-.PHONY: env
+run: gosh
+	./gosh
 
 test:
 	go test gosh/test
 .PHONY: test
-
-install:
-	cd tools \
-	&& bash setup2.0.bash \
-	&& bash -c "source ~/.bashrc" \
-	&& gosh
-.PHONY: install
 
 clean:
 	rm gosh
