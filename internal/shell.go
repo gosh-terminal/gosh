@@ -2,9 +2,11 @@ package internal
 
 import (
 	"fmt"
-	"github.com/c-bata/go-prompt"
 	"os"
+	"regexp"
 	"strings"
+
+	"github.com/c-bata/go-prompt"
 )
 
 // Shell gosh shell
@@ -27,8 +29,15 @@ func Shell() {
 		command = strings.Replace(command, "\n", "", -1)
 		if strings.Contains(command, "~") {
 			command = strings.ReplaceAll(command, "~", os.Getenv("HOME"))
-		}
-		if strings.Contains(command, " > ") {
+		} else if strings.Contains(command, "$") {
+			regex, _ := regexp.Compile(".*\\$(.*).*")
+			matches := regex.FindAllStringSubmatch(command, -1)
+			for i, j := range matches {
+				command1 := strings.Replace(command, j[i+1][0:], os.Getenv(j[i+1]), -1)
+				command = strings.Replace(command1, "$", "", -1)
+				Evaluate(command)
+			}
+		} else if strings.Contains(command, " > ") {
 			data, err := SplitCommandFile(command)
 			if err != nil {
 				PipeError(command)
