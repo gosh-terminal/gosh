@@ -4,6 +4,7 @@ go 1.12
 
 require (
 	github.com/c-bata/go-prompt v0.2.3
+	github.com/gizak/termui/v3 v3.1.0
 	github.com/manifoldco/promptui v0.7.0
 	github.com/mattn/go-runewidth v0.0.7 // indirect
 	github.com/mattn/go-tty v0.0.3 // indirect

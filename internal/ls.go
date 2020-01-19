@@ -2,7 +2,10 @@ package internal
 
 import (
 	"fmt"
+	ui "github.com/gizak/termui/v3"
+	"github.com/gizak/termui/v3/widgets"
 	"io/ioutil"
+	"log"
 	"strconv"
 	"strings"
 )
@@ -51,17 +54,70 @@ func Ls(path string) {
 	fmt.Println(" ╰━━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━╯")
 }
 
+type nodeValue string
+
+func (nv nodeValue) String() string {
+	return string(nv)
+}
+
+func getFiles(path string) []*widgets.TreeNode {
+	nodes := []*widgets.TreeNode{}
+	files, _ := ioutil.ReadDir(path)
+	for _, file := range files {
+		tmp := widgets.TreeNode{}
+		tmp.Value = nodeValue(file.Name())
+		if file.IsDir() {
+			tmp1 := getFiles(path + "/" + file.Name())
+			tmp.Nodes = tmp1
+		}
+		nodes = append(nodes, &tmp)
+	}
+	return nodes
+}
+
 // TreeView tree view command
 func TreeView(path string, tabNumbers int) {
-	files, err := ioutil.ReadDir(path)
-	if err != nil {
-		fmt.Println("UNKNOWN ERROR HAS OCCURED!")
+	if err := ui.Init(); err != nil {
+		log.Printf("failed to initialize termui: %v", err)
 	}
-	for _, file := range files {
-		tabsThing := strings.Repeat("    ", tabNumbers)
-		fmt.Println(tabsThing, file.Name())
-		if file.IsDir() {
-			TreeView(path+"/"+file.Name(), tabNumbers+1)
+	defer ui.Close()
+	fmt.Print("\033[?25l")
+	nodes := getFiles(path)
+	l := widgets.NewTree()
+	l.TextStyle = ui.NewStyle(ui.ColorCyan)
+	l.WrapText = false
+	l.SetNodes(nodes)
+
+	x, y := ui.TerminalDimensions()
+
+	l.SetRect(0, 0, x, y)
+
+	ui.Render(l)
+
+	previousKey := ""
+	uiEvents := ui.PollEvents()
+	for {
+		e := <-uiEvents
+		switch e.ID {
+		case "q", "<C-c>":
+			return
+		case "<Down>":
+			l.ScrollDown()
+		case "<Up>":
+			l.ScrollUp()
+		case "<Enter>":
+			l.ToggleExpand()
+		case "<Resize>":
+			x, y := ui.TerminalDimensions()
+			l.SetRect(0, 0, x, y)
 		}
+
+		if previousKey == "g" {
+			previousKey = ""
+		} else {
+			previousKey = e.ID
+		}
+
+		ui.Render(l)
 	}
 }
