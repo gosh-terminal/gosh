@@ -16,5 +16,10 @@ Go based dependencies --:
             * internal/prompt.go
         why we use it --:
             * git operations
+    github.com/gizak/termui/v3 --:
+        files that depend on it --:
+            * internal/ls.go
+        why we use it --:
+            * tui stuff
 
 As of Friday January 10th 2020 there are 685 lines of code
