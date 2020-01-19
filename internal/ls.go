@@ -62,14 +62,18 @@ func (nv nodeValue) String() string {
 
 func getFiles(path string) []*widgets.TreeNode {
 	nodes := []*widgets.TreeNode{}
+	// Gets an array of files in the current directory
 	files, _ := ioutil.ReadDir(path)
 	for _, file := range files {
+		// Create a file item
 		tmp := widgets.TreeNode{}
 		tmp.Value = nodeValue(file.Name())
+		// If its a directory recursivly recurse the subdirectories
 		if file.IsDir() {
 			tmp1 := getFiles(path + "/" + file.Name())
 			tmp.Nodes = tmp1
 		}
+		// When the file item is done being processed add it to the file list
 		nodes = append(nodes, &tmp)
 	}
 	return nodes
@@ -81,6 +85,7 @@ func TreeView(path string, tabNumbers int) {
 		log.Printf("failed to initialize termui: %v", err)
 	}
 	defer ui.Close()
+	// This will hide the cursor
 	fmt.Print("\033[?25l")
 	nodes := getFiles(path)
 	l := widgets.NewTree()
