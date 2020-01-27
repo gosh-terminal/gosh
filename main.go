@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"bufio"
 	shell "gosh/internal"
 	"os"
 )
@@ -22,6 +23,12 @@ func main() {
 			shell.Evaluate(os.Args[2])
 		} else {
 			shell.InvalidNumberOfArgs(os.Args[1])
+		}
+	} else if os.Args[1] == "run" {
+		f, _ := os.Open(os.Args[2])
+		scanner := bufio.NewScanner(f)
+		for scanner.Scan() {
+			shell.Evaluate(scanner.Text())
 		}
 	}
 }
