@@ -2,11 +2,17 @@ package internal
 
 import (
 	"bufio"
-	"github.com/c-bata/go-prompt"
 	"io/ioutil"
 	"os"
 	"strings"
+
+	"github.com/c-bata/go-prompt"
+	"github.com/c-bata/go-prompt/completer"
 )
+
+var filePathCompleter = completer.FilePathCompleter{
+	IgnoreCase: true,
+}
 
 // Unique remove prompt suggestion duplicates
 func Unique(intSlice []prompt.Suggest) []prompt.Suggest {
@@ -34,18 +40,17 @@ func Completer(d prompt.Document) []prompt.Suggest {
 		s = append(s, prompt.Suggest{Text: scanner.Text(), Description: "History"})
 	}
 	files, _ := ioutil.ReadDir("/usr/bin")
-	currentDir, _ := ioutil.ReadDir(".")
 	for _, file := range files {
 		s = append(s, prompt.Suggest{Text: file.Name(), Description: "Command"})
 	}
-	for _, file := range currentDir {
-		if file.IsDir() {
-			s = append(s, prompt.Suggest{Text: file.Name(), Description: "Directory"})
-		} else {
-			s = append(s, prompt.Suggest{Text: file.Name(), Description: "File"})
-		}
+	completions := filePathCompleter.Complete(d)
+	for i := range completions {
+		completions[i].Description = "File"
 	}
-	return prompt.FilterHasPrefix(Unique(s), d.GetWordBeforeCursor(), true)
+	for _, i := range prompt.FilterHasPrefix(Unique(s), d.GetWordBeforeCursor(), true) {
+		completions = append(completions, i)
+	}
+	return completions
 }
 
 // GetCommandHist Get command History

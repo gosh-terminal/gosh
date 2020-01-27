@@ -7,7 +7,9 @@ import (
 	"strings"
 
 	"github.com/c-bata/go-prompt"
+	"github.com/c-bata/go-prompt/completer"
 )
+
 
 // Shell gosh shell
 func Shell() {
@@ -19,6 +21,7 @@ func Shell() {
 			prompt.OptionInputTextColor(prompt.Cyan),
 			prompt.OptionMaxSuggestion(6),
 			prompt.OptionTitle("gosh"),
+			prompt.OptionCompletionWordSeparator(completer.FilePathCompletionSeparator),
 			prompt.OptionAddKeyBind(prompt.KeyBind{
 				Key: prompt.ControlC,
 				Fn: func(buf *prompt.Buffer) {
