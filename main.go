@@ -5,7 +5,8 @@ import (
 	shell "gosh/internal"
 	"os"
 )
-func init()  {
+
+func init() {
 	if os.Getenv("GOSH_HOME") == "" {
 		os.Setenv("GOSH_HOME", os.Getenv("HOME"))
 	}
