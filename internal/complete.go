@@ -47,7 +47,7 @@ func Completer(d prompt.Document) []prompt.Suggest {
 	for i := range completions {
 		completions[i].Description = "File"
 	}
-	for _, i := range prompt.FilterHasPrefix(Unique(s), d.GetWordBeforeCursor(), true) {
+	for _, i := range prompt.FilterHasPrefix(Unique(s), d.CurrentLine(), true) {
 		completions = append(completions, i)
 	}
 	return completions
