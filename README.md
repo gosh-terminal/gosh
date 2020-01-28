@@ -5,6 +5,7 @@
 [![Pull Requests Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
 [![CodeFactor](https://www.codefactor.io/repository/github/gosh-terminal/gosh/badge)](https://www.codefactor.io/repository/github/gosh-terminal/gosh)
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badges)
+![GitHub repo size](https://img.shields.io/github/repo-size/gosh-terminal/gosh)
 
 Welcome to gosh! The end goal of this project is to allow you to use the
 terminal for everything! Do anything from math, playing music, sending emails,
