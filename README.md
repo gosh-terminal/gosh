@@ -6,6 +6,7 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/gosh-terminal/gosh/badge)](https://www.codefactor.io/repository/github/gosh-terminal/gosh)
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.png?v=103)](https://github.com/ellerbrock/open-source-badges)
 ![GitHub repo size](https://img.shields.io/github/repo-size/gosh-terminal/gosh)
+![GitHub language count](https://img.shields.io/github/languages/count/gosh-terminal/gosh)
 
 Welcome to gosh! The end goal of this project is to allow you to use the
 terminal for everything! Do anything from math, playing music, sending emails,
