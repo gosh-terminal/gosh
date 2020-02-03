@@ -112,6 +112,10 @@ func TreeView(path string, tabNumbers int) {
 			l.ScrollUp()
 		case "<Enter>":
 			l.ToggleExpand()
+		case "E":
+			l.ExpandAll()
+		case "C":
+			l.CollapseAll()
 		case "<Resize>":
 			x, y := ui.TerminalDimensions()
 			l.SetRect(0, 0, x, y)
