@@ -1,12 +1,12 @@
 package main
 
 import (
-	"strings"
-	"regexp"
-	"io/ioutil"
 	"fmt"
 	shell "gosh/internal"
+	"io/ioutil"
 	"os"
+	"regexp"
+	"strings"
 )
 
 func init() {
