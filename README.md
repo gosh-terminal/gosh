@@ -9,7 +9,7 @@
 
 Welcome to gosh! The end goal of this project is to allow you to use the
 terminal for everything! Do anything from math, playing music, sending emails,
-to searching the web but have these things be built into your terminal.
+to searching the web, but have these things be built into your terminal.
 
 ## Install
 
