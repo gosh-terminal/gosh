@@ -1,4 +1,4 @@
-FROM golang:stretch@sha256:306b2caad14e41cd416cae80714c6b7d8640d4d9f3cef48e38a686df224d3c10 AS build
+FROM golang:stretch@sha256:f4a44fbe7b18a5fd94bd70efc7d4a23d7c1e5e5fd8501c22c2278ee673cc69ea AS build
 WORKDIR /
 RUN git clone "https://github.com/gosh-terminal/gosh.git" /app
 WORKDIR /app
