@@ -11,8 +11,8 @@ import (
 
 // ClearHistory clears the command history
 func ClearHistory() string {
-	var gopath string = os.Getenv("GOSH_HOME")
-	f, _ := os.OpenFile(gopath+"/history.txt",
+	var goshHome string = os.Getenv("GOSH_HOME")
+	f, _ := os.OpenFile(goshHome+"/history.txt",
 		os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	f.Truncate(0)
 	fmt.Println("\033[0;32mHistory has been cleared ✔\033[0m")
@@ -21,8 +21,8 @@ func ClearHistory() string {
 
 // History the history command
 func History() {
-	var gopath string = os.Getenv("GOSH_HOME")
-	file, _ := os.Open(gopath + "/history.txt")
+	var goshHome string = os.Getenv("GOSH_HOME")
+	file, _ := os.Open(goshHome + "/history.txt")
 	scanner := bufio.NewScanner(file)
 	var num = 1
 	fmt.Println("   \033[0;32m#      command\033[0m")
@@ -48,14 +48,14 @@ func History() {
 
 // UpdateHistory update the command history
 func UpdateHistory(command string) {
-	var gopath string = os.Getenv("GOSH_HOME")
-	f, err := os.OpenFile(gopath+"/history.txt",
+	var goshHome string = os.Getenv("GOSH_HOME")
+	f, err := os.OpenFile(goshHome+"/history.txt",
 		os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
 	if err != nil {
 		log.Println(err)
 	}
-	defer f.Close()
 	if _, err := f.WriteString("\n" + command); err != nil {
 		log.Println(err)
 	}
+	f.Close()
 }
