@@ -16,9 +16,16 @@ func init() {
 }
 
 func main() {
-	if len(os.Args) == 1 {
-		shell.Shell()
+	quiet := false
+
+	if shell.ItemExists(os.Args, "-q") || shell.ItemExists(os.Args, "--quiet") {
+		quiet = true
 	}
+
+	if len(os.Args) == 1 {
+		shell.Shell(quiet)
+	}
+
 	if os.Args[1] == "-v" {
 		fmt.Println("gosh v0.06-alpha")
 	} else if os.Args[1] == "-c" {

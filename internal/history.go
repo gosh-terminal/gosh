@@ -48,13 +48,22 @@ func History() {
 
 // UpdateHistory update the command history
 func UpdateHistory(command string) {
+	if validateBooleanVariable(os.Getenv("GOSH_NO_HISTORY")) {
+		return
+	}
+
 	var gopath string = os.Getenv("GOSH_HOME")
-	f, err := os.OpenFile(gopath+"/history.txt",
+
+	f, err := os.OpenFile(
+		gopath + "/history.txt",
 		os.O_APPEND|os.O_CREATE|os.O_WRONLY, 0644)
+
 	if err != nil {
 		log.Println(err)
 	}
+
 	defer f.Close()
+
 	if _, err := f.WriteString("\n" + command); err != nil {
 		log.Println(err)
 	}
