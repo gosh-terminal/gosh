@@ -8,14 +8,22 @@ import (
 
 	"github.com/c-bata/go-prompt"
 	"github.com/c-bata/go-prompt/completer"
+	"github.com/mattn/go-isatty"
 )
 
 
 // Shell gosh shell
-func Shell() {
-	fmt.Println("Welcome to gosh, the Go Shell!")
-	fmt.Println("------------------------------")
+func Shell(quiet bool) {
+	if !quiet {
+		fmt.Println("Welcome to gosh, the Go Shell!")
+		fmt.Println("------------------------------")
+	}
 	for {
+		if !interactive() {
+			fmt.Print(
+				"\033[0;31m❌  gosh: This isn't an interactive terminal! Try `gosh -c COMMAND`.",
+			)
+		}
 		ThePrompt()
 		command := prompt.Input("", Completer, prompt.OptionHistory(GetCommandHist()), prompt.OptionSuggestionBGColor(prompt.DefaultColor),
 			prompt.OptionInputTextColor(prompt.Cyan),
@@ -202,4 +210,8 @@ func Evaluate(command string) {
 		}
 		UpdateHistory(command)
 	}
+}
+
+func interactive() bool {
+	return isatty.IsCygwinTerminal(os.Stdout.Fd()) || isatty.IsTerminal(os.Stdout.Fd())
 }

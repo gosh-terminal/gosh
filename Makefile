@@ -1,7 +1,8 @@
-gosh: main.go internal/*
+build:
 	go build -o gosh main.go
+.PHONY: build
 
-run: gosh
+run:
 	./gosh
 .PHONY: run
 
