@@ -14,7 +14,7 @@ task:
     go build -o gosh *.go
     touch ${GOPATH}/bin/history.txt
     mv gosh ${GOPATH}/bin
-  test_bootstrap_script: apt install wget && wget https://api.cirrus-ci.com/v1/artifact/task/5870644403372032/distrib/dist/goshSuite
+  test_bootstrap_script: wget https://api.cirrus-ci.com/v1/artifact/task/4900255867076608/distrib/dist/goshSuite
   test_script: |
     chmod +x ./goshSuite
     ./goshSuite
