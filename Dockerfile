@@ -5,3 +5,4 @@ WORKDIR /app
 RUN go build -o gosh main.go
 FROM debian:jessie-slim
 COPY --from=build /app/gosh /bin
+CMD [ "stty", "cols", "83", "rows", "40", "&&", "gosh" ]
