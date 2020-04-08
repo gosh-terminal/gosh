@@ -21,19 +21,19 @@ func init() {
 func main() {
 	quiet := false
 
-	if shell.ItemExists(os.Args, "-q") || shell.ItemExists(os.Args, "--quiet") {
+	if util.ItemExists(os.Args, "-q") || util.ItemExists(os.Args, "--quiet") {
 		quiet = true
 	}
 
-	if util.Find(os.Args, "-v") {
+	if util.ItemExists(os.Args, "-v") {
 		fmt.Println("gosh v0.06-alpha")
-	} else if util.Find(os.Args, "-c") {
+	} else if util.ItemExists(os.Args, "-c") {
 		if len(os.Args) >= 3 {
 			shell.Evaluate(os.Args[2])
 		} else {
 			shell.InvalidNumberOfArgs(os.Args[1])
 		}
-	} else if util.Find(os.Args, "run") {
+	} else if util.ItemExists(os.Args, "run") {
 		f, _ := ioutil.ReadFile(os.Args[2])
 		f1 := string(f)
 		f1 = strings.ReplaceAll(f1, "\n", "")
