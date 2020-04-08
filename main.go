@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"golang.org/x/crypto/ssh/terminal"
 	shell "gosh/internal"
+	util "gosh/pkg"
 	"io/ioutil"
 	"os"
 	"regexp"
@@ -24,15 +25,15 @@ func main() {
 		quiet = true
 	}
 
-	if find(os.Args, "-v") {
+	if util.Find(os.Args, "-v") {
 		fmt.Println("gosh v0.06-alpha")
-	} else if find(os.Args, "-c") {
+	} else if util.Find(os.Args, "-c") {
 		if len(os.Args) >= 3 {
 			shell.Evaluate(os.Args[2])
 		} else {
 			shell.InvalidNumberOfArgs(os.Args[1])
 		}
-	} else if find(os.Args, "run") {
+	} else if util.Find(os.Args, "run") {
 		f, _ := ioutil.ReadFile(os.Args[2])
 		f1 := string(f)
 		f1 = strings.ReplaceAll(f1, "\n", "")
@@ -53,13 +54,4 @@ func main() {
 			shell.Evaluate(strings.Trim(text, "\n"))
 		}
 	}
-}
-
-func find(source []string, value string) bool {
-    for _, item := range source {
-        if item == value {
-            return true
-        }
-    }
-    return false
 }
