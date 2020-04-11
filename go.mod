@@ -10,5 +10,6 @@ require (
 	github.com/mattn/go-runewidth v0.0.7 // indirect
 	github.com/mattn/go-tty v0.0.3 // indirect
 	github.com/pkg/term v0.0.0-20190109203006-aa71e9d9e942 // indirect
+	golang.org/x/crypto v0.0.0-20200406173513-056763e48d71
 	gopkg.in/src-d/go-git.v4 v4.13.1
 )
