@@ -1,4 +1,4 @@
-FROM gitpod/workspace-full@sha256:881c732a9b82a99725620e9b5154620bbb7c0683e3cd9e21fbe246c14d2c4b67
+FROM gitpod/workspace-full@sha256:702f40f1050af56dc37b0ab78c668976f6e8a28b778043665b1668350a617718
 USER root
 ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update \
