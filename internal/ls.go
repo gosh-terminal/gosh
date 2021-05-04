@@ -33,14 +33,6 @@ func Ls(path string) {
 				fmt.Println(" │ \033[0;32m" + strconv.Itoa(i) + spaces2 + "\033[0m │ \033[0;36m" +
 					file.Name() + spaces + "\033[0m│ Directory       \033[0m│")
 			}
-		} else if file.Mode().String() == "-rwxr-xr-x" {
-			if i >= 10 {
-				fmt.Println(" │ \033[0;32m" + strconv.Itoa(i) + spaces2 + "\033[0m│ \033[0;33m" +
-					file.Name() + spaces + "\033[0m│ File            \033[0m│")
-			} else {
-				fmt.Println(" │ \033[0;32m" + strconv.Itoa(i) + spaces2 + "\033[0m │ \033[0;33m" +
-					file.Name() + spaces + "\033[0m│ File            \033[0m│")
-			}
 		} else {
 			if i >= 10 {
 				fmt.Println(" │ \033[0;32m" + strconv.Itoa(i) + spaces2 + "\033[0m│ " + file.Name() + spaces +
@@ -49,9 +41,17 @@ func Ls(path string) {
 				fmt.Println(" │ \033[0;32m" + strconv.Itoa(i) + spaces2 + "\033[0m │ " + file.Name() + spaces +
 					"\033[0m│ File            \033[0m│")
 			}
+
+
+
+
+
+
+
+			
 		}
 	}
-	fmt.Println(" ╰━━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━╯")
+	fmt.Println(" ╰━━━━━┷━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━━━╯")
 }
 
 type nodeValue string
