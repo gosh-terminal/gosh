@@ -18,7 +18,7 @@ func Ls(path string) {
 		return
 	}
 	fmt.Println("    \033[0;32m#     name                             type \033[0m")
-	fmt.Println(" ╭━━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━╮")
+	fmt.Println(" ╭━━━━━┯━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━━━╮")
 	for i, file := range files {
 		i++
 		x := 3 - len(string(i))
