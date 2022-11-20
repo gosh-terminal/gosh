@@ -1,6 +1,6 @@
 module gosh
 
-go 1.12
+go 1.19
 
 require (
 	github.com/c-bata/go-prompt v0.2.3
